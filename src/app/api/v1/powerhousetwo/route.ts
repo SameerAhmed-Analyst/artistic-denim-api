@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { config } from "@/db/dbconfig"
 const sql = require('mssql')
 
-export const GET = async (response: NextResponse, { params }: { params: { table: string } }) => {
+export const GET = async (response: NextResponse) => {
 
     const pool = await sql.connect(config);
 
