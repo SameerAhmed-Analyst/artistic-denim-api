@@ -11,6 +11,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@iconify/react": "^4.1.1",
+    "@tremor/react": "^3.12.2",
+    "chart.js": "^4.4.1",
     "clsx": "^2.1.0",
     "framer-motion": "^10.17.9",
     "mssql": "^10.0.1",

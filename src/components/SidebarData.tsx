@@ -12,24 +12,9 @@ export const SidebarData = [
   },
   {
     title: "Powerhouses",
-    path: "/",
+    path: "/powerhouse2",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text",
-    subItems: [
-      {
-        title: "Powerhouse 1",
-        path: "/powerhouse1", // Path for Powerhouse 1
-        icon: <IoIcons.IoIosPaper />,
-        cName: "nav-text",
-      },
-      {
-        title: "Powerhouse 2",
-        path: "/powerhouse2", // Path for Powerhouse 2
-        icon: <IoIcons.IoIosPaper />,
-        cName: "nav-text",
-      },
-      // Add more powerhouse sub-items as needed
-    ],
   },
   {
     title: "Reports",

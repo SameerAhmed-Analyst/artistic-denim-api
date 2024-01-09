@@ -11,7 +11,6 @@ export default function Home() {
       <div className="">
         {/* <SideNavbar /> */}
         <Navbar />
-        <Card />
       </div>
     </>
   );
