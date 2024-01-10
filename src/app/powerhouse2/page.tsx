@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Card, DonutChart, Title } from "@tremor/react";
-import Chart from "chart.js/auto";
+import { Chart, ArcElement, Tooltip, Legend } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export interface Daum {
@@ -90,65 +90,121 @@ const Page = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  // useEffect(() => {
+  //   if (data.length > 0) {
+  //     const values = data.map((item) => item.engine2kw);
+  //     const totalCapacity = 1200.0;
+  //     const totalValue = values.reduce((acc, curr) => acc + curr, 0);
+  //     const remainingCapacity = totalCapacity - totalValue;
+  //     const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+
+  //     const ctx = document.getElementById("myChart");
+
+  //     let chartStatus = Chart.getChart("myChart");
+  //     if (chartStatus !== undefined) {
+  //       chartStatus.destroy();
+  //     }
+
+  //     Chart.register({
+  //       id: "centerTextPlugin",
+  //       afterDraw: (chart, args, options) => {
+  //         const { ctx } = chart;
+  //         const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+  //         const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+
+  //         ctx.textAlign = "center";
+  //         ctx.textBaseline = "middle";
+  //         ctx.font = "10x Arial";
+  //         ctx.fillStyle = "#000";
+  //         ctx.fillText(`${percentageUsed}%`, centerX, centerY);
+  //       },
+  //     });
+
+  //     new Chart(ctx, {
+  //       type: "doughnut",
+  //       data: {
+  //         datasets: [
+  //           {
+  //             label: "Data from API",
+  //             data: [totalValue, remainingCapacity],
+  //             backgroundColor: ["#28B463", "#E5E8E8"],
+  //           },
+  //         ],
+  //       },
+  //       options: {
+  //         responsive: true,
+  //         cutout: "80%",
+  //         plugins: {            
+  //           tooltip: {
+  //             enabled: false,
+  //           },
+  //           centerTextPlugin: {}, // Use the custom plugin
+  //         },
+  //       },
+  //     });
+  //   }
+  // }, [data]);
+
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine2kw);
-      const totalCapacity = 1200.0;
+      const totalCapacity = 1500.0;
       const totalValue = values.reduce((acc, curr) => acc + curr, 0);
       const remainingCapacity = totalCapacity - totalValue;
       const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
 
-      const ctx = document.getElementById("myChart");
+      const ctx = document.getElementById("myChart") as HTMLCanvasElement;
 
-      if (ctx) {
-        let chartStatus = Chart.getChart("myChart");
-        if (chartStatus !== undefined) {
-          chartStatus.destroy();
-        }
+      let chartStatus = Chart.getChart(ctx);
+      if (chartStatus !== undefined) {
+        chartStatus.destroy();
+      }
 
-        Chart.register({
-          id: "centerTextPlugin",
-          afterDraw: (chart, args, options) => {
-            const { ctx } = chart;
-            const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-            const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.font = "10x Arial";
-            ctx.fillStyle = "#000";
-            ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-          },
-        });
-
-        new Chart(ctx, {
-          type: "doughnut",
-          data: {
-            datasets: [
-              {
-                label: "Data from API",
-                data: [totalValue, remainingCapacity],
-                backgroundColor: ["#28B463", "#E5E8E8"],
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            cutout: "80%",
-            plugins: {
-              legend: {
-                position: "bottom",
-              },
-              tooltip: {
-                enabled: false,
-              },
-              centerTextPlugin: {}, // Use the custom plugin
+      const chart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          datasets: [
+            {
+              label: "Data from API",
+              data: [totalValue, remainingCapacity],
+              backgroundColor: ["#28B463", "#E5E8E8"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          cutout: "80%",
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+            tooltip: {
+              enabled: false,
             },
           },
-        });
-      }
+        },
+      });
+
+      // Manually add center text functionality after chart creation
+      Chart.register({
+        id: "centerTextPlugin",
+        afterDraw: (chart, args, options) => {
+          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+          const ctx = chart.ctx;
+
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.font = "10x Arial";
+          ctx.fillStyle = "#000";
+          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
+        },
+      });
+
+      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
+
 
   return (
     <div className="p-5">
