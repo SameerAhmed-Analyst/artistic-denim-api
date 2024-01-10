@@ -98,46 +98,29 @@ const Page = () => {
       const remainingCapacity = totalCapacity - totalValue;
       const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
 
-      const ctx = document.getElementById(
-        "myChart"
-      ) as HTMLCanvasElement | null;
+      const ctx = document.getElementById("myChart");
 
-      let chartStatus = Chart.getChart("myChart");
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
+      if (ctx) {
+        let chartStatus = Chart.getChart("myChart");
+        if (chartStatus !== undefined) {
+          chartStatus.destroy();
+        }
 
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const { ctx } = chart;
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+        Chart.register({
+          id: "centerTextPlugin",
+          afterDraw: (chart, args, options) => {
+            const { ctx } = chart;
+            const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+            const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
 
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      const chartOptions: Chart.ChartOptions<"doughnut"> = {
-        responsive: true,
-        cutout: "80%",
-        plugins: {
-          legend: {
-            position: "bottom",
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.font = "10x Arial";
+            ctx.fillStyle = "#000";
+            ctx.fillText(`${percentageUsed}%`, centerX, centerY);
           },
-          tooltip: {
-            enabled: false,
-          },
-          centerTextPlugin: {}, // Use the custom plugin
-        },
-        // Other options...
-      };
+        });
 
-      if (ctx !== null) {
         new Chart(ctx, {
           type: "doughnut",
           data: {
@@ -149,10 +132,20 @@ const Page = () => {
               },
             ],
           },
-          options: chartOptions,
+          options: {
+            responsive: true,
+            cutout: "80%",
+            plugins: {
+              legend: {
+                position: "bottom",
+              },
+              tooltip: {
+                enabled: false,
+              },
+              centerTextPlugin: {}, // Use the custom plugin
+            },
+          },
         });
-      } else {
-        console.error("Canvas context is null. Cannot create chart.");
       }
     }
   }, [data]);
