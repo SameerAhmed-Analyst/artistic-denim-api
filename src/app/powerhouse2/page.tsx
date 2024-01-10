@@ -98,7 +98,7 @@ const Page = () => {
       const remainingCapacity = totalCapacity - totalValue;
       const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
 
-      const ctx = document.getElementById("myChart");
+      const ctx = document.getElementById("myChart") as HTMLCanvasElement | null;
 
       let chartStatus = Chart.getChart("myChart");
       if (chartStatus !== undefined) {
