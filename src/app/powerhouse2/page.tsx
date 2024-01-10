@@ -120,31 +120,35 @@ const Page = () => {
         },
       });
 
-      new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-            centerTextPlugin: {}, // Use the custom plugin
+      if (ctx !== null) {
+        new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            datasets: [
+              {
+                label: "Data from API",
+                data: [totalValue, remainingCapacity],
+                backgroundColor: ["#28B463", "#E5E8E8"],
+              },
+            ],
           },
-        },
-      });
+          options: {
+            responsive: true,
+            cutout: "80%",
+            plugins: {
+              legend: {
+                position: "bottom",
+              },
+              tooltip: {
+                enabled: false,
+              },
+              centerTextPlugin: {}, // Use the custom plugin
+            },
+          },
+        });
+      } else {
+        console.error("Canvas context is null. Cannot create chart.");
+      }
     }
   }, [data]);
 
