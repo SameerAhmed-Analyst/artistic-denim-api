@@ -127,6 +127,7 @@ const Page = () => {
               enabled: false,
             },
           },
+          animation: false,
         },
       });
 
@@ -187,6 +188,7 @@ const Page = () => {
               enabled: false,
             },
           },
+          animation: false,
         },
       });
 
@@ -247,6 +249,7 @@ const Page = () => {
               enabled: false,
             },
           },
+          animation: false,
         },
       });
 
@@ -307,6 +310,7 @@ const Page = () => {
               enabled: false,
             },
           },
+          animation: false,
         },
       });
 
@@ -367,6 +371,7 @@ const Page = () => {
               enabled: false,
             },
           },
+          animation: false,
         },
       });
 
@@ -423,7 +428,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                900 total capacity in KW
+                1500 total capacity in KW
               </p>
             </div>
           </CardContent>
@@ -458,7 +463,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                900 total capacity in KW
+                1500 total capacity in KW
               </p>
             </div>
           </CardContent>
@@ -493,7 +498,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                900 total capacity in KW
+                1500 total capacity in KW
               </p>
             </div>
           </CardContent>
@@ -528,7 +533,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                900 total capacity in KW
+                1500 total capacity in KW
               </p>
             </div>
           </CardContent>
@@ -563,7 +568,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                900 total capacity in KW
+                1500 total capacity in KW
               </p>
             </div>
           </CardContent>
