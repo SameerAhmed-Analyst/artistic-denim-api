@@ -98,7 +98,9 @@ const Page = () => {
       const remainingCapacity = totalCapacity - totalValue;
       const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
 
-      const ctx = document.getElementById("myChart") as HTMLCanvasElement | null;
+      const ctx = document.getElementById(
+        "myChart"
+      ) as HTMLCanvasElement | null;
 
       let chartStatus = Chart.getChart("myChart");
       if (chartStatus !== undefined) {
@@ -120,6 +122,21 @@ const Page = () => {
         },
       });
 
+      const chartOptions: Chart.ChartOptions<"doughnut"> = {
+        responsive: true,
+        cutout: "80%",
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+          tooltip: {
+            enabled: false,
+          },
+          centerTextPlugin: {}, // Use the custom plugin
+        },
+        // Other options...
+      };
+
       if (ctx !== null) {
         new Chart(ctx, {
           type: "doughnut",
@@ -132,19 +149,7 @@ const Page = () => {
               },
             ],
           },
-          options: {
-            responsive: true,
-            cutout: "80%",
-            plugins: {
-              legend: {
-                position: "bottom",
-              },
-              tooltip: {
-                enabled: false,
-              },
-              centerTextPlugin: {}, // Use the custom plugin
-            },
-          },
+          options: chartOptions,
         });
       } else {
         console.error("Canvas context is null. Cannot create chart.");
