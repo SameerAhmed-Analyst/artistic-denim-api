@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import { CgMenuLeft } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
@@ -16,9 +18,10 @@ const Navbar = () => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <Link href={""} className="menu-bars">
-            <FaBars onClick={showSidebar} />
+            {/* <FaBars onClick={showSidebar} /> */}
+            <CgMenuLeft onClick={showSidebar}  />
           </Link>
-          <Link href={""} className="text-white ">
+          <Link href={""} className="text-white ml-16">
             Artistic Milliners
           </Link>
         </div>
