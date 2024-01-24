@@ -20,13 +20,13 @@ const products = [
   {
     name: "Power House 1",
     description: "Get a better understanding of your traffic",
-    href: "#",
+    href: "/powerhouse1",
     icon: ChartPieIcon,
   },
   {
     name: "Power House 2",
     description: "Speak directly to your customers",
-    href: "#",
+    href: "powerhouse2",
     icon: CursorArrowRaysIcon,
   },
   {
@@ -59,7 +59,7 @@ const steams = [
   {
     name: "Steam 2",
     description: "Speak directly to your customers",
-    href: "#",
+    href: "/steamph2",
     icon: CursorArrowRaysIcon,
   },
 ];
