@@ -40,7 +40,7 @@ async function getData() {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 1,
+        revalidate: 0,
       },
     });
     if (!res.ok) {
