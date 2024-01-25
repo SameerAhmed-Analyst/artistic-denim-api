@@ -58,9 +58,6 @@ async function getData() {
       headers: {
         "Content-Type": "application/json",
       },
-      next: {
-        revalidate: 1,
-      },
     });
     if (!res.ok) {
       throw new Error("Failed to fetch data");
