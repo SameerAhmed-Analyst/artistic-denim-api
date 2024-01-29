@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server"
 import { config } from "@/db/dbconfig"
 const sql = require('mssql')
 
+export const dynamic = 'force-dynamic'
+
 export const GET = async () => {
 
     const pool = await sql.connect(config);
