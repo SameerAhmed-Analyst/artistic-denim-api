@@ -82,7 +82,7 @@ const Page = () => {
 
     const intervalId = setInterval(() => {
       refreshList(); // Fetch data every 3 seconds
-    }, 7500);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -109,7 +109,7 @@ const Page = () => {
             {
               label: "Data from API",
               data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
             },
           ],
         },
@@ -170,7 +170,7 @@ const Page = () => {
             {
               label: "Data from API",
               data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
             },
           ],
         },
@@ -231,7 +231,7 @@ const Page = () => {
             {
               label: "Data from API",
               data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
             },
           ],
         },
@@ -292,7 +292,7 @@ const Page = () => {
             {
               label: "Data from API",
               data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
             },
           ],
         },
@@ -353,7 +353,7 @@ const Page = () => {
             {
               label: "Data from API",
               data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
             },
           ],
         },

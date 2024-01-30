@@ -29,37 +29,43 @@ const products = [
     href: "powerhouse2",
     icon: CursorArrowRaysIcon,
   },
-  {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools",
-    href: "#",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
-  },
+  // {
+  //   name: "Security",
+  //   description: "Your customers’ data will be safe and secure",
+  //   href: "#",
+  //   icon: FingerPrintIcon,
+  // },
+  // {
+  //   name: "Integrations",
+  //   description: "Connect with third-party tools",
+  //   href: "#",
+  //   icon: SquaresPlusIcon,
+  // },
+  // {
+  //   name: "Automations",
+  //   description: "Build strategic funnels that will convert",
+  //   href: "#",
+  //   icon: ArrowPathIcon,
+  // },
 ];
 
 const steams = [
   {
     name: "Steam 1",
     description: "Get a better understanding of your traffic",
-    href: "#",
+    href: "/steamph1",
     icon: ChartPieIcon,
   },
   {
     name: "Steam 2",
     description: "Speak directly to your customers",
     href: "/steamph2",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Steam 3",
+    description: "Speak directly to your customers",
+    href: "/steamph3",
     icon: CursorArrowRaysIcon,
   },
 ];
@@ -235,7 +241,7 @@ export default function Navbar() {
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <a href="/login" className="text-sm font-semibold leading-6 text-white">
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -335,7 +341,7 @@ export default function Navbar() {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  href="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-700"
                 >
                   Log in

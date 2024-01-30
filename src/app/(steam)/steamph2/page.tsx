@@ -68,7 +68,7 @@ const Page = () => {
 
     const intervalId = setInterval(() => {
       refreshList(); // Fetch data every 3 seconds
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);

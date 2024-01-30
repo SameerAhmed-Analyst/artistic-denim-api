@@ -79,284 +79,102 @@ const Page = () => {
 
     const intervalId = setInterval(() => {
       refreshList(); // Fetch data every 3 seconds
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
 
+  const initializeChart = (
+    canvasId: string,
+    values: number[],
+    totalCapacity: number
+  ) => {
+    const ctx = document.getElementById(canvasId) as HTMLCanvasElement;
+    let chartStatus = Chart.getChart(ctx);
+
+    if (chartStatus !== undefined) {
+      chartStatus.destroy();
+    }
+
+    const totalValue = values.reduce((acc, curr) => acc + curr, 0);
+    const remainingCapacity = totalCapacity - totalValue;
+    const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+
+    const chart = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        datasets: [
+          {
+            label: "Data from API",
+            data: [totalValue, remainingCapacity],
+            backgroundColor: ["#1b2d92", "#E5E8E8"],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        cutout: "80%",
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+        animation: false,
+      },
+    });
+
+    chart.update();
+    return percentageUsed;
+  };
+
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine1kw);
-      const totalCapacity = 900;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+      const percentageUsed = initializeChart("engine1", values, 900);
       setPercentageUsedDataE1(percentageUsed);
-
-      const ctx = document.getElementById("engine1") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
-  
+
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine2kw);
-      const totalCapacity = 900;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+      const percentageUsed = initializeChart("engine2", values, 900);
       setPercentageUsedDataE2(percentageUsed);
-
-      const ctx = document.getElementById("engine2") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine3kw);
-      const totalCapacity = 1200;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+      const percentageUsed = initializeChart("engine3", values, 1200);
       setPercentageUsedDataE3(percentageUsed);
-
-      const ctx = document.getElementById("engine3") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine4kw);
-      const totalCapacity = 1200;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+      const percentageUsed = initializeChart("engine4", values, 1200);
       setPercentageUsedDataE4(percentageUsed);
-
-      const ctx = document.getElementById("engine4") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine5kw);
-      const totalCapacity = 900;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+      const percentageUsed = initializeChart("engine5", values, 900);
       setPercentageUsedDataE5(percentageUsed);
-
-      const ctx = document.getElementById("engine5") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine6kw);
-      const totalCapacity = 1200;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+      const percentageUsed = initializeChart("engine6", values, 1200);
       setPercentageUsedDataE6(percentageUsed);
-
-      const ctx = document.getElementById("engine6") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#28B463", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
     }
   }, [data]);
 
@@ -407,15 +225,15 @@ const Page = () => {
             <div className="">
               {data.map((item) => {
                 return (
-                  <div key={item.id} className="text-sm">
+                  <div key={item.id} className="pt-3 text-base font-bold">
                     <p>Load {item.engine1kw} kW</p>
                     <p>Energy {item.engine1kwh} kWh</p>
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
-              </p> */}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -463,15 +281,15 @@ const Page = () => {
             <div className="">
               {data.map((item) => {
                 return (
-                  <div key={item.id} className="text-sm">
+                  <div key={item.id} className="pt-3 text-base font-bold">
                     <p>Load {item.engine2kw} kW</p>
                     <p>Energy {item.engine2kwh} kWh</p>
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
-              </p> */}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -519,15 +337,15 @@ const Page = () => {
             <div className="">
               {data.map((item) => {
                 return (
-                  <div key={item.id} className="text-sm">
+                  <div key={item.id} className="pt-3 text-base font-bold">
                     <p>Load {item.engine3kw} kW</p>
                     <p>Energy {item.engine3kwh} kWh</p>
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
-              </p> */}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -575,15 +393,15 @@ const Page = () => {
             <div className="">
               {data.map((item) => {
                 return (
-                  <div key={item.id} className="text-sm">
+                  <div key={item.id} className="pt-3 text-base font-bold">
                     <p>Load {item.engine4kw} kW</p>
                     <p>Energy {item.engine4kwh} kWh</p>
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
-              </p> */}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -631,15 +449,15 @@ const Page = () => {
             <div className="">
               {data.map((item) => {
                 return (
-                  <div key={item.id} className="text-sm">
+                  <div key={item.id} className="pt-3 text-base font-bold">
                     <p>Load {item.engine5kw} kW</p>
                     <p>Energy {item.engine5kwh} kWh</p>
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
-              </p> */}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -687,15 +505,15 @@ const Page = () => {
             <div className="">
               {data.map((item) => {
                 return (
-                  <div key={item.id} className="text-sm">
+                  <div key={item.id} className="pt-3 text-base font-bold">
                     <p>Load {item.engine6kw} kW</p>
                     <p>Energy {item.engine6kwh} kWh</p>
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
-              </p> */}
+              </p>
             </div>
           </CardContent>
         </Card>
