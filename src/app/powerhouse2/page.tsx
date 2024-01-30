@@ -89,6 +89,128 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
+      const values = data.map((item) => item.turbinekw);
+      const totalCapacity = 1500.0;
+      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
+      const remainingCapacity = totalCapacity - totalValue;
+      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+
+      const ctx = document.getElementById("turbine") as HTMLCanvasElement;
+
+      let chartStatus = Chart.getChart(ctx);
+      if (chartStatus !== undefined) {
+        chartStatus.destroy();
+      }
+
+      const chart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          datasets: [
+            {
+              label: "Data from API",
+              data: [totalValue, remainingCapacity],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          cutout: "80%",
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+            tooltip: {
+              enabled: false,
+            },
+          },
+          animation: false,
+        },
+      });
+
+      // Manually add center text functionality after chart creation
+      Chart.register({
+        id: "centerTextPlugin",
+        afterDraw: (chart, args, options) => {
+          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+          const ctx = chart.ctx;
+
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.font = "10x Arial";
+          ctx.fillStyle = "#000";
+          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
+        },
+      });
+
+      chart.update(); // Update the chart to apply changes
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.engine1kw);
+      const totalCapacity = 1500.0;
+      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
+      const remainingCapacity = totalCapacity - totalValue;
+      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+
+      const ctx = document.getElementById("engine1") as HTMLCanvasElement;
+
+      let chartStatus = Chart.getChart(ctx);
+      if (chartStatus !== undefined) {
+        chartStatus.destroy();
+      }
+
+      const chart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          datasets: [
+            {
+              label: "Data from API",
+              data: [totalValue, remainingCapacity],
+              backgroundColor: ["#1b2d92", "#E5E8E8"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          cutout: "80%",
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+            tooltip: {
+              enabled: false,
+            },
+          },
+          animation: false,
+        },
+      });
+
+      // Manually add center text functionality after chart creation
+      Chart.register({
+        id: "centerTextPlugin",
+        afterDraw: (chart, args, options) => {
+          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+          const ctx = chart.ctx;
+
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.font = "10x Arial";
+          ctx.fillStyle = "#000";
+          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
+        },
+      });
+
+      chart.update(); // Update the chart to apply changes
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
       const values = data.map((item) => item.engine2kw);
       const totalCapacity = 1500.0;
       const totalValue = values.reduce((acc, curr) => acc + curr, 0);
@@ -395,6 +517,76 @@ const Page = () => {
   return (
     <div className="p-5">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">Turbine</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div style={{ width: "100px", height: "100px" }}>
+              <canvas id="turbine"></canvas>
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="pt-3 text-base font-bold">
+                    Load {item.turbinekw} kW
+                    <p>Energy {item.turbinekwh} kWh</p>
+                  </div>
+                );
+              })}
+              <p className="text-xs text-muted-foreground">
+                1500 total capacity in KW
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">Engine 1</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div style={{ width: "100px", height: "100px" }}>
+              <canvas id="engine1"></canvas>
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="pt-3 text-base font-bold">
+                    Load {item.engine1kw} kW
+                    <p>Energy {item.engine1kwh} kWh</p>
+                  </div>
+                );
+              })}
+              <p className="text-xs text-muted-foreground">
+                1500 total capacity in KW
+              </p>
+            </div>
+          </CardContent>
+        </Card>
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
             <CardTitle className="text-xl font-bold">Engine 2</CardTitle>
