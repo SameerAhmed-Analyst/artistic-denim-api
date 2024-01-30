@@ -71,6 +71,12 @@ async function getData() {
 
 const Page = () => {
   const [data, setData] = useState<Daum[]>([]);
+  const [percentageUsedDataE1, setPercentageUsedDataE1] = useState("");
+  const [percentageUsedDataE2, setPercentageUsedDataE2] = useState("");
+  const [percentageUsedDataE3, setPercentageUsedDataE3] = useState("");
+  const [percentageUsedDataE4, setPercentageUsedDataE4] = useState("");
+  const [percentageUsedDataE5, setPercentageUsedDataE5] = useState("");
+  const [percentageUsedDataE6, setPercentageUsedDataE6] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -87,430 +93,105 @@ const Page = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const initializeChart = (
+    canvasId: string,
+    values: number[],
+    totalCapacity: number
+  ) => {
+    const ctx = document.getElementById(canvasId) as HTMLCanvasElement;
+    let chartStatus = Chart.getChart(ctx);
+
+    if (chartStatus !== undefined) {
+      chartStatus.destroy();
+    }
+
+    const totalValue = values.reduce((acc, curr) => acc + curr, 0);
+    const remainingCapacity = totalCapacity - totalValue;
+    const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+
+    const chart = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        datasets: [
+          {
+            label: "Data from API",
+            data: [totalValue, remainingCapacity],
+            backgroundColor: ["#1b2d92", "#E5E8E8"],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        cutout: "80%",
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+        animation: false,
+      },
+    });
+
+    chart.update();
+    return percentageUsed;
+  };
+
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.turbinekw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("turbine") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("turbine", values, 3000);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine1kw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("engine1") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("engine1", values, 1500.0);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine2kw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("myChart") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("myChart", values, 1500.0);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine3kw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("engine3") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("engine3", values, 1500.0);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine4kw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("engine4") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("engine4", values, 1500.0);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine5kw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("engine5") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("engine5", values, 1500.0);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine6kw);
-      const totalCapacity = 1500.0;
-      const totalValue = values.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalCapacity - totalValue;
-      const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
-
-      const ctx = document.getElementById("engine6") as HTMLCanvasElement;
-
-      let chartStatus = Chart.getChart(ctx);
-      if (chartStatus !== undefined) {
-        chartStatus.destroy();
-      }
-
-      const chart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              label: "Data from API",
-              data: [totalValue, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#E5E8E8"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          cutout: "80%",
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-            tooltip: {
-              enabled: false,
-            },
-          },
-          animation: false,
-        },
-      });
-
-      // Manually add center text functionality after chart creation
-      Chart.register({
-        id: "centerTextPlugin",
-        afterDraw: (chart, args, options) => {
-          const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-          const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-          const ctx = chart.ctx;
-
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.font = "10x Arial";
-          ctx.fillStyle = "#000";
-          ctx.fillText(`${percentageUsed}%`, centerX, centerY);
-        },
-      });
-
-      chart.update(); // Update the chart to apply changes
+      const percentageUsed = initializeChart("engine6", values, 1500.0);
+      setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
 
