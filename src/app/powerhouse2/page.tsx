@@ -77,6 +77,7 @@ const Page = () => {
   const [percentageUsedDataE4, setPercentageUsedDataE4] = useState("");
   const [percentageUsedDataE5, setPercentageUsedDataE5] = useState("");
   const [percentageUsedDataE6, setPercentageUsedDataE6] = useState("");
+  const [percentageUsedDataT1, setPercentageUsedDataT1] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -143,7 +144,7 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.turbinekw);
       const percentageUsed = initializeChart("turbine", values, 3000);
-      setPercentageUsedDataE1(percentageUsed);
+      setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
 
@@ -158,8 +159,8 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine2kw);
-      const percentageUsed = initializeChart("myChart", values, 1500.0);
-      setPercentageUsedDataE1(percentageUsed);
+      const percentageUsed = initializeChart("engine2", values, 1500.0);
+      setPercentageUsedDataE2(percentageUsed);
     }
   }, [data]);
 
@@ -167,7 +168,7 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine3kw);
       const percentageUsed = initializeChart("engine3", values, 1500.0);
-      setPercentageUsedDataE1(percentageUsed);
+      setPercentageUsedDataE3(percentageUsed);
     }
   }, [data]);
 
@@ -175,7 +176,7 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine4kw);
       const percentageUsed = initializeChart("engine4", values, 1500.0);
-      setPercentageUsedDataE1(percentageUsed);
+      setPercentageUsedDataE4(percentageUsed);
     }
   }, [data]);
 
@@ -183,7 +184,7 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine5kw);
       const percentageUsed = initializeChart("engine5", values, 1500.0);
-      setPercentageUsedDataE1(percentageUsed);
+      setPercentageUsedDataE5(percentageUsed);
     }
   }, [data]);
 
@@ -191,7 +192,7 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine6kw);
       const percentageUsed = initializeChart("engine6", values, 1500.0);
-      setPercentageUsedDataE1(percentageUsed);
+      setPercentageUsedDataE6(percentageUsed);
     }
   }, [data]);
 
@@ -215,14 +216,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="turbine"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataT1}%
+              </div>
+              <canvas id="turbine" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.turbinekw} kW
+                    <p>Load {item.turbinekw} kW</p>
                     <p>Energy {item.turbinekwh} kWh</p>
                   </div>
                 );
@@ -250,14 +272,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="engine1"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE1}%
+              </div>
+              <canvas id="engine1" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.engine1kw} kW
+                    <p>Load {item.engine1kw} kW</p>
                     <p>Energy {item.engine1kwh} kWh</p>
                   </div>
                 );
@@ -285,14 +328,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="myChart"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE2}%
+              </div>
+              <canvas id="engine2" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.engine2kw} kW
+                    <p>Load {item.engine2kw} kW</p>
                     <p>Energy {item.engine2kwh} kWh</p>
                   </div>
                 );
@@ -320,14 +384,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="engine3"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE3}%
+              </div>
+              <canvas id="engine3" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.engine3kw} kW
+                    <p>Load {item.engine3kw} kW</p>
                     <p>Energy {item.engine3kwh} kWh</p>
                   </div>
                 );
@@ -355,14 +440,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="engine4"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE4}%
+              </div>
+              <canvas id="engine4" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.engine4kw} kW
+                    <p>Load {item.engine4kw} kW</p>
                     <p>Energy {item.engine4kwh} kWh</p>
                   </div>
                 );
@@ -390,14 +496,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="engine5"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE5}%
+              </div>
+              <canvas id="engine5" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.engine5kw} kW
+                    <p>Load {item.engine5kw} kW</p>
                     <p>Energy {item.engine5kwh} kWh</p>
                   </div>
                 );
@@ -425,14 +552,35 @@ const Page = () => {
             </svg>
           </CardHeader>
           <CardContent className="flex justify-evenly">
-            <div style={{ width: "100px", height: "100px" }}>
-              <canvas id="engine6"></canvas>
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE6}%
+              </div>
+              <canvas id="engine6" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="pt-3 text-base font-bold">
-                    Load {item.engine6kw} kW
+                    <p>Load {item.engine6kw} kW</p>
                     <p>Energy {item.engine6kwh} kWh</p>
                   </div>
                 );
