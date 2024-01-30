@@ -143,7 +143,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.turbinekw);
-      const percentageUsed = initializeChart("turbine", values, 3000);
+      const percentageUsed = initializeChart("turbine", values, 5500);
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -151,7 +151,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine1kw);
-      const percentageUsed = initializeChart("engine1", values, 1500.0);
+      const percentageUsed = initializeChart("engine1", values, 1400.0);
       setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
@@ -250,7 +250,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
+                5500 total capacity in KW
               </p>
             </div>
           </CardContent>
@@ -306,7 +306,7 @@ const Page = () => {
                 );
               })}
               <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
+                1400 total capacity in KW
               </p>
             </div>
           </CardContent>

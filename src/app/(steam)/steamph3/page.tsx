@@ -104,7 +104,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.steamflow);
-      const percentageUsed = initializeChart("coal", values, 20.0);
+      const percentageUsed = initializeChart("coal", values, 15.0);
       setPercentageUsedData(percentageUsed);
     }
   }, [data]);
