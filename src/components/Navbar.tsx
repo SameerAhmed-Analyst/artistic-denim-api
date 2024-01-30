@@ -100,7 +100,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Artistic Milliners</span>
-            <img
+            <Image
               className="h-9 w-auto"
               src="/"
               alt=""
