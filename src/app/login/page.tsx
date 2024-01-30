@@ -19,6 +19,7 @@ export default function Page() {
             alt="Your Company"
             width={200}
             height={200}
+            loading="eager"
           />
         </div>
 
