@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-// import Hrsg from "@/components/Hrsg";
 
 export interface EngineData {
   id: number;
@@ -79,7 +78,7 @@ const Page = () => {
 
     const intervalId = setInterval(() => {
       refreshList(); // Fetch data every 3 seconds
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -98,7 +97,7 @@ const Page = () => {
 
     const totalValue = values.reduce((acc, curr) => acc + curr, 0);
     const remainingCapacity = totalCapacity - totalValue;
-    const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(2);
+    const percentageUsed = ((totalValue / totalCapacity) * 100).toFixed(1);
 
     const chart = new Chart(ctx, {
       type: "doughnut",
