@@ -211,7 +211,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {percentageUsedData}%
+                {percentageUsedData1}%
               </div>
               <canvas id="whrb" width="100" height="100" />
             </div>
