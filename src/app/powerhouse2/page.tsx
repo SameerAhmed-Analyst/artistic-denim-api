@@ -77,7 +77,13 @@ const Page = () => {
   const [percentageUsedDataE4, setPercentageUsedDataE4] = useState("");
   const [percentageUsedDataE5, setPercentageUsedDataE5] = useState("");
   const [percentageUsedDataE6, setPercentageUsedDataE6] = useState("");
+  const [percentageUsedDataTR1, setPercentageUsedDataTR1] = useState("");
   const [percentageUsedDataT1, setPercentageUsedDataT1] = useState("");
+  const [percentageUsedDataT2, setPercentageUsedDataT2] = useState("");
+  const [percentageUsedDataT3, setPercentageUsedDataT3] = useState("");
+  const [percentageUsedDataT4, setPercentageUsedDataT4] = useState("");
+  const [percentageUsedDataT5, setPercentageUsedDataT5] = useState("");
+  const [percentageUsedDataT6, setPercentageUsedDataT6] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -144,7 +150,7 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.turbinekw);
       const percentageUsed = initializeChart("turbine", values, 5500);
-      setPercentageUsedDataT1(percentageUsed);
+      setPercentageUsedDataTR1(percentageUsed);
     }
   }, [data]);
 
@@ -196,401 +202,809 @@ const Page = () => {
     }
   }, [data]);
 
+  // Take Off
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.Takeoff4kw);
+      const percentageUsed = initializeChart("takeoff4", values, 2500);
+      setPercentageUsedDataT1(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.Takeoff5kw);
+      const percentageUsed = initializeChart("takeoff5", values, 2500);
+      setPercentageUsedDataT2(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.Takeoff6kw);
+      const percentageUsed = initializeChart("takeoff6", values, 2500);
+      setPercentageUsedDataT3(percentageUsed);
+    }
+  }, [data]);
+  
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.Takeoff7kw);
+      const percentageUsed = initializeChart("takeoff7", values, 2500);
+      setPercentageUsedDataT4(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.Takeoff8kw);
+      const percentageUsed = initializeChart("takeoff8", values, 2500);
+      setPercentageUsedDataT5(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.AUX_LV_Takeoff);
+      const percentageUsed = initializeChart("aux", values, 2500);
+      setPercentageUsedDataT6(percentageUsed);
+    }
+  }, [data]);
+
   return (
-    <div className="p-5">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Turbine</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+    <div className="">
+      <h1 className="pt-5 text-center text-xl font-bold">
+        Power house 2 Generation
+      </h1>
+      <div className="p-5">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Turbine</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataT1}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataTR1}%
+                </div>
+                <canvas id="turbine" width="100" height="100" />
               </div>
-              <canvas id="turbine" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.turbinekw} kW</p>
-                    <p>Energy {item.turbinekwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                5500 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Engine 1</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.turbinekw} kW</p>
+                      <p>Energy {item.turbinekwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  5500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 1</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataE1}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE1}%
+                </div>
+                <canvas id="engine1" width="100" height="100" />
               </div>
-              <canvas id="engine1" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.engine1kw} kW</p>
-                    <p>Energy {item.engine1kwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                1400 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Engine 2</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine1kw} kW</p>
+                      <p>Energy {item.engine1kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1400 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 2</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataE2}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE2}%
+                </div>
+                <canvas id="engine2" width="100" height="100" />
               </div>
-              <canvas id="engine2" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.engine2kw} kW</p>
-                    <p>Energy {item.engine2kwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Engine 3</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine2kw} kW</p>
+                      <p>Energy {item.engine2kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 3</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataE3}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE3}%
+                </div>
+                <canvas id="engine3" width="100" height="100" />
               </div>
-              <canvas id="engine3" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.engine3kw} kW</p>
-                    <p>Energy {item.engine3kwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Engine 4</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine3kw} kW</p>
+                      <p>Energy {item.engine3kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 4</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataE4}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE4}%
+                </div>
+                <canvas id="engine4" width="100" height="100" />
               </div>
-              <canvas id="engine4" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.engine4kw} kW</p>
-                    <p>Energy {item.engine4kwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine4kw} kW</p>
+                      <p>Energy {item.engine4kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataE5}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE5}%
+                </div>
+                <canvas id="engine5" width="100" height="100" />
               </div>
-              <canvas id="engine5" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.engine5kw} kW</p>
-                    <p>Energy {item.engine5kwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine5kw} kW</p>
+                      <p>Energy {item.engine5kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedDataE6}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE6}%
+                </div>
+                <canvas id="engine6" width="100" height="100" />
               </div>
-              <canvas id="engine6" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="pt-3 text-base font-bold">
-                    <p>Load {item.engine6kw} kW</p>
-                    <p>Energy {item.engine6kwh} kWh</p>
-                  </div>
-                );
-              })}
-              <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine6kw} kW</p>
+                      <p>Energy {item.engine6kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+      <h1 className="pt-1 text-center text-xl font-bold">UTILIZATION</h1>
+      <div className="p-5">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                Weaving Shade 4
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataT1}%
+                </div>
+                <canvas id="takeoff4" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.Takeoff4kw} kW</p>
+                      <p>Energy {item.Takeoff4kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                Weaving Shade 5 & 6
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataT2}%
+                </div>
+                <canvas id="takeoff5" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.Takeoff5kw} kW</p>
+                      <p>Energy {item.Takeoff5kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                PROCESSING UNIT
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataT3}%
+                </div>
+                <canvas id="takeoff6" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.Takeoff6kw} kW</p>
+                      <p>Energy {item.Takeoff6kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                SPINNING AM-8
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataT4}%
+                </div>
+                <canvas id="takeoff7" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.Takeoff7kw} kW</p>
+                      <p>Energy {item.Takeoff7kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                SPINNING AM-17
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataT5}%
+                </div>
+                <canvas id="takeoff8" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.Takeoff8kw} kW</p>
+                      <p>Energy {item.Takeoff8kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                AUXILIARY LOAD
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataT6}%
+                </div>
+                <canvas id="aux" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.AUX_LV_Takeoff} kW</p>
+                      <p>Energy {item.AUX_LV_KWH} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  1500 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

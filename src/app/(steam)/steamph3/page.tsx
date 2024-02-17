@@ -112,7 +112,8 @@ const Page = () => {
 
   return (
     <div className="p-5">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <h1 className="text-center text-xl font-bold">Coal Boiler</h1>
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
             <CardTitle className="text-xl font-bold">
