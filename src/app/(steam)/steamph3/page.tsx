@@ -109,71 +109,72 @@ const Page = () => {
     }
   }, [data]);
 
-
   return (
-    <div className="p-5">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <h1 className="text-center text-xl font-bold">Coal Boiler</h1>
-        <Card className="p-0">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">
-              Gas Fire Boiler
-            </CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </CardHeader>
-          <CardContent className="flex justify-evenly">
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                float: "left",
-                position: "relative",
-              }}
-            >
+    <div>
+      <h1 className="pt-5 text-center text-xl font-bold">Coal Boiler</h1>
+      <div className="p-5">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">
+                Gas Fire Boiler
+              </CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
               <div
                 style={{
-                  width: "100%",
-                  height: "40px",
-                  position: "absolute",
-                  top: "55%",
-                  left: "0",
-                  marginTop: "-20px",
-                  lineHeight: "19px",
-                  textAlign: "center",
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
                 }}
               >
-                {percentageUsedData}%
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedData}%
+                </div>
+                <canvas id="coal" width="100" height="100" />
               </div>
-              <canvas id="coal" width="100" height="100" />
-            </div>
-            <div className="">
-              {data.map((item) => {
-                return (
-                  <div key={item.id} className="text-sm">
-                    <p>Steam Flow {item.steamflow} T/H</p>
-                    <p>Steam Total {item.steamtotal} Ton</p>
-                    <p>Water Flow {item.waterflow} M3/H</p>
-                    <p>Water Total {item.watertotal} M3</p>
-                  </div>
-                );
-              })}
-              {/* <p className="text-xs text-muted-foreground">
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="text-sm">
+                      <p>Steam Flow {item.steamflow} T/H</p>
+                      <p>Steam Total {item.steamtotal} Ton</p>
+                      <p>Water Flow {item.waterflow} M3/H</p>
+                      <p>Water Total {item.watertotal} M3</p>
+                    </div>
+                  );
+                })}
+                {/* <p className="text-xs text-muted-foreground">
                 1500 total capacity in KW
               </p> */}
-            </div>
-          </CardContent>
-        </Card>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
