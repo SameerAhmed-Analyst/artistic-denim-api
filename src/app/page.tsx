@@ -205,8 +205,8 @@ export default function Home() {
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "-1%",
-                      left: "74px",
+                      top: "30%",
+                      left: "139px",
                       lineHeight: "19px",
                       textAlign: "center",
                     }}
@@ -218,13 +218,29 @@ export default function Home() {
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "99%",
-                      left: "0",
+                      top: "75%",
+                      left: "-123px",
                       lineHeight: "19px",
                       textAlign: "center",
                     }}
                   >
                     {percentageUsedDataEPH2}%
+                  </div>
+                  <div
+                     style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "53%",
+                      left: "0",
+                      marginTop: "-20px",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                      fontWeight: 'bold',
+                      fontSize: 'xx-large'
+                    }}
+                  >
+                    {data.map((item) => ((item.totalpowergen)/1000).toFixed(1))} MW
                   </div>
                   <canvas id="electricalph" width="200" height="200" />
                 </div>
