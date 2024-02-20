@@ -51,6 +51,7 @@ export default function Home() {
   const [percentageUsedDataCoal, setPercentageUsedDataCoal] = useState("");
   const [percentageUsedDataEPH1, setPercentageUsedDataEPH1] = useState("");
   const [percentageUsedDataEPH2, setPercentageUsedDataEPH2] = useState("");
+  const [percentageUsedDataSolar, setPercentageUsedDataSolar] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -78,13 +79,16 @@ export default function Home() {
 
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
+      // const valuesSolar = data.map((item) => item.);
       const totalValueph1 = 6000;
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = totalValueph1 + totalValueph2 - 15000;
-      const percentageUsedph1 = ((6000 / 15000) * 100).toFixed(1);
-      const percentageUsedph2 = ((totalValueph2 / 15000) * 100).toFixed(1);
+      const remainingCapacity = (9650 + 14400) - 25675;
+      const percentageUsedph1 = ((6000 / 9600) * 100).toFixed(1);
+      const percentageUsedph2 = ((totalValueph2 / 14400) * 100).toFixed(1);
+      const percentageUsedSolar = ((1325 / 1625) * 100).toFixed(1);
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
+      setPercentageUsedDataSolar(percentageUsedSolar)
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -92,8 +96,8 @@ export default function Home() {
           datasets: [
             {
               label: "Data from API",
-              data: [totalValueph1, totalValueph2, remainingCapacity],
-              backgroundColor: ["#1b2d92", "#518EC9", "#E5E8E8"],
+              data: [9650, 14400, 1625],
+              backgroundColor: ["#1b2d92", "#518EC9", "red"],
             },
           ],
         },
@@ -218,8 +222,8 @@ export default function Home() {
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "75%",
-                      left: "-123px",
+                      top: "96%",
+                      left: "-2px",
                       lineHeight: "19px",
                       textAlign: "center",
                     }}
@@ -237,10 +241,23 @@ export default function Home() {
                       lineHeight: "19px",
                       textAlign: "center",
                       fontWeight: 'bold',
-                      fontSize: 'xx-large'
+                      fontSize: 'x-large'
                     }}
                   >
                     {data.map((item) => ((item.totalpowergen)/1000).toFixed(1))} MW
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "-6%",
+                      left: "-18px",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {percentageUsedDataSolar}%
                   </div>
                   <canvas id="electricalph" width="200" height="200" />
                 </div>
