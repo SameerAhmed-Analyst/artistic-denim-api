@@ -398,7 +398,7 @@ export default function Home() {
                   })}
                 </div>
                 <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
-                  <p className="ml-1">Total Power Generation</p>
+                  <p className="ml-1">Total Steam Generation</p>
                   {data.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>{(item.steamph1+item.steamph2+item.cb).toFixed(1)} T/H</p>
