@@ -253,9 +253,10 @@ export default function Home() {
                       height: "40px",
                       position: "absolute",
                       top: "-6%",
-                      left: "-20px",
+                      left: "-22px",
                       lineHeight: "19px",
                       textAlign: "center",
+                      rotate: '350deg'
                     }}
                   >
                     {percentageUsedDataSolar}%
