@@ -202,6 +202,7 @@ export default function Home() {
                     width: "250px",
                     height: "250px",
                     position: "relative",
+                    marginTop: "15px"
                   }}
                 >
                   <div
@@ -252,7 +253,7 @@ export default function Home() {
                       height: "40px",
                       position: "absolute",
                       top: "-6%",
-                      left: "-18px",
+                      left: "-20px",
                       lineHeight: "19px",
                       textAlign: "center",
                     }}
@@ -393,6 +394,14 @@ export default function Home() {
                   {data.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>{item.cb} T/H</p>
+                    )
+                  })}
+                </div>
+                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
+                  <p className="ml-1">Total Power Generation</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{(item.steamph1+item.steamph2+item.cb).toFixed(1)} T/H</p>
                     )
                   })}
                 </div>
