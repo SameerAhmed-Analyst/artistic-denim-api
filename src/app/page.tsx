@@ -245,7 +245,7 @@ export default function Home() {
                       fontSize: 'x-large'
                     }}
                   >
-                    {data.map((item) => ((item.totalpowergen)/1000).toFixed(1))} MW
+                    {data.map((item) => ((item.powerhouse1gen+item.powerhouse2gen)/1000).toFixed(1))} MW
                   </div>
                   <div
                     style={{
