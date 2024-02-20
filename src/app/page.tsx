@@ -78,13 +78,13 @@ export default function Home() {
 
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
-      const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
+      const totalValueph1 = 6000;
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = (totalValueph1 + totalValueph2) - 15000;
-      const percentageUsedph1 = ((totalValueph1 / 15000) * 100).toFixed(1);
+      const remainingCapacity = totalValueph1 + totalValueph2 - 15000;
+      const percentageUsedph1 = ((6000 / 15000) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 15000) * 100).toFixed(1);
-      setPercentageUsedDataEPH1(percentageUsedph1)
-      setPercentageUsedDataEPH2(percentageUsedph2)
+      setPercentageUsedDataEPH1(percentageUsedph1);
+      setPercentageUsedDataEPH2(percentageUsedph2);
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -117,7 +117,9 @@ export default function Home() {
 
   useEffect(() => {
     if (data.length > 0) {
-      const ctx = document.getElementById("powerhouse2gen") as HTMLCanvasElement;
+      const ctx = document.getElementById(
+        "powerhouse2gen"
+      ) as HTMLCanvasElement;
       let chartStatus = Chart.getChart(ctx);
 
       if (chartStatus !== undefined) {
@@ -133,9 +135,9 @@ export default function Home() {
       const percentageUsedph1 = ((totalValueph1 / 22) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 21) * 100).toFixed(1);
       const percentageUsedCoal = ((totalValueCoal / 21) * 100).toFixed(1);
-      setPercentageUsedDataPH1(percentageUsedph1)
-      setPercentageUsedDataPH2(percentageUsedph2)
-      setPercentageUsedDataCoal(percentageUsedCoal)
+      setPercentageUsedDataPH1(percentageUsedph1);
+      setPercentageUsedDataPH2(percentageUsedph2);
+      setPercentageUsedDataCoal(percentageUsedCoal);
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -172,7 +174,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold text-center pt-5">DASHBOARD</h1>
         <div className="p-5">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="p-0">
+            <Card className="p-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
                 <CardTitle className="text-xl font-bold">
                   Electrical Power Generation
@@ -227,6 +229,43 @@ export default function Home() {
                   <canvas id="electricalph" width="200" height="200" />
                 </div>
               </CardContent>
+              <div className="">
+                <div className="flex">
+                  <div className="bg-green-500 w-10 h-5 m-1"></div>
+                  <p>Power House 1</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{item.powerhouse1gen} MW</p>
+                    )
+                  })}
+                </div>
+                <div className="flex">
+                  <div className="bg-blue-500 w-10 h-5 m-1"></div>
+                  <p>Power House 2</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{(item.powerhouse2gen / 1000).toFixed(1)} MW</p>
+                    )
+                  })}
+                </div>
+                <div className="flex">
+                  <div className="bg-red-500 w-10 h-5 m-1"></div>
+                  <p>Solar Panels</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{item.cb} MW</p>
+                    )
+                  })}
+                </div>
+                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
+                  <p className="ml-1">Total Power Generation</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{(item.totalpowergen / 1000).toFixed(1)} MW</p>
+                    )
+                  })}
+                </div>
+              </div>
             </Card>
             <Card className="p-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
@@ -295,20 +334,36 @@ export default function Home() {
                   </div>
                   <canvas id="powerhouse2gen" width="200" height="200" />
                 </div>
-                <div className="">
-                  {/* {data.map((item) => {
-                  return (
-                    <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.turbinekw} kW</p>
-                      <p>Energy {item.turbinekwh} kWh</p>
-                    </div>
-                  );
-                })} */}
-                  {/* <p className="text-xs text-muted-foreground">
-                  5500 total capacity in KW
-                </p> */}
-                </div>
               </CardContent>
+              <div className="">
+                <div className="flex">
+                  <div className="bg-green-500 w-10 h-5 m-1"></div>
+                  <p>Steam Power House 1</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{item.steamph1} T/H</p>
+                    )
+                  })}
+                </div>
+                <div className="flex">
+                  <div className="bg-blue-500 w-10 h-5 m-1"></div>
+                  <p>Steam Power House 2</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{item.steamph2} T/H</p>
+                    )
+                  })}
+                </div>
+                <div className="flex">
+                  <div className="bg-red-500 w-10 h-5 m-1"></div>
+                  <p>Coal Boiler</p>
+                  {data.map((item) => {
+                    return (
+                      <p className="ml-auto mr-5" key={item.id}>{item.cb} T/H</p>
+                    )
+                  })}
+                </div>
+              </div>
             </Card>
           </div>
         </div>
