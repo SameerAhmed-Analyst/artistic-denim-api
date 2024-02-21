@@ -257,7 +257,7 @@ export default function Home() {
                       lineHeight: "19px",
                       textAlign: "center",
                       rotate: '350deg',
-                      fontWeight: "bold"
+                      fontWeight: "bold",
                     }}
                   >
                     {percentageUsedDataSolar}%
@@ -355,6 +355,22 @@ export default function Home() {
                     }}
                   >
                     {percentageUsedDataPH2}%
+                  </div>
+                  <div
+                     style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "53%",
+                      left: "0",
+                      marginTop: "-20px",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                      fontWeight: 'bold',
+                      fontSize: 'x-large'
+                    }}
+                  >
+                    {data.map((item) => (item.steamph1+item.steamph2+item.cb).toFixed(1))} T/H
                   </div>
                   <div
                     style={{
