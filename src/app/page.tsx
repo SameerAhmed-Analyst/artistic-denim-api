@@ -82,13 +82,13 @@ export default function Home() {
       // const valuesSolar = data.map((item) => item.);
       const totalValueph1 = 6000;
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
-      const remainingCapacity = (9650 + 14400) - 25675;
+      const remainingCapacity = 9650 + 14400 - 25675;
       const percentageUsedph1 = ((6000 / 9600) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 14400) * 100).toFixed(1);
       const percentageUsedSolar = ((1325 / 1625) * 100).toFixed(1);
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
-      setPercentageUsedDataSolar(percentageUsedSolar)
+      setPercentageUsedDataSolar(percentageUsedSolar);
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -97,13 +97,14 @@ export default function Home() {
             {
               label: "Data from API",
               data: [9650, 14400, 1625],
-              backgroundColor: ["#1b2d92", "#518EC9", "red"],
+              backgroundColor: ["#384C6B", "#C09741", "#9595B7"],
             },
           ],
         },
         options: {
           responsive: true,
-          cutout: "70%",
+          cutout: "60%",
+          spacing: 7,
           plugins: {
             legend: {
               position: "bottom",
@@ -150,13 +151,14 @@ export default function Home() {
             {
               label: "Data from API",
               data: [totalValueph1, totalValueph2, totalValueCoal],
-              backgroundColor: ["#1b2d92", "#2E8B57", "#FF4533"],
+              backgroundColor: ["#384C6B", "#E28A2B", "#9595B7"],
             },
           ],
         },
         options: {
           responsive: true,
-          cutout: "70%",
+          cutout: "60%",
+          spacing: 7,
           plugins: {
             legend: {
               position: "bottom",
@@ -202,7 +204,7 @@ export default function Home() {
                     width: "250px",
                     height: "250px",
                     position: "relative",
-                    marginTop: "15px"
+                    marginTop: "15px",
                   }}
                 >
                   <div
@@ -232,7 +234,7 @@ export default function Home() {
                     {percentageUsedDataEPH2}%
                   </div>
                   <div
-                     style={{
+                    style={{
                       width: "100%",
                       height: "40px",
                       position: "absolute",
@@ -241,11 +243,17 @@ export default function Home() {
                       marginTop: "-20px",
                       lineHeight: "19px",
                       textAlign: "center",
-                      fontWeight: 'bold',
-                      fontSize: 'x-large'
+                      fontWeight: "bold",
+                      fontSize: "x-large",
                     }}
                   >
-                    {data.map((item) => ((item.powerhouse1gen+item.powerhouse2gen)/1000).toFixed(1))} MW
+                    {data.map((item) =>
+                      (
+                        (item.powerhouse1gen + item.powerhouse2gen) /
+                        1000
+                      ).toFixed(1)
+                    )}{" "}
+                    MW
                   </div>
                   <div
                     style={{
@@ -256,7 +264,7 @@ export default function Home() {
                       left: "-22px",
                       lineHeight: "19px",
                       textAlign: "center",
-                      rotate: '350deg',
+                      rotate: "350deg",
                       fontWeight: "bold",
                     }}
                   >
@@ -271,8 +279,10 @@ export default function Home() {
                   <p>Power House 1</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{item.powerhouse1gen} MW</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {item.powerhouse1gen} MW
+                      </p>
+                    );
                   })}
                 </div>
                 <div className="flex">
@@ -280,8 +290,10 @@ export default function Home() {
                   <p>Power House 2</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{(item.powerhouse2gen / 1000).toFixed(1)} MW</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {(item.powerhouse2gen / 1000).toFixed(1)} MW
+                      </p>
+                    );
                   })}
                 </div>
                 <div className="flex">
@@ -289,16 +301,20 @@ export default function Home() {
                   <p>Solar Panels</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{item.cb} MW</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {item.cb} MW
+                      </p>
+                    );
                   })}
                 </div>
                 <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Power Generation</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{(item.totalpowergen / 1000).toFixed(1)} MW</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {(item.totalpowergen / 1000).toFixed(1)} MW
+                      </p>
+                    );
                   })}
                 </div>
               </div>
@@ -327,7 +343,7 @@ export default function Home() {
                     width: "250px",
                     height: "250px",
                     position: "relative",
-                    marginTop: "15px"
+                    marginTop: "15px",
                   }}
                 >
                   <div
@@ -357,7 +373,7 @@ export default function Home() {
                     {percentageUsedDataPH2}%
                   </div>
                   <div
-                     style={{
+                    style={{
                       width: "100%",
                       height: "40px",
                       position: "absolute",
@@ -366,11 +382,14 @@ export default function Home() {
                       marginTop: "-20px",
                       lineHeight: "19px",
                       textAlign: "center",
-                      fontWeight: 'bold',
-                      fontSize: 'x-large'
+                      fontWeight: "bold",
+                      fontSize: "x-large",
                     }}
                   >
-                    {data.map((item) => (item.steamph1+item.steamph2+item.cb).toFixed(1))} T/H
+                    {data.map((item) =>
+                      (item.steamph1 + item.steamph2 + item.cb).toFixed(1)
+                    )}{" "}
+                    T/H
                   </div>
                   <div
                     style={{
@@ -394,8 +413,10 @@ export default function Home() {
                   <p>Steam Power House 1</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{item.steamph1} T/H</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {item.steamph1} T/H
+                      </p>
+                    );
                   })}
                 </div>
                 <div className="flex">
@@ -403,8 +424,10 @@ export default function Home() {
                   <p>Steam Power House 2</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{item.steamph2} T/H</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {item.steamph2} T/H
+                      </p>
+                    );
                   })}
                 </div>
                 <div className="flex">
@@ -412,16 +435,164 @@ export default function Home() {
                   <p>Coal Boiler</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{item.cb} T/H</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {item.cb} T/H
+                      </p>
+                    );
                   })}
                 </div>
                 <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Steam Generation</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>{(item.steamph1+item.steamph2+item.cb).toFixed(1)} T/H</p>
-                    )
+                      <p className="ml-auto mr-5" key={item.id}>
+                        {(item.steamph1 + item.steamph2 + item.cb).toFixed(1)}{" "}
+                        T/H
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            </Card>
+            <Card className="p-0">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+                <CardTitle className="text-xl font-bold">
+                  Gas Pressures
+                </CardTitle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </CardHeader>
+              <CardContent className="flex justify-center">
+                <div
+                  style={{
+                    width: "250px",
+                    height: "250px",
+                    position: "relative",
+                    marginTop: "15px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "-1%",
+                      left: "74px",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {percentageUsedDataPH1}%
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "99%",
+                      left: "0",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {percentageUsedDataPH2}%
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "53%",
+                      left: "0",
+                      marginTop: "-20px",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                      fontWeight: "bold",
+                      fontSize: "x-large",
+                    }}
+                  >
+                    {data.map((item) =>
+                      (item.steamph1 + item.steamph2 + item.cb).toFixed(1)
+                    )}{" "}
+                    T/H
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "40px",
+                      position: "absolute",
+                      top: "23%",
+                      right: "135px",
+                      lineHeight: "19px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {percentageUsedDataCoal}%
+                  </div>
+                  <canvas id="powerhouse2gen" width="200" height="200" />
+                </div>
+              </CardContent>
+              <div className="">
+                <div className="flex">
+                  <p>Capative</p>
+                  {data.map((item) => {
+                    return (
+                      <>
+                        <p className="ml-auto">{item.ngas_psi} PSI</p>
+                        <p className="ml-auto">
+                          {item.ngas_mbar} mBAR
+                        </p>
+                      </>
+                    );
+                  })}
+                </div>
+                <div className="flex">
+                  <p>Industrial</p>
+                  {data.map((item) => {
+                    return (
+                      <>
+                        <p className="ml-auto">{item.industrialgas_psi} PSI</p>
+                        <p className="ml-auto">
+                          {item.industrialgas_mbar} mBAR
+                        </p>
+                      </>
+                    );
+                  })}
+                </div>
+                <div className="flex">
+                  <p>RLNG</p>
+                  {data.map((item) => {
+                    return (
+                      <>
+                        <p className="ml-auto">{item.rlng_psi} PSI</p>
+                        <p className="ml-auto">
+                          {item.rlng_mbar} mBAR
+                        </p>
+                      </>
+                    );
+                  })}
+                </div>
+                <div className="flex">
+                  <p>FGC</p>
+                  {data.map((item) => {
+                    return (
+                      <>
+                        <p className="ml-auto">{item.fgc} PSI</p>
+                        <p className="ml-auto">
+                          {item.fgc_mbar} mBAR
+                        </p>
+                      </>
+                    );
                   })}
                 </div>
               </div>
