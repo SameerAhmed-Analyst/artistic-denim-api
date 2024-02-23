@@ -275,7 +275,7 @@ export default function Home() {
               </CardContent>
               <div className="">
                 <div className="flex">
-                  <div className="bg-green-500 w-10 h-5 m-1"></div>
+                  <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
                   <p>Power House 1</p>
                   {data.map((item) => {
                     return (
@@ -409,7 +409,7 @@ export default function Home() {
               </CardContent>
               <div className="">
                 <div className="flex">
-                  <div className="bg-green-500 w-10 h-5 m-1"></div>
+                  <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
                   <p>Steam Power House 1</p>
                   {data.map((item) => {
                     return (
