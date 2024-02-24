@@ -19,7 +19,7 @@ export default function Page() {
 
 
   // Function to handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault(); // Prevent default form submission behavior
 
     // Verify username and password
