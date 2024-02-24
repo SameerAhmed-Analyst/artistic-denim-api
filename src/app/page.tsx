@@ -475,47 +475,51 @@ export default function Home() {
               <CardContent className="">
                 <div className="flex justify-between">
                   <div className="w-[69.58px]">Capative</div>
-                  {data.map((item) => {
-                    return <div className="w-[50.63px]">{item.ngas_psi}</div>;
-                  })}
-                  <div>PSI</div>
-                  {data.map((item) => {
-                    return <div className="w-[53.64px]">{item.ngas_mbar}</div>;
-                  })}
-                  <div>mBAR</div>
+                  {data.map((item) => (
+                    <>
+                      <div key={item.id} className="w-[50.63px]">{item.ngas_psi}</div>
+                      <div>PSI</div>
+                      <div key={item.id} className="w-[53.64px]">{item.ngas_mbar}</div>
+                      <div>mBAR</div>
+                    </>
+                  ))}
                 </div>
                 <div className="flex justify-between">
                   <div className="w-[69.58px]">Industrial</div>
-                  {data.map((item) => {
-                    return <div className="w-[50.63px]">{item.industrialgas_psi}</div>;
-                  })}
-                  <div>PSI</div>
-                  {data.map((item) => {
-                    return <div className="w-[53.64px]">{item.industrialgas_mbar}</div>;
-                  })}
-                  <div>mBAR</div>
+                  {data.map((item) => (
+                    <>
+                      <div key={item.id} className="w-[50.63px]">
+                        {item.industrialgas_psi}
+                      </div>
+                      <div>PSI</div>
+                      <div key={item.id} className="w-[53.64px]">
+                        {item.industrialgas_mbar}
+                      </div>
+                      <div>mBAR</div>
+                    </>
+                  ))}
                 </div>
                 <div className="flex justify-between">
                   <div className="w-[69.58px]">RLNG</div>
-                  {data.map((item) => {
-                    return <div className="w-[50.63px]">{item.rlng_psi}</div>;
-                  })}
-                  <div>PSI</div>
-                  {data.map((item) => {
-                    return <div className="w-[53.64px]">{item.rlng_mbar}</div>;
-                  })}
-                  <div>mBAR</div>
+                  {data.map((item) => (
+                    <>
+                      <div key={item.id} className="w-[50.63px]">{item.rlng_psi}</div>
+                      <div>PSI</div>
+                      <div key={item.id} className="w-[53.64px]">{item.rlng_mbar}</div>
+                      <div>mBAR</div>
+                    </>
+                  ))}
                 </div>
                 <div className="flex justify-between">
                   <div className="w-[69.58px]">FGC</div>
-                  {data.map((item) => {
-                    return <div className="w-[50.63px]">{item.fgc}</div>;
-                  })}
-                  <div>PSI</div>
-                  {data.map((item) => {
-                    return <div className="w-[53.64px]">{item.fgc_mbar}</div>;
-                  })}
-                  <div>mBAR</div>
+                  {data.map((item) => (
+                    <>
+                      <div key={item.id} className="w-[50.63px]">{item.fgc}</div>
+                      <div>PSI</div>
+                      <div key={item.id} className="w-[53.64px]">{item.fgc_mbar}</div>
+                      <div>mBAR</div>
+                    </>
+                  ))}
                 </div>
               </CardContent>
             </Card>
