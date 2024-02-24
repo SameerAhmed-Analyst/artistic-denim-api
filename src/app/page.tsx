@@ -286,7 +286,7 @@ export default function Home() {
                   })}
                 </div>
                 <div className="flex">
-                  <div className="bg-blue-500 w-10 h-5 m-1"></div>
+                  <div className="bg-[#C09741] w-10 h-5 m-1"></div>
                   <p>Power House 2</p>
                   {data.map((item) => {
                     return (
@@ -297,7 +297,7 @@ export default function Home() {
                   })}
                 </div>
                 <div className="flex">
-                  <div className="bg-red-500 w-10 h-5 m-1"></div>
+                  <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
                   <p>Solar Panels</p>
                   {data.map((item) => {
                     return (
@@ -420,7 +420,7 @@ export default function Home() {
                   })}
                 </div>
                 <div className="flex">
-                  <div className="bg-blue-500 w-10 h-5 m-1"></div>
+                  <div className="bg-[#E28A2B] w-10 h-5 m-1"></div>
                   <p>Steam Power House 2</p>
                   {data.map((item) => {
                     return (
@@ -431,7 +431,7 @@ export default function Home() {
                   })}
                 </div>
                 <div className="flex">
-                  <div className="bg-red-500 w-10 h-5 m-1"></div>
+                  <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
                   <p>Coal Boiler</p>
                   {data.map((item) => {
                     return (
@@ -472,130 +472,52 @@ export default function Home() {
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </CardHeader>
-              <CardContent className="flex justify-center">
-                <div
-                  style={{
-                    width: "250px",
-                    height: "250px",
-                    position: "relative",
-                    marginTop: "15px",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "-1%",
-                      left: "74px",
-                      lineHeight: "19px",
-                      textAlign: "center",
-                    }}
-                  >
-                    {percentageUsedDataPH1}%
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "99%",
-                      left: "0",
-                      lineHeight: "19px",
-                      textAlign: "center",
-                    }}
-                  >
-                    {percentageUsedDataPH2}%
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "53%",
-                      left: "0",
-                      marginTop: "-20px",
-                      lineHeight: "19px",
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      fontSize: "x-large",
-                    }}
-                  >
-                    {data.map((item) =>
-                      (item.steamph1 + item.steamph2 + item.cb).toFixed(1)
-                    )}{" "}
-                    T/H
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "23%",
-                      right: "135px",
-                      lineHeight: "19px",
-                      textAlign: "center",
-                    }}
-                  >
-                    {percentageUsedDataCoal}%
-                  </div>
-                  <canvas id="powerhouse2gen" width="200" height="200" />
+              <CardContent className="">
+                <div className="flex justify-between">
+                  <div className="w-[69.58px]">Capative</div>
+                  {data.map((item) => {
+                    return <div className="w-[50.63px]">{item.ngas_psi}</div>;
+                  })}
+                  <div>PSI</div>
+                  {data.map((item) => {
+                    return <div className="w-[53.64px]">{item.ngas_mbar}</div>;
+                  })}
+                  <div>mBAR</div>
+                </div>
+                <div className="flex justify-between">
+                  <div className="w-[69.58px]">Industrial</div>
+                  {data.map((item) => {
+                    return <div className="w-[50.63px]">{item.industrialgas_psi}</div>;
+                  })}
+                  <div>PSI</div>
+                  {data.map((item) => {
+                    return <div className="w-[53.64px]">{item.industrialgas_mbar}</div>;
+                  })}
+                  <div>mBAR</div>
+                </div>
+                <div className="flex justify-between">
+                  <div className="w-[69.58px]">RLNG</div>
+                  {data.map((item) => {
+                    return <div className="w-[50.63px]">{item.rlng_psi}</div>;
+                  })}
+                  <div>PSI</div>
+                  {data.map((item) => {
+                    return <div className="w-[53.64px]">{item.rlng_mbar}</div>;
+                  })}
+                  <div>mBAR</div>
+                </div>
+                <div className="flex justify-between">
+                  <div className="w-[69.58px]">FGC</div>
+                  {data.map((item) => {
+                    return <div className="w-[50.63px]">{item.fgc}</div>;
+                  })}
+                  <div>PSI</div>
+                  {data.map((item) => {
+                    return <div className="w-[53.64px]">{item.fgc_mbar}</div>;
+                  })}
+                  <div>mBAR</div>
                 </div>
               </CardContent>
-              <div className="">
-                <div className="flex">
-                  <p>Capative</p>
-                  {data.map((item) => {
-                    return (
-                      <>
-                        <p className="ml-auto">{item.ngas_psi} PSI</p>
-                        <p className="ml-auto">
-                          {item.ngas_mbar} mBAR
-                        </p>
-                      </>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <p>Industrial</p>
-                  {data.map((item) => {
-                    return (
-                      <>
-                        <p className="ml-auto">{item.industrialgas_psi} PSI</p>
-                        <p className="ml-auto">
-                          {item.industrialgas_mbar} mBAR
-                        </p>
-                      </>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <p>RLNG</p>
-                  {data.map((item) => {
-                    return (
-                      <>
-                        <p className="ml-auto">{item.rlng_psi} PSI</p>
-                        <p className="ml-auto">
-                          {item.rlng_mbar} mBAR
-                        </p>
-                      </>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <p>FGC</p>
-                  {data.map((item) => {
-                    return (
-                      <>
-                        <p className="ml-auto">{item.fgc} PSI</p>
-                        <p className="ml-auto">
-                          {item.fgc_mbar} mBAR
-                        </p>
-                      </>
-                    );
-                  })}
-                </div>
-              </div>
             </Card>
           </div>
         </div>
