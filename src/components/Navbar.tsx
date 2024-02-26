@@ -98,15 +98,14 @@ export default function Navbar() {
             <Bars3BottomLeftIcon className="h-9 w-9" aria-hidden="true" />
           </button>
         </div>
-        <div className="flex lg:flex-1">
+        <div className="flex lg:flex-1 mr-[31%] lg:mr-0 md:mr-[40%]">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Artistic Milliners</span>
-            {/* <img
-              className="h-9 w-auto"
-              src="/"
-              alt=""
-            /> */}
+            {/* <img className="h-9 w-auto bg-white" src="/artistic_logo_crop.png" alt="" /> */}
           </a>
+          <div className="text-white lg:hidden w-auto font-semibold text-2xl">
+            DASHBOARD
+          </div>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <a href="/" className="text-sm font-semibold leading-6 text-white">
@@ -151,7 +150,9 @@ export default function Navbar() {
                           {item.name}
                           <span className="absolute inset-0" />
                         </a>
-                        <p className="mt-1 hover:text-white ">{item.description}</p>
+                        <p className="mt-1 hover:text-white ">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -213,7 +214,9 @@ export default function Navbar() {
                           {item.name}
                           <span className="absolute inset-0" />
                         </a>
-                        <p className="mt-1 hover:text-white">{item.description}</p>
+                        <p className="mt-1 hover:text-white">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -242,7 +245,10 @@ export default function Navbar() {
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/login" className="text-sm font-semibold leading-6 text-white">
+          <a
+            href="/login"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
