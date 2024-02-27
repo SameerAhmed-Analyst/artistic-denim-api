@@ -81,6 +81,7 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <header className="bg-[#1b2d92]">
@@ -245,12 +246,18 @@ export default function Navbar() {
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="/login"
-            className="text-sm font-semibold leading-6 text-white"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          {isLoggedIn ? (
+            <a href="/login" className="text-sm font-semibold leading-6 text-white">
+              Logout <span aria-hidden="true">&rarr;</span>
+            </a>
+          ) : (
+            <a
+              href="/login"
+              className="text-sm font-semibold leading-6 text-white"
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          )}
         </div>
       </nav>
       <Dialog
@@ -347,12 +354,21 @@ export default function Navbar() {
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="/login"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-700"
-                >
-                  Log in
-                </a>
+                {isLoggedIn ? (
+                  <a
+                    href="/login"
+                    className="text-sm font-semibold leading-6 text-white"
+                  >
+                    Logout <span aria-hidden="true">&rarr;</span>
+                  </a>
+                ) : (
+                  <a
+                    href="/login"
+                    className="text-sm font-semibold leading-6 text-white"
+                  >
+                    Log in <span aria-hidden="true">&rarr;</span>
+                  </a>
+                )}
               </div>
             </div>
           </div>
