@@ -25,9 +25,40 @@ interface PowerDataTypes {
   industrialgas_mbar: number;
 }
 
+interface SolarData {
+  id: number;
+  solar3_kW: number;
+  solar3_KWh: number;
+  solar4_kW: number;
+  solar4_kWh: number;
+  solar5_kW: number;
+  solar5_kWh: number;
+  solar_total_kW: number;
+  solar_total_kWh: number;
+}
+
 async function getData() {
   try {
     const res = await fetch("/api/v1/dashboard", {
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const result = await res.json();
+    return result;
+  } catch (error) {
+    console.log("error: " + error);
+  }
+}
+
+async function getSolarData() {
+  try {
+    const res = await fetch("/api/v1/solar", {
       method: "GET",
       cache: "no-store",
       headers: {
@@ -52,10 +83,14 @@ export default function Home() {
   const [percentageUsedDataEPH1, setPercentageUsedDataEPH1] = useState("");
   const [percentageUsedDataEPH2, setPercentageUsedDataEPH2] = useState("");
   const [percentageUsedDataSolar, setPercentageUsedDataSolar] = useState("");
+  const [solarData, setSolarData] = useState<SolarData[]>([]);
+  const [totalSolar, setTotalSolar] = useState(0);
 
   const refreshList = async () => {
     const result = await getData();
     setData(result.data);
+    const resultSolar = await getSolarData();
+    setSolarData(resultSolar.data);
   };
 
   useEffect(() => {
@@ -69,7 +104,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (data.length > 0) {
+    if (data.length > 0 && solarData.length > 0) {
       const ctx = document.getElementById("electricalph") as HTMLCanvasElement;
       let chartStatus = Chart.getChart(ctx);
 
@@ -79,16 +114,18 @@ export default function Home() {
 
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
-      // const valuesSolar = data.map((item) => item.);
+      const valuesSolar = solarData.map((item) => item.solar_total_kW);
       const totalValueph1 = 6000;
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
+      const totalValueSolar = valuesSolar.reduce((acc, curr) => acc + curr, 0);
       const remainingCapacity = 9650 + 14400 - 25675;
       const percentageUsedph1 = ((6000 / 9600) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 14400) * 100).toFixed(1);
-      const percentageUsedSolar = ((1325 / 1625) * 100).toFixed(1);
+      const percentageUsedSolar = ((totalValueSolar / 1625) * 100).toFixed(1);
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
       setPercentageUsedDataSolar(percentageUsedSolar);
+      setTotalSolar(totalValueSolar)
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -96,7 +133,7 @@ export default function Home() {
           datasets: [
             {
               label: "Data from API",
-              data: [9650, 14400, 1625],
+              data: [9650, 14400, 4625],
               backgroundColor: ["#384C6B", "#C09741", "#9595B7"],
             },
           ],
@@ -118,7 +155,7 @@ export default function Home() {
       });
       chart.update(); // Update the chart to apply changes
     }
-  }, [data]);
+  }, [data, solarData]);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -172,7 +209,7 @@ export default function Home() {
       });
       chart.update(); // Update the chart to apply changes
     }
-  }, [data]);
+  }, [data, ]);
 
   return (
     <>
@@ -249,7 +286,7 @@ export default function Home() {
                   >
                     {data.map((item) =>
                       (
-                        (item.powerhouse1gen + item.powerhouse2gen) /
+                        (item.powerhouse1gen + item.powerhouse2gen + totalSolar) /
                         1000
                       ).toFixed(1)
                     )}{" "}
@@ -260,11 +297,10 @@ export default function Home() {
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "-6%",
-                      left: "-22px",
+                      top: "0%",
+                      left: "-73px",
                       lineHeight: "19px",
                       textAlign: "center",
-                      rotate: "350deg",
                       fontWeight: "bold",
                     }}
                   >
@@ -299,10 +335,10 @@ export default function Home() {
                 <div className="flex">
                   <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
                   <p>Solar Panels</p>
-                  {data.map((item) => {
+                  {solarData.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>
-                        {item.cb} MW
+                        {(item.solar_total_kW/1000).toFixed(2)} MW
                       </p>
                     );
                   })}
@@ -312,7 +348,7 @@ export default function Home() {
                   {data.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>
-                        {(item.totalpowergen / 1000).toFixed(1)} MW
+                        {((item.totalpowergen + totalSolar) / 1000).toFixed(1)} MW
                       </p>
                     );
                   })}
