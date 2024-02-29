@@ -9,7 +9,7 @@ export const GET = async () => {
     const pool = await sql.connect(config);
 
     try {
-        const result = await pool.request().query('SELECT * FROM solar');
+        const result = await pool.request().query('SELECT * FROM Solar');
         // console.log(result.recordset); // Log the data to the console
 
         return NextResponse.json({ data: result.recordset }); // Send the data in the response

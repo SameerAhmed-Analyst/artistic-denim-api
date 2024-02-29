@@ -30,6 +30,12 @@ const products = [
     href: "powerhouse2",
     icon: CursorArrowRaysIcon,
   },
+  {
+    name: "Solar",
+    description: "Speak directly to your customers",
+    href: "solar",
+    icon: CursorArrowRaysIcon,
+  },
   // {
   //   name: "Security",
   //   description: "Your customers’ data will be safe and secure",
