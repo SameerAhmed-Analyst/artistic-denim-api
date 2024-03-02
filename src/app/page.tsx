@@ -252,6 +252,7 @@ export default function Home() {
                       top: "30%",
                       left: "139px",
                       lineHeight: "19px",
+                      fontWeight: "bold",
                       textAlign: "center",
                     }}
                   >
@@ -265,6 +266,7 @@ export default function Home() {
                       top: "96%",
                       left: "-2px",
                       lineHeight: "19px",
+                      fontWeight: "bold",
                       textAlign: "center",
                     }}
                   >
@@ -390,6 +392,7 @@ export default function Home() {
                       top: "21%",
                       left: "131px",
                       lineHeight: "19px",
+                      fontWeight: "bold",
                       textAlign: "center",
                     }}
                   >
@@ -403,6 +406,7 @@ export default function Home() {
                       top: "99%",
                       left: "0",
                       lineHeight: "19px",
+                      fontWeight: "bold",
                       textAlign: "center",
                     }}
                   >
@@ -435,6 +439,7 @@ export default function Home() {
                       top: "23%",
                       right: "135px",
                       lineHeight: "19px",
+                      fontWeight: "bold",
                       textAlign: "center",
                     }}
                   >
