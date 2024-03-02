@@ -111,7 +111,7 @@ export default function Navbar() {
             {/* <img className="h-9 w-auto bg-white" src="/artistic_logo_crop.png" alt="" /> */}
           </a>
           <div className="text-white lg:hidden w-auto font-semibold text-2xl">
-            DASHBOARD
+            EMS
           </div>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
