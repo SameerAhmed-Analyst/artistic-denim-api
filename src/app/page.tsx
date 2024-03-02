@@ -387,8 +387,8 @@ export default function Home() {
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "-1%",
-                      left: "74px",
+                      top: "21%",
+                      left: "131px",
                       lineHeight: "19px",
                       textAlign: "center",
                     }}
