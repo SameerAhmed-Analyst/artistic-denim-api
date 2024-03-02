@@ -110,8 +110,8 @@ export default function Navbar() {
             <span className="sr-only">Artistic Milliners</span>
             {/* <img className="h-9 w-auto bg-white" src="/artistic_logo_crop.png" alt="" /> */}
           </a>
-          <div className="text-white lg:hidden w-auto font-semibold text-2xl">
-            EMS
+          <div className="text-white lg:hidden w-auto font-semibold text-2xl ">
+            Energy Monitoring System
           </div>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
