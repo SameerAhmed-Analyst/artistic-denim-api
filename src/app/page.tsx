@@ -300,7 +300,7 @@ export default function Home() {
                       height: "40px",
                       position: "absolute",
                       top: "0%",
-                      left: "-73px",
+                      left: "-82px",
                       lineHeight: "19px",
                       textAlign: "center",
                       fontWeight: "bold",

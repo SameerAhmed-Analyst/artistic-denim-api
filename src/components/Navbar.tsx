@@ -105,7 +105,7 @@ export default function Navbar() {
             <Bars3BottomLeftIcon className="h-9 w-9" aria-hidden="true" />
           </button>
         </div>
-        <div className="flex lg:flex-1 mr-[31%] lg:mr-0 md:mr-[40%]">
+        <div className="flex lg:flex-1 mr-[11%] lg:mr-0 md:mr-[40%]">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Artistic Milliners</span>
             {/* <img className="h-9 w-auto bg-white" src="/artistic_logo_crop.png" alt="" /> */}
