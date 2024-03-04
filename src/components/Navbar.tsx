@@ -110,7 +110,7 @@ export default function Navbar() {
             <span className="sr-only">Artistic Milliners</span>
             {/* <img className="h-9 w-auto bg-white" src="/artistic_logo_crop.png" alt="" /> */}
           </a>
-          <div className="text-white lg:hidden w-auto font-semibold text-2xl ">
+          <div className="text-white lg:hidden w-auto font-semibold text-2xl sm:text-sm">
             Energy Monitoring System
           </div>
         </div>
