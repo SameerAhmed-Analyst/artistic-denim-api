@@ -105,12 +105,12 @@ export default function Navbar() {
             <Bars3BottomLeftIcon className="h-9 w-9" aria-hidden="true" />
           </button>
         </div>
-        <div className="flex lg:flex-1 mr-[11%] lg:mr-0 md:mr-[28%]">
+        <div className="flex lg:flex-1 mr-[11%] lg:mr-0 md:mr-[28%] sm:text-sm">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Artistic Milliners</span>
             {/* <img className="h-9 w-auto bg-white" src="/artistic_logo_crop.png" alt="" /> */}
           </a>
-          <div className="text-white lg:hidden w-auto font-semibold text-2xl sm:text-sm">
+          <div className="text-white lg:hidden w-auto font-semibold text-2xl">
             Energy Monitoring System
           </div>
         </div>
