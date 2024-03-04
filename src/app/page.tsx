@@ -214,7 +214,7 @@ export default function Home() {
   return (
     <>
       <div className="">
-        <h1 className="text-2xl font-bold text-center pt-5">DASHBOARD</h1>
+        {/* <h1 className="text-2xl font-bold text-center pt-5">DASHBOARD</h1> */}
         <div className="p-5">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card className="p-0">
