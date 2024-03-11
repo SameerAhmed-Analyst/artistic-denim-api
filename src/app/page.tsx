@@ -115,11 +115,11 @@ export default function Home() {
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
       const valuesSolar = solarData.map((item) => item.solar_total_kW);
-      const totalValueph1 = 6000;
+      const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
       const totalValueSolar = valuesSolar.reduce((acc, curr) => acc + curr, 0);
       const remainingCapacity = 9650 + 14400 - 25675;
-      const percentageUsedph1 = ((6000 / 9600) * 100).toFixed(1);
+      const percentageUsedph1 = ((totalValueph1 / 9600) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 14400) * 100).toFixed(1);
       const percentageUsedSolar = ((totalValueSolar / 1625) * 100).toFixed(1);
       setPercentageUsedDataEPH1(percentageUsedph1);
@@ -133,7 +133,7 @@ export default function Home() {
           datasets: [
             {
               label: "Data from API",
-              data: [9650, 14400, 4625],
+              data: [totalValueph1, totalValueph2, totalValueSolar],
               backgroundColor: ["#384C6B", "#C09741", "#9595B7"],
             },
           ],
@@ -256,7 +256,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {percentageUsedDataEPH1}%
+                    {/* {percentageUsedDataEPH1}% */}
                   </div>
                   <div
                     style={{
