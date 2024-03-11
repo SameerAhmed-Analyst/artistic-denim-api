@@ -149,7 +149,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.turbinekw);
-      const percentageUsed = initializeChart("turbine", values, 5500);
+      const percentageUsed = initializeChart("turbine", values, 4760);
       setPercentageUsedDataTR1(percentageUsed);
     }
   }, [data]);
@@ -310,7 +310,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  5600 total capacity in KW
+                  4760 total capacity in KW
                 </p>
               </div>
             </CardContent>
