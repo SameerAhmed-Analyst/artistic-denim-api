@@ -310,7 +310,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  5500 total capacity in KW
+                  5600 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -709,7 +709,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  2125 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -766,9 +766,9 @@ const Page = () => {
                     </div>
                   );
                 })}
-                {/* <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
-                </p> */}
+                <p className="text-xs text-muted-foreground">
+                  4250 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -824,9 +824,9 @@ const Page = () => {
                     </div>
                   );
                 })}
-                {/* <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
-                </p> */}
+                <p className="text-xs text-muted-foreground">
+                  2125 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -882,9 +882,9 @@ const Page = () => {
                     </div>
                   );
                 })}
-                {/* <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
-                </p> */}
+                <p className="text-xs text-muted-foreground">
+                  5100 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -940,9 +940,9 @@ const Page = () => {
                     </div>
                   );
                 })}
-                {/* <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
-                </p> */}
+                <p className="text-xs text-muted-foreground">
+                  5100 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -998,9 +998,9 @@ const Page = () => {
                     </div>
                   );
                 })}
-                {/* <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
-                </p> */}
+                <p className="text-xs text-muted-foreground">
+                  1275 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
