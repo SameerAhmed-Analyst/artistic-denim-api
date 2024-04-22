@@ -256,7 +256,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {/* {percentageUsedDataEPH1}% */}
+                    {percentageUsedDataEPH1}%
                   </div>
                   <div
                     style={{
