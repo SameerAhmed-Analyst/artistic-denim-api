@@ -125,7 +125,7 @@ export default function Home() {
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
       setPercentageUsedDataSolar(percentageUsedSolar);
-      setTotalSolar(totalValueSolar)
+      setTotalSolar(totalValueSolar);
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -209,7 +209,7 @@ export default function Home() {
       });
       chart.update(); // Update the chart to apply changes
     }
-  }, [data, ]);
+  }, [data]);
 
   return (
     <>
@@ -288,7 +288,9 @@ export default function Home() {
                   >
                     {data.map((item) =>
                       (
-                        (item.powerhouse1gen + item.powerhouse2gen + totalSolar) /
+                        (item.powerhouse1gen +
+                          item.powerhouse2gen +
+                          totalSolar) /
                         1000
                       ).toFixed(1)
                     )}{" "}
@@ -312,45 +314,52 @@ export default function Home() {
                 </div>
               </CardContent>
               <div className="">
-                <div className="flex">
-                  <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
-                  <p>Power House 1</p>
-                  {data.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {(item.powerhouse1gen / 1000).toFixed(1)} MW
-                      </p>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <div className="bg-[#C09741] w-10 h-5 m-1"></div>
-                  <p>Power House 2</p>
-                  {data.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {(item.powerhouse2gen / 1000).toFixed(1)} MW
-                      </p>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
-                  <p>Solar Panels</p>
-                  {solarData.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {(item.solar_total_kW/1000).toFixed(2)} MW
-                      </p>
-                    );
-                  })}
-                </div>
+                <a href="/powerhouse1">
+                  <div className="flex">
+                    <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
+                    <p>Power House 1</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {(item.powerhouse1gen / 1000).toFixed(1)} MW
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
+                <a href="/powerhouse2">
+                  <div className="flex">
+                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
+                    <p>Power House 2</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {(item.powerhouse2gen / 1000).toFixed(1)} MW
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
+                <a href="/solar">
+                  <div className="flex">
+                    <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
+                    <p>Solar Panels</p>
+                    {solarData.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {(item.solar_total_kW / 1000).toFixed(2)} MW
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
                 <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Power Generation</p>
                   {data.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>
-                        {((item.totalpowergen + totalSolar) / 1000).toFixed(1)} MW
+                        {((item.totalpowergen + totalSolar) / 1000).toFixed(1)}{" "}
+                        MW
                       </p>
                     );
                   })}
@@ -449,39 +458,45 @@ export default function Home() {
                 </div>
               </CardContent>
               <div className="">
-                <div className="flex">
-                  <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
-                  <p>Steam Power House 1</p>
-                  {data.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {item.steamph1} T/H
-                      </p>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <div className="bg-[#E28A2B] w-10 h-5 m-1"></div>
-                  <p>Steam Power House 2</p>
-                  {data.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {item.steamph2} T/H
-                      </p>
-                    );
-                  })}
-                </div>
-                <div className="flex">
-                  <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
-                  <p>Coal Boiler</p>
-                  {data.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {item.cb} T/H
-                      </p>
-                    );
-                  })}
-                </div>
+                <a href="/steamph1">
+                  <div className="flex">
+                    <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
+                    <p>Steam Power House 1</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {item.steamph1} T/H
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
+                <a href="/steamph2">
+                  <div className="flex">
+                    <div className="bg-[#E28A2B] w-10 h-5 m-1"></div>
+                    <p>Steam Power House 2</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {item.steamph2} T/H
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
+                <a href="/steamph3">
+                  <div className="flex">
+                    <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
+                    <p>Coal Boiler</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {item.cb} T/H
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
                 <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Steam Generation</p>
                   {data.map((item) => {
@@ -518,9 +533,13 @@ export default function Home() {
                   <div className="w-[69.58px]">Capative</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">{item.ngas_psi}</div>
+                      <div key={item.id} className="w-[50.63px]">
+                        {item.ngas_psi}
+                      </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">{item.ngas_mbar}</div>
+                      <div key={item.id} className="w-[53.64px]">
+                        {item.ngas_mbar}
+                      </div>
                       <div>mBAR</div>
                     </>
                   ))}
@@ -544,9 +563,13 @@ export default function Home() {
                   <div className="w-[69.58px]">RLNG</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">{item.rlng_psi}</div>
+                      <div key={item.id} className="w-[50.63px]">
+                        {item.rlng_psi}
+                      </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">{item.rlng_mbar}</div>
+                      <div key={item.id} className="w-[53.64px]">
+                        {item.rlng_mbar}
+                      </div>
                       <div>mBAR</div>
                     </>
                   ))}
@@ -555,10 +578,14 @@ export default function Home() {
                   <div className="w-[69.58px]">FGC</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">{item.fgc}</div>
+                      <div key={item.id} className="w-[50.63px]">
+                        {item.fgc}
+                      </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">{item.fgc_mbar}</div>
-                      <div>mBAR</div>
+                      <div key={item.id} className="w-[53.64px]">
+                        {item.fgc_mbar}
+                      </div>
+                      <div>&nbsp;&nbsp;&nbsp;BAR</div>
                     </>
                   ))}
                 </div>
