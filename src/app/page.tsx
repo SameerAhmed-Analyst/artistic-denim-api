@@ -256,7 +256,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {percentageUsedDataEPH1}%
+                    {/* {percentageUsedDataEPH1}% */}
                   </div>
                   <div
                     style={{
@@ -270,7 +270,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {percentageUsedDataEPH2}%
+                    {/* {percentageUsedDataEPH2}% */}
                   </div>
                   <div
                     style={{
@@ -306,7 +306,7 @@ export default function Home() {
                       fontWeight: "bold",
                     }}
                   >
-                    {percentageUsedDataSolar}%
+                    {/* {percentageUsedDataSolar}% */}
                   </div>
                   <canvas id="electricalph" width="200" height="200" />
                 </div>
@@ -396,7 +396,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {percentageUsedDataPH1}%
+                    {/* {percentageUsedDataPH1}% */}
                   </div>
                   <div
                     style={{
@@ -410,7 +410,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {percentageUsedDataPH2}%
+                    {/* {percentageUsedDataPH2}% */}
                   </div>
                   <div
                     style={{
@@ -443,7 +443,7 @@ export default function Home() {
                       textAlign: "center",
                     }}
                   >
-                    {percentageUsedDataCoal}%
+                    {/* {percentageUsedDataCoal}% */}
                   </div>
                   <canvas id="powerhouse2gen" width="200" height="200" />
                 </div>
