@@ -1,107 +1,14 @@
-import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import CustomCard from "@/components/customcard";
-import Image from "next/image";
+import MachineCategoryCard from "@/components/MachineCategoryCard";
 
 const page = () => {
   return (
     <>
-      <div className="mt-10 grid grid-cols-1">
-        <Card className="rounded-md m-2 p-2 bg-black">
-          <CardContent className="flex justify-between pb-0">
-            <p className="text-white">Weaving</p>
-            <p className="text-white">71</p>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none m-2 p-2">
-          <CardContent className="flex justify-evenly pb-0">
-            <div className=" flex items-center space-x-4 p-2">
-              <Image
-                src={"/air-jet-loom-500x500.jpg"}
-                width={100}
-                height={100}
-                alt={""}
-              />
-              <div className="flex-1 space-y-1">
-                <p className="text-sm font-semibold leading-none">Weaving</p>
-                <p className="text-sm text-muted-foreground">
-                  Currently 120 Machines Working.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none m-2 p-2">
-          <CardContent className="flex justify-evenly pb-0">
-            <div className=" flex items-center space-x-4 p-2">
-              <Image
-                src={"/rebeamr-big-removebg-preview.png"}
-                width={100}
-                height={100}
-                alt={""}
-              />
-              <div className="flex-1 space-y-1">
-                <p className="text-sm font-semibold leading-none">Rebeamer</p>
-                <p className="text-sm text-muted-foreground">
-                  Currently 80 Machines Working.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none m-2 p-2">
-          <CardContent className="flex justify-evenly pb-0">
-            <div className="flex items-center space-x-4 p-2">
-              <Image
-                className="object-none"
-                src={"/mercerize.png"}
-                width={100}
-                height={100}
-                alt={""}
-              />
-              <div className="flex-1 space-y-1">
-                <p className="text-sm font-semibold leading-none">Mercerize</p>
-                <p className="text-sm text-muted-foreground">
-                  Currently 2 Machines Working.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="rounded-none m-2 p-2">
-          <CardContent className="flex justify-evenly pb-0">
-            <div className="flex items-center space-x-4 p-2">
-              <Image
-                className=""
-                src={"/sizing.png"}
-                width={100}
-                height={50}
-                alt={""}
-              />
-              <div className="flex-1 space-y-1">
-                <p className="text-sm font-semibold leading-none">Sizing</p>
-                <p className="text-sm text-muted-foreground">
-                  Currently 2 Machines Working.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-        <CustomCard title={"Weaving"} active={120} total={300} />
-        <CustomCard title={"Dyeing"} active={2} total={2} />
-        <CustomCard title={"Rebeamer"} active={24} total={30} />
-        <CustomCard title={"Ball Warping"} active={1} total={1} />
-        <CustomCard title={"Mercerize"} active={1} total={1} />
-        <CustomCard title={"Sizing"} active={5} total={6} />
+      <div className="mt-3 grid grid-cols-1">
+        <MachineCategoryCard title={"Weaving"} active={120} total={340} image="loom.jpg" />
+        <MachineCategoryCard title={"Rebeamer"} active={80} total={82} image="rebeamer.png" />
+        <MachineCategoryCard title={"Mercerize"} active={2} total={2} image="mercerize.png" />
+        <MachineCategoryCard title={"Sizing"} active={2} total={2} image="sizing.png" />
+        <MachineCategoryCard title={"Ball Warping"} active={120} total={340} image="loom.jpg" />
       </div>
     </>
   );
