@@ -247,7 +247,7 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <a href="/status" className="text-sm font-semibold leading-6 text-white">
             Status
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-white">
@@ -356,7 +356,7 @@ export default function Navbar() {
                   )}
                 </Disclosure>
                 <a
-                  href="#"
+                  href="/status"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-700"
                 >
                   Status
