@@ -75,6 +75,25 @@ const page = () => {
             </div>
           </CardContent>
         </Card>
+        <Card className="rounded-none m-2 p-2">
+          <CardContent className="flex justify-evenly pb-0">
+            <div className="flex items-center space-x-4 p-2">
+              <Image
+                className=""
+                src={"/sizing.png"}
+                width={100}
+                height={50}
+                alt={""}
+              />
+              <div className="flex-1 space-y-1">
+                <p className="text-sm font-semibold leading-none">Sizing</p>
+                <p className="text-sm text-muted-foreground">
+                  Currently 2 Machines Working.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
         <CustomCard title={"Weaving"} active={120} total={300} />
