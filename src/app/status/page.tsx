@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import CustomCard from '@/components/customcard'
+import CustomCard from "@/components/customcard";
 import Image from "next/image";
 
 const page = () => {
@@ -40,20 +40,7 @@ const page = () => {
         </Card>
       </div>
       <div className="grid grid-cols-2">
-        <Card className="rounded-none m-2 p-2">
-          <CardContent className="pb-0 space-y-2">
-            <p className="text-base text-center font-semibold leading-none">
-              Weaving
-            </p>
-            <div className="flex justify-center space-x-1">
-              <span className="h-2 w-2 translate-y-1.5 rounded-full bg-green-600" />
-              <p className="text-sm text-muted-foreground">
-                Active 85
-                <span className="text-sm text-muted-foreground">/300</span>
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+        <CustomCard title={"Weaving"} active={120} total={300} />
         <CustomCard title={"Dyeing"} active={2} total={2} />
         <CustomCard title={"Rebeamer"} active={24} total={30} />
         <CustomCard title={"Ball Warping"} active={1} total={1} />
