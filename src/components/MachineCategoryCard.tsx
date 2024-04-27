@@ -18,7 +18,7 @@ const MachineCategoryCard = ({
   return (
     <Card className="rounded-none m-2 p-2">
       <CardContent className="flex justify-evenly pb-0">
-        <div className=" flex items-center space-x-4 p-2">
+        <div className=" flex items-center space-x-4 p-2 h-20">
           <Link href={`/status/${title.toLocaleLowerCase()}`} >
             <Image src={"/" + image} width={100} height={50} alt={""} />
           </Link>
