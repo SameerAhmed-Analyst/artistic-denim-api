@@ -103,6 +103,39 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
+   // Testing new thing
+  //  const outsideTextLabels = {
+  //   id: 'outsideTextLabels',
+  //   afterDatasetsDraw(chart, args, plugins) {
+  //     const { ctx, data } = chart;
+  
+  //     const xCenter = chart.getDatasetMeta(0).data[0].x;
+  //     const yCenter = chart.getDatasetMeta(0).data[0].y;
+  //     const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius - 20;
+  
+  //     chart.getDatasetMeta(0).data.forEach((dataPoint, index) => {
+  //       const value = data.datasets[0].data[index];
+  //       console.log(value)
+  //       if (value !== 0 && value >= 1) {
+  //         const offset = dataPoint.options.offset;
+  //         const startAngle = dataPoint.startAngle;
+  //         const endAngle = dataPoint.endAngle;
+  //         const centerAngle = (startAngle + endAngle) / 2;
+  //         const xCoor = (outerRadius + offset) * Math.cos(centerAngle);
+  //         const yCoor = (outerRadius + offset) * Math.sin(centerAngle);
+  
+  //         ctx.save();
+  //         ctx.translate(xCenter, yCenter);
+  //         ctx.font = 'bold 14px sans-serif';
+  //         ctx.textAlign = 'center';
+  //         ctx.textBaseline = 'middle';
+  //         ctx.fillText(value, xCoor, yCoor);
+  //         ctx.restore();
+  //       }
+  //     });
+  //   }
+  // };
+  
   useEffect(() => {
     if (data.length > 0 && solarData.length > 0) {
       const ctx = document.getElementById("electricalph") as HTMLCanvasElement;
@@ -132,7 +165,7 @@ export default function Home() {
         data: {
           datasets: [
             {
-              label: "Data from API",
+              label: "D",
               data: [totalValueph1, totalValueph2, totalValueSolar],
               backgroundColor: ["#384C6B", "#C09741", "#9595B7"],
             },
@@ -152,6 +185,9 @@ export default function Home() {
           },
           animation: false,
         },
+        plugins: [
+          // outsideTextLabels
+        ]
       });
       chart.update(); // Update the chart to apply changes
     }
@@ -206,6 +242,9 @@ export default function Home() {
           },
           animation: false,
         },
+        plugins: [
+          // outsideTextLabels
+        ]
       });
       chart.update(); // Update the chart to apply changes
     }
@@ -338,6 +377,20 @@ export default function Home() {
                         </p>
                       );
                     })}
+                  </div>
+                </a>
+                <a href="/powerhouse3">
+                  <div className="flex">
+                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
+                    <p>Power House 3</p>
+                    0 MW
+                    {/* {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {(item.powerhouse2gen / 1000).toFixed(1)} MW
+                        </p>
+                      );
+                    })} */}
                   </div>
                 </a>
                 <a href="/solar">
