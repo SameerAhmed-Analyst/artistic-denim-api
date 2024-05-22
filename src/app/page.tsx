@@ -381,9 +381,9 @@ export default function Home() {
                 </a>
                 <a href="/powerhouse3">
                   <div className="flex">
-                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
+                    <div className="bg-[#a75281] w-10 h-5 m-1"></div>
                     <p>Power House 3</p>
-                    0 MW
+                    <p className="ml-auto mr-5">0 MW</p>
                     {/* {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
