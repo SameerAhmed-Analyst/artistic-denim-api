@@ -113,35 +113,40 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.KE_KW);
+      // const values = data.map((item) => item.KE_KW);
+      const values: any = 0
       const percentageUsed = initializeChart("engine1", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.CAT_KW);
+      // const values = data.map((item) => item.CAT_KW);
+      const values: any = 0
       const percentageUsed = initializeChart("engine2", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.MAN_KW);
+      // const values = data.map((item) => item.MAN_KW);
+      const values: any = 0
       const percentageUsed = initializeChart("engine3", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.MAK1_KW);
+      // const values = data.map((item) => item.MAK1_KW);
+      const values: any = 0
       const percentageUsed = initializeChart("engine4", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.MAK2_KW);
+      // const values = data.map((item) => item.MAK2_KW);
+      const values: any = 0
       const percentageUsed = initializeChart("engine5", values, 900);
     }
   }, [data]);
@@ -150,28 +155,32 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.Takeoff1kw);
+      // const values = data.map((item) => item.Takeoff1kw);
+      const values: any = 0
       const percentageUsed = initializeChart("takeoff1", values, 1500);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.Takeoff2kw);
+      // const values = data.map((item) => item.Takeoff2kw);
+      const values: any = 0
       const percentageUsed = initializeChart("takeoff2", values, 1500);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.Takeoff3kw);
+      // const values = data.map((item) => item.Takeoff3kw);
+      const values: any = 0
       const percentageUsed = initializeChart("takeoff3", values, 1250);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.Takeoff4kw);
+      // const values = data.map((item) => item.Takeoff4kw);
+      const values: any = 0
       const percentageUsed = initializeChart("takeoff4", values, 1250);
     }
   }, [data]);
