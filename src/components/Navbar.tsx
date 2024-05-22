@@ -250,9 +250,6 @@ export default function Navbar() {
           <a href="/status" className="text-sm font-semibold leading-6 text-white">
             Status
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Features
-          </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {isLoggedIn ? (
@@ -360,12 +357,6 @@ export default function Navbar() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-700"
                 >
                   Status
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-700"
-                >
-                  Features
                 </a>
               </div>
               <div className="py-6">
