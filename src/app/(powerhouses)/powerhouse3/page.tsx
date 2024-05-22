@@ -6,30 +6,26 @@ import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
-export interface EngineData {
+interface PowerData {
   id: number;
-  engine1kw: number;
-  engine1kwh: number;
-  engine2kw: number;
-  engine2kwh: number;
-  engine3kw: number;
-  engine3kwh: number;
-  engine4kw: number;
-  engine4kwh: number;
-  engine5kw: number;
-  engine5kwh: number;
-  engine6kw: number;
-  engine6kwh: number;
-  engine7kw: number;
-  engine7kwh: number;
-  engine8kw: number;
-  engine8kwh: number;
-  takeoff1kw: number;
-  takeoff1kwh: number;
-  takeoff2kw: number;
-  takeoff2kwh: number;
-  takeoff3kw: number;
-  takeoff3kwh: number;
+  KE_KW: number;
+  KE_KWH: number;
+  CAT_KW: number;
+  CAT_KWH: number;
+  MAN_KW: number;
+  MAN_KWH: number;
+  MAK1_KW: number;
+  MAK1_KWH: number;
+  MAK2_KW: number;
+  MAK2_KWH: number;
+  Takeoff1kw: number;
+  Takeoff1kwh: number;
+  Takeoff2kw: number;
+  Takeoff2kwh: number;
+  Takeoff3kw: number;
+  Takeoff3kwh: number;
+  Takeoff4kw: number;
+  Takeoff4kwh: number;
 }
 
 async function getData() {
@@ -52,7 +48,7 @@ async function getData() {
 }
 
 const Page = () => {
-  const [data, setData] = useState<EngineData[]>([]);
+  const [data, setData] = useState<PowerData[]>([]);
 
   const refreshList = async () => {
     const result = await getData();
@@ -117,43 +113,36 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.engine1kw);
+      const values = data.map((item) => item.KE_KW);
       const percentageUsed = initializeChart("engine1", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.engine2kw);
+      const values = data.map((item) => item.CAT_KW);
       const percentageUsed = initializeChart("engine2", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.engine3kw);
+      const values = data.map((item) => item.MAN_KW);
       const percentageUsed = initializeChart("engine3", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.engine4kw);
+      const values = data.map((item) => item.MAK1_KW);
       const percentageUsed = initializeChart("engine4", values, 900);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.engine5kw);
+      const values = data.map((item) => item.MAK2_KW);
       const percentageUsed = initializeChart("engine5", values, 900);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (data.length > 0) {
-      const values = data.map((item) => item.engine6kw);
-      const percentageUsed = initializeChart("engine6", values, 900);
     }
   }, [data]);
 
@@ -161,22 +150,29 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.takeoff1kw);
+      const values = data.map((item) => item.Takeoff1kw);
       const percentageUsed = initializeChart("takeoff1", values, 1500);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.takeoff2kw);
+      const values = data.map((item) => item.Takeoff2kw);
       const percentageUsed = initializeChart("takeoff2", values, 1500);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.takeoff3kw);
+      const values = data.map((item) => item.Takeoff3kw);
       const percentageUsed = initializeChart("takeoff3", values, 1250);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.Takeoff4kw);
+      const percentageUsed = initializeChart("takeoff4", values, 1250);
     }
   }, [data]);
 
@@ -232,8 +228,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine1kw} kW</p>
-                      <p>Energy {item.engine1kwh} kWh</p>
+                      <p>Load {item.KE_KW} kW</p>
+                      <p>Energy {item.KE_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -288,8 +284,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine2kw} kW</p>
-                      <p>Energy {item.engine2kwh} kWh</p>
+                      <p>Load {item.CAT_KW} kW</p>
+                      <p>Energy {item.CAT_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -344,8 +340,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine3kw} kW</p>
-                      <p>Energy {item.engine3kwh} kWh</p>
+                      <p>Load {item.MAN_KW} kW</p>
+                      <p>Energy {item.MAN_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -400,8 +396,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine4kw} kW</p>
-                      <p>Energy {item.engine4kwh} kWh</p>
+                      <p>Load {item.MAK1_KW} kW</p>
+                      <p>Energy {item.MAK1_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -456,8 +452,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine5kw} kW</p>
-                      <p>Energy {item.engine5kwh} kWh</p>
+                      <p>Load {item.MAK2_KW} kW</p>
+                      <p>Energy {item.MAK2_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -512,8 +508,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine6kw} kW</p>
-                      <p>Energy {item.engine6kwh} kWh</p>
+                      <p>Load {item.MAK2_KW} kW</p>
+                      <p>Energy {item.MAK2_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -530,9 +526,7 @@ const Page = () => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AM-18
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AM-18</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -575,8 +569,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.takeoff1kw} kW</p>
-                      <p>Energy {item.takeoff1kwh} kWh</p>
+                      <p>Load {item.Takeoff1kw} kW</p>
+                      <p>Energy {item.Takeoff1kwh} kWh</p>
                     </div>
                   );
                 })}
@@ -588,9 +582,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AM-17B
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AM-17B</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -633,8 +625,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.takeoff2kw} kW</p>
-                      <p>Energy {item.takeoff2kwh} kWh</p>
+                      <p>Load {item.Takeoff2kw} kW</p>
+                      <p>Energy {item.Takeoff2kwh} kWh</p>
                     </div>
                   );
                 })}
@@ -646,9 +638,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AUXILARY
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AUXILARY</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -691,8 +681,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.takeoff3kw} kW</p>
-                      <p>Energy {item.takeoff3kwh} kWh</p>
+                      <p>Load {item.Takeoff3kw} kW</p>
+                      <p>Energy {item.Takeoff3kwh} kWh</p>
                     </div>
                   );
                 })}
@@ -704,9 +694,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AM-17A
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AM-17A</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -749,8 +737,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.takeoff3kw} kW</p>
-                      <p>Energy {item.takeoff3kwh} kWh</p>
+                      <p>Load {item.Takeoff4kw} kW</p>
+                      <p>Energy {item.Takeoff4kwh} kWh</p>
                     </div>
                   );
                 })}
