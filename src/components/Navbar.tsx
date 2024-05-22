@@ -31,6 +31,12 @@ const products = [
     icon: CursorArrowRaysIcon,
   },
   {
+    name: "Power House 3",
+    description: "Speak directly to your customers",
+    href: "powerhouse3",
+    icon: CursorArrowRaysIcon,
+  },
+  {
     name: "Solar",
     description: "Speak directly to your customers",
     href: "solar",
