@@ -560,7 +560,7 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                AM-18/Load Takeoff-1
+                AM-18
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -618,7 +618,7 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                AM-17B/Load Takeoff-2
+                AM-17B
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -676,7 +676,7 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                AUXILIARY/Load Takeoff-3
+                AUXILARY
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -734,7 +734,7 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                AM-17A/Load Takeoff-3
+                AM-17A
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
