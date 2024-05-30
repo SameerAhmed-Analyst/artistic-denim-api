@@ -135,7 +135,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine1kw);
-      const percentageUsed = initializeChart("engine1", values, 900);
+      const percentageUsed = initializeChart("engine1", values, 1500);
       setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
@@ -143,7 +143,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine2kw);
-      const percentageUsed = initializeChart("engine2", values, 900);
+      const percentageUsed = initializeChart("engine2", values, 1500);
       setPercentageUsedDataE2(percentageUsed);
     }
   }, [data]);
@@ -151,7 +151,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine3kw);
-      const percentageUsed = initializeChart("engine3", values, 900);
+      const percentageUsed = initializeChart("engine3", values, 1500);
       setPercentageUsedDataE3(percentageUsed);
     }
   }, [data]);
@@ -159,7 +159,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine4kw);
-      const percentageUsed = initializeChart("engine4", values, 900);
+      const percentageUsed = initializeChart("engine4", values, 1000);
       setPercentageUsedDataE4(percentageUsed);
     }
   }, [data]);
