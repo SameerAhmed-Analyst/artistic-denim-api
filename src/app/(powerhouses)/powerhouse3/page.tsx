@@ -143,7 +143,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.CAT_KW);
-      const percentageUsed = initializeChart("cat", values, 900);
+      const percentageUsed = initializeChart("cat", values, 1500);
       setPercentageUsedDataCAT(percentageUsed);
     }
   }, [data]);
@@ -177,7 +177,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff1kw);
-      const percentageUsed = initializeChart("takeoff1", values, 1500);
+      const percentageUsed = initializeChart("takeoff1", values, 0);
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -379,7 +379,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -596,7 +596,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {percentageUsedDataT1}%
+                  {data.map(item=>item.Takeoff1kw.toFixed(1))}
                 </div>
                 <canvas id="takeoff1" width="100" height="100" />
               </div>
@@ -610,7 +610,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  {/* 1500 total capacity in KW */}
                 </p>
               </div>
             </CardContent>
@@ -668,7 +668,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  {/* 1500 total capacity in KW */}
                 </p>
               </div>
             </CardContent>
@@ -726,7 +726,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1250 total capacity in KW
+                  {/* 1250 total capacity in KW */}
                 </p>
               </div>
             </CardContent>
@@ -770,7 +770,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {percentageUsedDataT4}%
+                  {data.map(item=>item.Takeoff4kw.toFixed(1))}
                 </div>
                 <canvas id="takeoff4" width="100" height="100" />
               </div>
@@ -784,7 +784,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1250 total capacity in KW
+                  {/* 1250 total capacity in KW */}
                 </p>
               </div>
             </CardContent>
