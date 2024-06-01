@@ -264,7 +264,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -320,7 +320,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -376,7 +376,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -432,7 +432,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1000 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -496,6 +496,62 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataE6}%
+                </div>
+                <canvas id="engine6" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.engine6kw} kW</p>
+                      <p>Energy {item.engine6kwh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  900 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">Engine 7</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

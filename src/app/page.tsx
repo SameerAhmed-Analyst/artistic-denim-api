@@ -414,7 +414,7 @@ export default function Home() {
                   {data.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>
-                        {((item.totalpowergen + totalSolar) / 1000).toFixed(1)}{" "}
+                        {((item.totalpowergen + item.powerhouse3gen + totalSolar) / 1000).toFixed(1)}{" "}
                         MW
                       </p>
                     );
