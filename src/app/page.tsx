@@ -148,13 +148,16 @@ export default function Home() {
 
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
+      const valuesph3 = data.map((item) => item.powerhouse3gen);
       const valuesSolar = solarData.map((item) => item.solar_total_kW);
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
+      const totalValueph3 = valuesph3.reduce((acc, curr) => acc + curr, 0);
       const totalValueSolar = valuesSolar.reduce((acc, curr) => acc + curr, 0);
       const remainingCapacity = 9650 + 14400 - 25675;
       const percentageUsedph1 = ((totalValueph1 / 9600) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 14400) * 100).toFixed(1);
+      const percentageUsedph3 = ((totalValueph3 / 14400) * 100).toFixed(1);
       const percentageUsedSolar = ((totalValueSolar / 1625) * 100).toFixed(1);
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
@@ -167,8 +170,8 @@ export default function Home() {
           datasets: [
             {
               label: "D",
-              data: [totalValueph1, totalValueph2, totalValueSolar],
-              backgroundColor: ["#384C6B", "#C09741", "#9595B7"],
+              data: [totalValueph1, totalValueph2, totalValueph3, totalValueSolar],
+              backgroundColor: ["#384C6B", "#a75281", "#C09741", "#9595B7"],
             },
           ],
         },
@@ -369,7 +372,7 @@ export default function Home() {
                 </a>
                 <a href="/powerhouse2">
                   <div className="flex">
-                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
+                    <div className="bg-[#a75281] w-10 h-5 m-1"></div>
                     <p>Power House 2</p>
                     {data.map((item) => {
                       return (
@@ -382,7 +385,7 @@ export default function Home() {
                 </a>
                 <a href="/powerhouse3">
                   <div className="flex">
-                    <div className="bg-[#a75281] w-10 h-5 m-1"></div>
+                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
                     <p>Power House 3</p>
                     {data.map((item) => {
                       return (
