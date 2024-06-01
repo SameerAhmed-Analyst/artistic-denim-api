@@ -9,6 +9,7 @@ interface PowerDataTypes {
   id: number;
   powerhouse1gen: number;
   powerhouse2gen: number;
+  powerhouse3gen: number;
   totalpowergen: number;
   steamph1: number;
   steamph2: number;
@@ -383,14 +384,13 @@ export default function Home() {
                   <div className="flex">
                     <div className="bg-[#a75281] w-10 h-5 m-1"></div>
                     <p>Power House 3</p>
-                    <p className="ml-auto mr-5">0 MW</p>
-                    {/* {data.map((item) => {
+                    {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
-                          {(item.powerhouse2gen / 1000).toFixed(1)} MW
+                          {(item.powerhouse3gen / 1000).toFixed(1)} MW
                         </p>
                       );
-                    })} */}
+                    })}
                   </div>
                 </a>
                 <a href="/solar">
