@@ -185,7 +185,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff2kw);
-      const percentageUsed = initializeChart("takeoff2", values, 1500);
+      const percentageUsed = initializeChart("takeoff2", values, 0);
       setPercentageUsedDataT2(percentageUsed);
     }
   }, [data]);
@@ -193,7 +193,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff3kw);
-      const percentageUsed = initializeChart("takeoff3", values, 1250);
+      const percentageUsed = initializeChart("takeoff3", values, 0);
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
@@ -201,7 +201,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff4kw);
-      const percentageUsed = initializeChart("takeoff4", values, 1250);
+      const percentageUsed = initializeChart("takeoff4", values, 0);
       setPercentageUsedDataT4(percentageUsed);
     }
   }, [data]);
@@ -654,7 +654,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {percentageUsedDataT2}%
+                  {data.map(item=>item.Takeoff2kw.toFixed(1))}
                 </div>
                 <canvas id="takeoff2" width="100" height="100" />
               </div>
@@ -712,7 +712,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {percentageUsedDataT3}%
+                  {data.map(item=>item.Takeoff3kw.toFixed(1))}
                 </div>
                 <canvas id="takeoff3" width="100" height="100" />
               </div>
