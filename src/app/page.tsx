@@ -332,7 +332,8 @@ export default function Home() {
                     {data.map((item) =>
                       (
                         (item.powerhouse1gen +
-                          item.powerhouse2gen +
+                          item.powerhouse2gen + 
+                          item.powerhouse3gen +
                           totalSolar) /
                         1000
                       ).toFixed(1)
