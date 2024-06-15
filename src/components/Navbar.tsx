@@ -389,7 +389,7 @@ export default function Navbar() {
                 )}
               </div>
               <div className="absolute bottom-0 py-6">
-                <p className="text-sm font-semibold leading-6 text-white">Designed by</p>
+                <p className="text-sm font-semibold leading-6 text-white">Designed by <span aria-hidden="true">&rarr;</span></p>
                 <p className="text text-white">Electrical Automation</p>
               </div>
             </div>
