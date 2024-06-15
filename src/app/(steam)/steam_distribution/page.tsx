@@ -42,7 +42,7 @@ async function getData() {
   }
 }
 
-const page = () => {
+const Page = () => {
   const [data, setData] = useState<SteamData[]>([]);
 
   const refreshList = async () => {
@@ -114,4 +114,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
