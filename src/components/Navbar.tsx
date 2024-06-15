@@ -81,6 +81,12 @@ const steams = [
     href: "/steamph3",
     icon: CursorArrowRaysIcon,
   },
+  {
+    name: "Steam Distribution",
+    description: "Speak directly to your customers",
+    href: "/steam_distribution",
+    icon: CursorArrowRaysIcon,
+  },
 ];
 
 const callsToAction = [
@@ -381,6 +387,10 @@ export default function Navbar() {
                     Log in <span aria-hidden="true">&rarr;</span>
                   </a>
                 )}
+              </div>
+              <div className="absolute bottom-0 py-6">
+                <p className="text-sm font-semibold leading-6 text-white">Designed by</p>
+                <p className="text text-white">Electrical Automation</p>
               </div>
             </div>
           </div>
