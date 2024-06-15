@@ -285,7 +285,7 @@ export default function Navbar() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-3/5 overflow-y-auto bg-[#1b2d92] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-3/5 overflow-y-auto bg-[#1b2d92] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 opacity-95">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only text-white">Artistic Milliners</span>
