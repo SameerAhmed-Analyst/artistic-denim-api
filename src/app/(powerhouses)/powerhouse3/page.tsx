@@ -218,7 +218,7 @@ const Page = () => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">KE</CardTitle>
+              <CardTitle className="text-xl font-bold">KE<span className="text-yellow-400">*</span></CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -442,7 +442,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">MAK-1</CardTitle>
+              <CardTitle className="text-xl font-bold">MAK-1<span className="text-yellow-400">*</span></CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -498,7 +498,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">MAK-2</CardTitle>
+              <CardTitle className="text-xl font-bold">MAK-2<span className="text-yellow-400">*</span></CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
