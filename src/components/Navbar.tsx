@@ -133,7 +133,7 @@ export default function Navbar() {
           </a>
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
-              Power Houses
+              Power Generation
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-white"
                 aria-hidden="true"
@@ -312,7 +312,7 @@ export default function Navbar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-blue-700">
-                        Power Houses
+                        Power Generation
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
