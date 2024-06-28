@@ -67,6 +67,7 @@ const Page = () => {
   const [percentageUsedDataE4, setPercentageUsedDataE4] = useState("");
   const [percentageUsedDataE5, setPercentageUsedDataE5] = useState("");
   const [percentageUsedDataE6, setPercentageUsedDataE6] = useState("");
+  const [percentageUsedDataE7, setPercentageUsedDataE7] = useState("");
   const [percentageUsedDataT1, setPercentageUsedDataT1] = useState("");
   const [percentageUsedDataT2, setPercentageUsedDataT2] = useState("");
   const [percentageUsedDataT3, setPercentageUsedDataT3] = useState("");
@@ -180,6 +181,14 @@ const Page = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.engine7kw);
+      const percentageUsed = initializeChart("engine7", values, 900);
+      setPercentageUsedDataE7(percentageUsed);
+    }
+  }, [data]);
+
   // Take Off
 
   useEffect(() => {
@@ -211,6 +220,9 @@ const Page = () => {
       <h1 className="pt-5 text-center text-xl font-bold">
         Power house 1 Generation
       </h1>
+      <p className="text-center pt-2">
+        <span className="bg-yellow-400 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">Under Development</span>
+      </p>
       <div className="p-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
@@ -439,7 +451,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
+              <CardTitle className="text-xl font-bold">Engine 5<span className="text-yellow-400">*</span></CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -495,7 +507,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
+              <CardTitle className="text-xl font-bold">Engine 6<span className="text-yellow-400">*</span></CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -551,7 +563,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Engine 7</CardTitle>
+              <CardTitle className="text-xl font-bold">Engine 7<span className="text-yellow-400">*</span></CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -586,16 +598,16 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {percentageUsedDataE6}%
+                  {percentageUsedDataE7}%
                 </div>
-                <canvas id="engine6" width="100" height="100" />
+                <canvas id="engine7" width="100" height="100" />
               </div>
               <div className="">
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine6kw} kW</p>
-                      <p>Energy {item.engine6kwh} kWh</p>
+                      <p>Load {item.engine7kw} kW</p>
+                      <p>Energy {item.engine7kwh} kWh</p>
                     </div>
                   );
                 })}
@@ -613,7 +625,7 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                Load Takeoff-1
+                Load Takeoff-1<span className="text-yellow-400">*</span>
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
