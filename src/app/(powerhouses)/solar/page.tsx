@@ -137,7 +137,7 @@ const Page = () => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Solar 3</CardTitle>
+              <CardTitle className="text-xl font-bold">Solar LT-3</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -193,7 +193,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Solar 4</CardTitle>
+              <CardTitle className="text-xl font-bold">Solar LT-4</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -249,7 +249,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Solar 5</CardTitle>
+              <CardTitle className="text-xl font-bold">Solar LT-5</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
