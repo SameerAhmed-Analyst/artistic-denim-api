@@ -18,9 +18,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const additionalClasses = "bg-pk-flag bg-cover bg-center bg-fixed h-screen";
+  const combinedClassName = `${inter.className} ${additionalClasses}`;
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={combinedClassName}>
         <NetworkStatus />
         <Navbar />
         {children}

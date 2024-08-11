@@ -410,7 +410,7 @@ export default function Home() {
                     })}
                   </div>
                 </a>
-                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
+                <div className="flex bg-[#01411c] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Power Generation</p>
                   {data.map((item) => {
                     return (
@@ -554,7 +554,7 @@ export default function Home() {
                     })}
                   </div>
                 </a>
-                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
+                <div className="flex bg-[#01411c] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Steam Generation</p>
                   {data.map((item) => {
                     return (

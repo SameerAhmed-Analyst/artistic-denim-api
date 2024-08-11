@@ -7,8 +7,13 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    // colors: {
+    //   'pk-day': '#01411c',
+    //   'mycolor': '#1b2d92',
+    // },
     extend: {
       backgroundImage: {
+        'pk-flag': "url('/pk-flag-op.png')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
