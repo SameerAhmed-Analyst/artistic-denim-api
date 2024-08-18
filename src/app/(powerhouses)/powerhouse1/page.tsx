@@ -168,7 +168,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine5kw);
-      const percentageUsed = initializeChart("engine5", values, 900);
+      const percentageUsed = initializeChart("engine5", values, 1000);
       setPercentageUsedDataE5(percentageUsed);
     }
   }, [data]);
@@ -176,7 +176,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine6kw);
-      const percentageUsed = initializeChart("engine6", values, 900);
+      const percentageUsed = initializeChart("engine6", values, 1100);
       setPercentageUsedDataE6(percentageUsed);
     }
   }, [data]);
@@ -184,7 +184,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine7kw);
-      const percentageUsed = initializeChart("engine7", values, 900);
+      const percentageUsed = initializeChart("engine7", values, 1000);
       setPercentageUsedDataE7(percentageUsed);
     }
   }, [data]);
@@ -194,7 +194,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff1kw);
-      const percentageUsed = initializeChart("takeoff1", values, 1500);
+      const percentageUsed = initializeChart("takeoff1", values, 2504);
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -202,7 +202,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff2kw);
-      const percentageUsed = initializeChart("takeoff2", values, 1500);
+      const percentageUsed = initializeChart("takeoff2", values, 2504);
       setPercentageUsedDataT2(percentageUsed);
     }
   }, [data]);
@@ -210,7 +210,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff3kw);
-      const percentageUsed = initializeChart("takeoff3", values, 1250);
+      const percentageUsed = initializeChart("takeoff3", values, 2003);
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
@@ -500,7 +500,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1000 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -556,7 +556,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1100 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -612,7 +612,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1000 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -675,7 +675,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  2504 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -733,7 +733,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  2504 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -791,7 +791,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1250 total capacity in KW
+                  2003 total capacity in KW
                 </p>
               </div>
             </CardContent>

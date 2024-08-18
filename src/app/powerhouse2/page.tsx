@@ -149,7 +149,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.turbinekw);
-      const percentageUsed = initializeChart("turbine", values, 4760);
+      const percentageUsed = initializeChart("turbine", values, 5500);
       setPercentageUsedDataTR1(percentageUsed);
     }
   }, [data]);
@@ -207,7 +207,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff4kw);
-      const percentageUsed = initializeChart("takeoff4", values, 2125);
+      const percentageUsed = initializeChart("takeoff4", values, 2500);
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -215,7 +215,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff5kw);
-      const percentageUsed = initializeChart("takeoff5", values, 4250);
+      const percentageUsed = initializeChart("takeoff5", values, 2500);
       setPercentageUsedDataT2(percentageUsed);
     }
   }, [data]);
@@ -223,7 +223,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff6kw);
-      const percentageUsed = initializeChart("takeoff6", values, 2125);
+      const percentageUsed = initializeChart("takeoff6", values, 2500);
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
@@ -231,7 +231,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff7kw);
-      const percentageUsed = initializeChart("takeoff7", values, 5100);
+      const percentageUsed = initializeChart("takeoff7", values, 2500);
       setPercentageUsedDataT4(percentageUsed);
     }
   }, [data]);
@@ -239,7 +239,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff8kw);
-      const percentageUsed = initializeChart("takeoff8", values, 5100);
+      const percentageUsed = initializeChart("takeoff8", values, 5000);
       setPercentageUsedDataT5(percentageUsed);
     }
   }, [data]);
@@ -247,7 +247,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.AUX_LV_Takeoff);
-      const percentageUsed = initializeChart("aux", values, 1275);
+      const percentageUsed = initializeChart("aux", values, 1565);
       setPercentageUsedDataT6(percentageUsed);
     }
   }, [data]);
