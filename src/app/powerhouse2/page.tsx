@@ -304,8 +304,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.turbinekw} kW</p>
-                      <p>Energy {item.turbinekwh} kWh</p>
+                      <p>Load {Math.trunc(item.turbinekw)} kW</p>
+                      <p>Energy {Math.trunc(item.turbinekwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -360,8 +360,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine1kw} kW</p>
-                      <p>Energy {item.engine1kwh} kWh</p>
+                      <p>Load {Math.trunc(item.engine1kw)} kW</p>
+                      <p>Energy {Math.trunc(item.engine1kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -416,8 +416,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine2kw} kW</p>
-                      <p>Energy {item.engine2kwh} kWh</p>
+                      <p>Load {Math.trunc(item.engine2kw)} kW</p>
+                      <p>Energy {Math.trunc(item.engine2kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -472,8 +472,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine3kw} kW</p>
-                      <p>Energy {item.engine3kwh} kWh</p>
+                      <p>Load {Math.trunc(item.engine3kw)} kW</p>
+                      <p>Energy {Math.trunc(item.engine3kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -528,8 +528,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine4kw} kW</p>
-                      <p>Energy {item.engine4kwh} kWh</p>
+                      <p>Load {Math.trunc(item.engine4kw)} kW</p>
+                      <p>Energy {Math.trunc(item.engine4kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -584,8 +584,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine5kw} kW</p>
-                      <p>Energy {item.engine5kwh} kWh</p>
+                      <p>Load {Math.trunc(item.engine5kw)} kW</p>
+                      <p>Energy {Math.trunc(item.engine5kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -640,8 +640,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.engine6kw} kW</p>
-                      <p>Energy {item.engine6kwh} kWh</p>
+                      <p>Load {Math.trunc(item.engine6kw)} kW</p>
+                      <p>Energy {Math.trunc(item.engine6kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -703,8 +703,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.Takeoff4kw} kW</p>
-                      <p>Energy {item.Takeoff4kwh} kWh</p>
+                      <p>Load {Math.trunc(item.Takeoff4kw)} kW</p>
+                      <p>Energy {Math.trunc(item.Takeoff4kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -761,8 +761,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.Takeoff5kw} kW</p>
-                      <p>Energy {item.Takeoff5kwh} kWh</p>
+                      <p>Load {Math.trunc(item.Takeoff5kw)} kW</p>
+                      <p>Energy {Math.trunc(item.Takeoff5kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -819,8 +819,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.Takeoff6kw} kW</p>
-                      <p>Energy {item.Takeoff6kwh} kWh</p>
+                      <p>Load {Math.trunc(item.Takeoff6kw)} kW</p>
+                      <p>Energy {Math.trunc(item.Takeoff6kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -877,8 +877,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.Takeoff7kw} kW</p>
-                      <p>Energy {item.Takeoff7kwh} kWh</p>
+                      <p>Load {Math.trunc(item.Takeoff7kw)} kW</p>
+                      <p>Energy {Math.trunc(item.Takeoff7kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -935,8 +935,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.Takeoff8kw} kW</p>
-                      <p>Energy {item.Takeoff8kwh} kWh</p>
+                      <p>Load {Math.trunc(item.Takeoff8kw)} kW</p>
+                      <p>Energy {Math.trunc(item.Takeoff8kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -993,8 +993,8 @@ const Page = () => {
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.AUX_LV_Takeoff} kW</p>
-                      <p>Energy {item.AUX_LV_KWH} kWh</p>
+                      <p>Load {Math.trunc(item.AUX_LV_Takeoff)} kW</p>
+                      <p>Energy {Math.trunc(item.AUX_LV_KWH)} kWh</p>
                     </div>
                   );
                 })}
