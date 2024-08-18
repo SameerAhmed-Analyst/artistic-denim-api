@@ -310,7 +310,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  4760 total capacity in KW
+                  5500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -709,7 +709,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2125 total capacity in KW
+                  2500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -767,7 +767,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  4250 total capacity in KW
+                  2500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -825,7 +825,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2125 total capacity in KW
+                  2500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -883,7 +883,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  5100 total capacity in KW
+                  2500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -941,7 +941,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  5100 total capacity in KW
+                  5000 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -999,7 +999,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1275 total capacity in KW
+                  1565 total capacity in KW
                 </p>
               </div>
             </CardContent>
