@@ -18,8 +18,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const additionalClasses = "bg-pk-flag bg-cover bg-center bg-fixed h-screen";
-  const combinedClassName = `${inter.className} ${additionalClasses}`;
+  // const additionalClasses = "bg-pk-flag bg-no-repeat bg-cover bg-custom-size-1 bg-center bg-fixed h-screen";
+  const combinedClassName = `${inter.className}`;
   return (
     <html lang="en">
       <body className={combinedClassName}>

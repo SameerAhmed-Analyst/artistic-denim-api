@@ -29,13 +29,21 @@ interface PowerDataTypes {
 interface SolarData {
   id: number;
   solar3_kW: number;
-  solar3_KWh: number;
+  solar3_kWh: number;
   solar4_kW: number;
   solar4_kWh: number;
   solar5_kW: number;
   solar5_kWh: number;
   solar_total_kW: number;
   solar_total_kWh: number;
+  AM17_solar1_kW: number;
+  AM17_solar1_kWh: number;
+  AM17_solar2_kW: number;
+  AM17_solar2_kWh: number;
+  AM17_total_kW: number;
+  AM17_total_kWh: number;
+  AM8_solar_kW: number;
+  AM8_solar_kWh: number;
 }
 
 async function getData() {
@@ -149,7 +157,7 @@ export default function Home() {
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
       const valuesph3 = data.map((item) => item.powerhouse3gen);
-      const valuesSolar = solarData.map((item) => item.solar_total_kW);
+      const valuesSolar = solarData.map((item) => item.solar_total_kW+item.AM17_solar1_kW+item.AM17_solar2_kW+item.AM8_solar_kW);
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
       const totalValueph3 = valuesph3.reduce((acc, curr) => acc + curr, 0);
@@ -404,13 +412,13 @@ export default function Home() {
                     {solarData.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
-                          {(item.solar_total_kW / 1000).toFixed(2)} MW
+                          {((item.solar_total_kW+item.AM17_solar1_kW+item.AM17_solar2_kW+item.AM8_solar_kW) / 1000).toFixed(2)} MW
                         </p>
                       );
                     })}
                   </div>
                 </a>
-                <div className="flex bg-[#01411c] m-[2px] p-1 text-white font-semibold rounded">
+                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Power Generation</p>
                   {data.map((item) => {
                     return (
@@ -554,7 +562,7 @@ export default function Home() {
                     })}
                   </div>
                 </a>
-                <div className="flex bg-[#01411c] m-[2px] p-1 text-white font-semibold rounded">
+                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Steam Generation</p>
                   {data.map((item) => {
                     return (

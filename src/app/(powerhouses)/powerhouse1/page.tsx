@@ -160,7 +160,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine4kw);
-      const percentageUsed = initializeChart("engine4", values, 1000);
+      const percentageUsed = initializeChart("engine4", values, 1200);
       setPercentageUsedDataE4(percentageUsed);
     }
   }, [data]);
@@ -168,7 +168,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine5kw);
-      const percentageUsed = initializeChart("engine5", values, 1000);
+      const percentageUsed = initializeChart("engine5", values, 1200);
       setPercentageUsedDataE5(percentageUsed);
     }
   }, [data]);
@@ -176,7 +176,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.engine6kw);
-      const percentageUsed = initializeChart("engine6", values, 1100);
+      const percentageUsed = initializeChart("engine6", values, 1200);
       setPercentageUsedDataE6(percentageUsed);
     }
   }, [data]);
@@ -220,9 +220,6 @@ const Page = () => {
       <h1 className="pt-5 text-center text-xl font-bold">
         Power house 1 Generation
       </h1>
-      <p className="text-center pt-2">
-        <span className="bg-yellow-400 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">Under Development</span>
-      </p>
       <div className="p-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
@@ -444,14 +441,14 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1000 total capacity in KW
+                  1200 total capacity in KW
                 </p>
               </div>
             </CardContent>
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Engine 5<span className="text-yellow-400">*</span></CardTitle>
+              <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -500,14 +497,14 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1000 total capacity in KW
+                  1200 total capacity in KW
                 </p>
               </div>
             </CardContent>
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Engine 6<span className="text-yellow-400">*</span></CardTitle>
+              <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -556,14 +553,14 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1100 total capacity in KW
+                  1200 total capacity in KW
                 </p>
               </div>
             </CardContent>
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">Engine 7<span className="text-yellow-400">*</span></CardTitle>
+              <CardTitle className="text-xl font-bold">Engine 7</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

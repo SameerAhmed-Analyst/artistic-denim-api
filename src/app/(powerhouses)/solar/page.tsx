@@ -22,6 +22,8 @@ interface SolarData {
   AM17_solar2_kWh: number;
   AM17_total_kW: number;
   AM17_total_kWh: number;
+  AM8_solar_kW: number;
+  AM8_solar_kWh: number;
 }
 
 async function getData() {
@@ -50,6 +52,7 @@ const Page = () => {
   const [percentageUsedDataS5, setPercentageUsedDataS5] = useState("");
   const [percentageUsedDataS1AM17, setPercentageUsedDataS1AM17] = useState("");
   const [percentageUsedDataS2AM17, setPercentageUsedDataS2AM17] = useState("");
+  const [percentageUsedDataSAM8, setPercentageUsedDataSAM8] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -139,7 +142,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.AM17_solar1_kW);
-      const percentageUsed = initializeChart("am17-solar1", values, 500.0);
+      const percentageUsed = initializeChart("am17-solar1", values, 908.0);
       setPercentageUsedDataS1AM17(percentageUsed);
     }
   }, [data]);
@@ -147,8 +150,16 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.AM17_solar2_kW);
-      const percentageUsed = initializeChart("am17-solar2", values, 500.0);
+      const percentageUsed = initializeChart("am17-solar2", values, 750.0);
       setPercentageUsedDataS2AM17(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.AM8_solar_kW);
+      const percentageUsed = initializeChart("am8-solar", values, 925.0);
+      setPercentageUsedDataSAM8(percentageUsed);
     }
   }, [data]);
 
@@ -156,7 +167,7 @@ const Page = () => {
     <div className="">
       <h1 className="pt-5 text-center text-xl font-bold">SOLAR Generation</h1>
       <p className="text-center pt-2">
-        <span className="bg-green-300 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+        <span className="bg-blue-700 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
           AM5 SOLAR
         </span>
       </p>
@@ -333,7 +344,7 @@ const Page = () => {
         </div>
       </div>
       <p className="text-center pt-2">
-        <span className="bg-teal-300 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+        <span className="bg-blue-500 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
           AM17 SOLAR
         </span>
       </p>
@@ -390,7 +401,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  500 total capacity in KW
+                  908 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -446,7 +457,72 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  500 total capacity in KW
+                  750 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+      <p className="text-center pt-2">
+        <span className="bg-blue-300 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+          AM8 SOLAR
+        </span>
+      </p>
+      <div className="p-5">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">AM-8 Solar</CardTitle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataSAM8}%
+                </div>
+                <canvas id="am8-solar" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.AM8_solar_kW} kW</p>
+                      <p>Energy {item.AM8_solar_kWh} kWh</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  925 total capacity in KW
                 </p>
               </div>
             </CardContent>

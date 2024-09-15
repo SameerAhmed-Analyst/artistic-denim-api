@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-// import Hrsg from "@/components/Hrsg";
 
 export interface SteamData {
   id: number;
@@ -215,9 +214,6 @@ const Page = () => {
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p> */}
             </div>
           </CardContent>
         </Card>
@@ -273,9 +269,6 @@ const Page = () => {
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p> */}
             </div>
           </CardContent>
         </Card>
@@ -331,9 +324,6 @@ const Page = () => {
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p> */}
             </div>
           </CardContent>
         </Card>
@@ -389,9 +379,6 @@ const Page = () => {
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p> */}
             </div>
           </CardContent>
         </Card>
@@ -447,13 +434,9 @@ const Page = () => {
                   </div>
                 );
               })}
-              {/* <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p> */}
             </div>
           </CardContent>
         </Card>
-        {/* <Hrsg /> */}
       </div>
     </div>
   );
