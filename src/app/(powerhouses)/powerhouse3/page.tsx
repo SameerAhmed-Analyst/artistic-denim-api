@@ -127,7 +127,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.KE_KW);
-      const percentageUsed = initializeChart("ke", values, 900);
+      const percentageUsed = initializeChart("ke", values, 5000);
       setPercentageUsedDataKE(percentageUsed);
     }
   }, [data]);
@@ -151,7 +151,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAN_KW);
-      const percentageUsed = initializeChart("man", values, 900);
+      const percentageUsed = initializeChart("man", values, 1500);
       setPercentageUsedDataMAN(percentageUsed);
     }
   }, [data]);
@@ -159,7 +159,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAK1_KW);
-      const percentageUsed = initializeChart("mak1", values, 900);
+      const percentageUsed = initializeChart("mak1", values, 1500);
       setPercentageUsedDataMAK1(percentageUsed);
     }
   }, [data]);
@@ -167,7 +167,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAK2_KW);
-      const percentageUsed = initializeChart("mak2", values, 900);
+      const percentageUsed = initializeChart("mak2", values, 1500);
       setPercentageUsedDataMAK2(percentageUsed);
     }
   }, [data]);
@@ -211,14 +211,11 @@ const Page = () => {
       <h1 className="pt-5 text-center text-xl font-bold">
         Power house 3 Generation
       </h1>
-      <p className="text-center">
-        <span className="bg-yellow-400 p-1">Under Development</span>
-      </p>
       <div className="p-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">KE<span className="text-yellow-400">*</span></CardTitle>
+              <CardTitle className="text-xl font-bold">KE</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -267,7 +264,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  5000 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -435,14 +432,14 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">MAK-1<span className="text-yellow-400">*</span></CardTitle>
+              <CardTitle className="text-xl font-bold">MAK-1</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -491,14 +488,14 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">MAK-2<span className="text-yellow-400">*</span></CardTitle>
+              <CardTitle className="text-xl font-bold">MAK-2</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -547,7 +544,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  900 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
