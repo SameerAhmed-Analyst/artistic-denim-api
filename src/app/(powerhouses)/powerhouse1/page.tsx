@@ -194,7 +194,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff1kw);
-      const percentageUsed = initializeChart("takeoff1", values, 2504);
+      const percentageUsed = initializeChart("takeoff1", values, 1850);
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -202,7 +202,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff2kw);
-      const percentageUsed = initializeChart("takeoff2", values, 2504);
+      const percentageUsed = initializeChart("takeoff2", values, 1200);
       setPercentageUsedDataT2(percentageUsed);
     }
   }, [data]);
@@ -210,7 +210,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff3kw);
-      const percentageUsed = initializeChart("takeoff3", values, 2003);
+      const percentageUsed = initializeChart("takeoff3", values, 1150);
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
@@ -622,7 +622,7 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                Load Takeoff-1<span className="text-yellow-400">*</span>
+                Load Takeoff-1
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -672,7 +672,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2504 total capacity in KW
+                  1850 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -730,7 +730,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2504 total capacity in KW
+                  1200 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -788,7 +788,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2003 total capacity in KW
+                  1150 total capacity in KW
                 </p>
               </div>
             </CardContent>
