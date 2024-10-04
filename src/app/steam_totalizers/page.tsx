@@ -10,8 +10,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+interface TotalizerItem {
+  id: number;
+  htp_pad_totalizer: number;
+  monfort_totalizer: number;
+  goller_totalizer: number;
+  jeanologia_totalizer: number;
+  timestamp: string; // Adjust the type according to your actual data structure
+}
+
 const Page = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<TotalizerItem[]>([]);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [startTime, setStartTime] = useState("");
