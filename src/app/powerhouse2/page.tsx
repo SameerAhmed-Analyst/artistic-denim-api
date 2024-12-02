@@ -84,6 +84,13 @@ const Page = () => {
   const [percentageUsedDataT4, setPercentageUsedDataT4] = useState("");
   const [percentageUsedDataT5, setPercentageUsedDataT5] = useState("");
   const [percentageUsedDataT6, setPercentageUsedDataT6] = useState("");
+  const [fuelSelectorE1, setFuelSelectorE1] = useState<number[]>([]);
+  const [fuelSelectorE2, setFuelSelectorE2] = useState<number[]>([]);
+  const [fuelSelectorE3, setFuelSelectorE3] = useState<number[]>([]);
+  const [fuelSelectorE4, setFuelSelectorE4] = useState<number[]>([]);
+  const [fuelSelectorE5, setFuelSelectorE5] = useState<number[]>([]);
+  const [fuelSelectorE6, setFuelSelectorE6] = useState<number[]>([]);
+  const [fuelSelectorTR, setFuelSelectorTR] = useState<number[]>([]);
 
   const refreshList = async () => {
     const result = await getData();
@@ -94,7 +101,7 @@ const Page = () => {
     refreshList();
 
     const intervalId = setInterval(() => {
-      refreshList(); // Fetch data every 3 seconds
+      refreshList(); // Fetch data every 1 seconds
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -151,6 +158,8 @@ const Page = () => {
       const values = data.map((item) => item.turbinekw);
       const percentageUsed = initializeChart("turbine", values, 5700);
       setPercentageUsedDataTR1(percentageUsed);
+      const fuel_selector = data.map(item => item.turbinebit);
+      setFuelSelectorTR(fuel_selector);
     }
   }, [data]);
 
@@ -159,6 +168,8 @@ const Page = () => {
       const values = data.map((item) => item.engine1kw);
       const percentageUsed = initializeChart("engine1", values, 1400.0);
       setPercentageUsedDataE1(percentageUsed);
+      const fuel_selector = data.map(item => item.engine1bit);
+      setFuelSelectorE1(fuel_selector);
     }
   }, [data]);
 
@@ -167,6 +178,8 @@ const Page = () => {
       const values = data.map((item) => item.engine2kw);
       const percentageUsed = initializeChart("engine2", values, 1500.0);
       setPercentageUsedDataE2(percentageUsed);
+      const fuel_selector = data.map(item => item.engine2bit);
+      setFuelSelectorE2(fuel_selector);
     }
   }, [data]);
 
@@ -175,6 +188,8 @@ const Page = () => {
       const values = data.map((item) => item.engine3kw);
       const percentageUsed = initializeChart("engine3", values, 1500.0);
       setPercentageUsedDataE3(percentageUsed);
+      const fuel_selector = data.map(item => item.engine3bit);
+      setFuelSelectorE3(fuel_selector);
     }
   }, [data]);
 
@@ -183,6 +198,8 @@ const Page = () => {
       const values = data.map((item) => item.engine4kw);
       const percentageUsed = initializeChart("engine4", values, 1500.0);
       setPercentageUsedDataE4(percentageUsed);
+      const fuel_selector = data.map(item => item.engine4bit);
+      setFuelSelectorE4(fuel_selector);
     }
   }, [data]);
 
@@ -191,6 +208,8 @@ const Page = () => {
       const values = data.map((item) => item.engine5kw);
       const percentageUsed = initializeChart("engine5", values, 1500.0);
       setPercentageUsedDataE5(percentageUsed);
+      const fuel_selector = data.map(item => item.engine5bit);
+      setFuelSelectorE5(fuel_selector);
     }
   }, [data]);
 
@@ -199,6 +218,8 @@ const Page = () => {
       const values = data.map((item) => item.engine6kw);
       const percentageUsed = initializeChart("engine6", values, 1500.0);
       setPercentageUsedDataE6(percentageUsed);
+      const fuel_selector = data.map(item => item.engine6bit);
+      setFuelSelectorE6(fuel_selector);
     }
   }, [data]);
 
@@ -227,7 +248,7 @@ const Page = () => {
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
-  
+
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff7kw);
@@ -262,6 +283,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Turbine</CardTitle>
+              {fuelSelectorTR.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -318,6 +344,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 1</CardTitle>
+              {fuelSelectorE1.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -374,6 +405,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 2</CardTitle>
+              {fuelSelectorE2.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -430,6 +466,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 3</CardTitle>
+              {fuelSelectorE3.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -486,6 +527,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 4</CardTitle>
+              {fuelSelectorE4.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -542,6 +588,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
+              {fuelSelectorE5.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -598,6 +649,11 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
+              {fuelSelectorE6.includes(1) && (
+                <span className="-ml-48 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  R-LNG
+                </span>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -832,9 +888,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                SPINNING AM-8
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">SPINNING AM-8</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
