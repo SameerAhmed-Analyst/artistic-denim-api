@@ -28,6 +28,11 @@ export interface SteamData {
   whrb2watertotal: number;
   whrb3watertotal: number;
   whrb4watertotal: number;
+  hrsgsteampressure: number;
+  whrb1steampressure: number;
+  whrb2steampressure: number;
+  whrb3steampressure: number;
+  whrb4steampressure: number;
 }
 
 async function getData() {
@@ -66,7 +71,7 @@ const Page = () => {
     refreshList();
 
     const intervalId = setInterval(() => {
-      refreshList(); // Fetch data every 3 seconds
+      refreshList(); // Fetch data every 1 seconds
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -208,9 +213,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.hrsgsteamflow} T/H</p>
-                    <p>Steam Total {item.hrsgsteamtotal} Ton</p>
-                    <p>Water Flow {item.hrsgwaterflow} M3/H</p>
-                    <p>Water Total {item.hrsgwatertotal} M3</p>
+                    <p>Steam Pressure {item.hrsgsteampressure} PSI</p>                
+                    <p>Water Flow {item.hrsgwaterflow} M3/H</p>            
                   </div>
                 );
               })}
@@ -263,9 +267,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb1steamflow} T/H</p>
-                    <p>Steam Total {item.whrb1steamtotal} Ton</p>
-                    <p>Water Flow {item.whrb1waterflow} M3/H</p>
-                    <p>Water Total {item.whrb1watertotal} M3</p>
+                    <p>Steam Pressure {item.whrb1steampressure} PSI</p>                    
+                    <p>Water Flow {item.whrb1waterflow} M3/H</p>            
                   </div>
                 );
               })}
@@ -318,9 +321,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb2steamflow} T/H</p>
-                    <p>Steam Total {item.whrb2steamtotal} Ton</p>
-                    <p>Water Flow {item.whrb2waterflow} M3/H</p>
-                    <p>Water Total {item.whrb2watertotal} M3</p>
+                    <p>Steam Pressure {item.whrb2steampressure} PSI</p>               
+                    <p>Water Flow {item.whrb2waterflow} M3/H</p>            
                   </div>
                 );
               })}
@@ -373,9 +375,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb3steamflow} T/H</p>
-                    <p>Steam Total {item.whrb3steamtotal} Ton</p>
-                    <p>Water Flow {item.whrb3waterflow} M3/H</p>
-                    <p>Water Total {item.whrb3watertotal} M3</p>
+                    <p>Steam Pressure {item.whrb3steampressure} PSI</p>                
+                    <p>Water Flow {item.whrb3waterflow} M3/H</p>            
                   </div>
                 );
               })}
@@ -428,9 +429,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb4steamflow} T/H</p>
-                    <p>Steam Total {item.whrb4steamtotal} Ton</p>
-                    <p>Water Flow {item.whrb4waterflow} M3/H</p>
-                    <p>Water Total {item.whrb4watertotal} M3</p>
+                    <p>Steam Pressure {item.whrb4steampressure} PSI</p>                
+                    <p>Water Flow {item.whrb4waterflow} M3/H</p>            
                   </div>
                 );
               })}

@@ -143,7 +143,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.CAT_KW);
-      const percentageUsed = initializeChart("cat", values, 1500);
+      const percentageUsed = initializeChart("cat", values, 1475);
       setPercentageUsedDataCAT(percentageUsed);
     }
   }, [data]);
@@ -151,7 +151,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAN_KW);
-      const percentageUsed = initializeChart("man", values, 1500);
+      const percentageUsed = initializeChart("man", values, 1890);
       setPercentageUsedDataMAN(percentageUsed);
     }
   }, [data]);
@@ -159,7 +159,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAK1_KW);
-      const percentageUsed = initializeChart("mak1", values, 1500);
+      const percentageUsed = initializeChart("mak1", values, 2470);
       setPercentageUsedDataMAK1(percentageUsed);
     }
   }, [data]);
@@ -167,7 +167,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAK2_KW);
-      const percentageUsed = initializeChart("mak2", values, 1500);
+      const percentageUsed = initializeChart("mak2", values, 2470);
       setPercentageUsedDataMAK2(percentageUsed);
     }
   }, [data]);
@@ -209,7 +209,7 @@ const Page = () => {
   return (
     <div>
       <h1 className="pt-5 text-center text-xl font-bold">
-        Power house 3 Generation
+        AM17 Power house 1 Generation
       </h1>
       <div className="p-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -376,7 +376,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  1475 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -432,7 +432,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  1890 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -488,7 +488,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  2470 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -544,7 +544,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1500 total capacity in KW
+                  2470 total capacity in KW
                 </p>
               </div>
             </CardContent>
