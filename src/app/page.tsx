@@ -10,6 +10,7 @@ interface PowerDataTypes {
   powerhouse1gen: number;
   powerhouse2gen: number;
   powerhouse3gen: number;
+  AM17_PH2: number;
   totalpowergen: number;
   steamph1: number;
   steamph2: number;
@@ -157,16 +158,23 @@ export default function Home() {
       const valuesph1 = data.map((item) => item.powerhouse1gen);
       const valuesph2 = data.map((item) => item.powerhouse2gen);
       const valuesph3 = data.map((item) => item.powerhouse3gen);
+      const valuesph4 = data.map((item) => item.AM17_PH2);
       const valuesSolar = solarData.map((item) => item.solar_total_kW+item.AM17_solar1_kW+item.AM17_solar2_kW+item.AM8_solar_kW);
+
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
       const totalValueph3 = valuesph3.reduce((acc, curr) => acc + curr, 0);
+      const totalValueph4 = valuesph4.reduce((acc, curr) => acc + curr, 0);
       const totalValueSolar = valuesSolar.reduce((acc, curr) => acc + curr, 0);
+
       const remainingCapacity = 9650 + 14400 - 25675;
+
       const percentageUsedph1 = ((totalValueph1 / 9600) * 100).toFixed(1);
       const percentageUsedph2 = ((totalValueph2 / 14400) * 100).toFixed(1);
       const percentageUsedph3 = ((totalValueph3 / 14400) * 100).toFixed(1);
+      const percentageUsedph4 = ((totalValueph4 / 4500) * 100).toFixed(1);
       const percentageUsedSolar = ((totalValueSolar / 1625) * 100).toFixed(1);
+
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
       setPercentageUsedDataSolar(percentageUsedSolar);
@@ -178,8 +186,8 @@ export default function Home() {
           datasets: [
             {
               label: "D",
-              data: [totalValueph1, totalValueph2, totalValueph3, totalValueSolar],
-              backgroundColor: ["#384C6B", "#a75281", "#C09741", "#9595B7"],
+              data: [totalValueph1, totalValueph2, totalValueph3, totalValueph4, totalValueSolar],
+              backgroundColor: ["#384C6B", "#a75281", "#C09741", "#4F9D9A", "#9595B7"],
             },
           ],
         },
@@ -342,6 +350,7 @@ export default function Home() {
                         (item.powerhouse1gen +
                           item.powerhouse2gen + 
                           item.powerhouse3gen +
+                          item.AM17_PH2 +
                           totalSolar) /
                         1000
                       ).toFixed(1)
@@ -407,7 +416,7 @@ export default function Home() {
                 </a>
                 <a href="/am17_powerhouse2">
                   <div className="flex">
-                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
+                    <div className="bg-[#4F9D9A] w-10 h-5 m-1"></div>
                     <p>AM17 Power House 2</p>
                     {data.map((item) => {
                       return (
