@@ -421,7 +421,7 @@ export default function Home() {
                 <a href="/solar">
                   <div className="flex">
                     <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
-                    <p>Solar Panels</p>
+                    <p>Solar</p>
                     {solarData.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
