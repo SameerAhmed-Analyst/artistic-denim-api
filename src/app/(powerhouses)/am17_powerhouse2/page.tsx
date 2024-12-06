@@ -115,7 +115,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.ENGINE1_KW);
-      const percentageUsed = initializeChart("ke", values, 5000);
+      const percentageUsed = initializeChart("engine1", values, 1500);
       setPercentageUsedDataE1(percentageUsed);
     }
   }, [data]);
@@ -123,7 +123,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.ENGINE2_KW);
-      const percentageUsed = initializeChart("am5", values, 10000);
+      const percentageUsed = initializeChart("engine2", values, 1500);
       setPercentageUsedDataE2(percentageUsed);
     }
   }, [data]);
@@ -131,7 +131,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.ENGINE3_KW);
-      const percentageUsed = initializeChart("cat", values, 1500);
+      const percentageUsed = initializeChart("engine3", values, 1500);
       setPercentageUsedDataE3(percentageUsed);
     }
   }, [data]);
@@ -140,21 +140,9 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.AUXILARY_kw);
-      const percentageUsed = initializeChart(
-        "takeoff1",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
-      setPercentageUsedDataAUX(percentageUsed);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (data.length > 0) {
       const values = data.map((item) => item.TOWARDS_PH1_kw);
       const percentageUsed = initializeChart(
-        "takeoff2",
+        "takeoff1",
         values,
         values.reduce((acc, curr) => acc + curr, 0)
       );
@@ -166,11 +154,23 @@ const Page = () => {
     if (data.length > 0) {
       const values = data.map((item) => item.AM17_B_kw);
       const percentageUsed = initializeChart(
-        "takeoff3",
+        "takeoff2",
         values,
         values.reduce((acc, curr) => acc + curr, 0)
       );
       setPercentageUsedDataAM17B(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.AUXILARY_kw);
+      const percentageUsed = initializeChart(
+        "takeoff3",
+        values,
+        values.reduce((acc, curr) => acc + curr, 0)
+      );
+      setPercentageUsedDataAUX(percentageUsed);
     }
   }, [data]);
 
@@ -220,7 +220,7 @@ const Page = () => {
                 >
                   {percentageUsedDataE1}%
                 </div>
-                <canvas id="ke" width="100" height="100" />
+                <canvas id="engine1" width="100" height="100" />
               </div>
               <div className="">
                 {data.map((item) => {
@@ -232,7 +232,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  5000 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -276,7 +276,7 @@ const Page = () => {
                 >
                   {percentageUsedDataE2}%
                 </div>
-                <canvas id="am5" width="100" height="100" />
+                <canvas id="engine2" width="100" height="100" />
               </div>
               <div className="">
                 {data.map((item) => {
@@ -288,7 +288,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  10000 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -332,7 +332,7 @@ const Page = () => {
                 >
                   {percentageUsedDataE3}%
                 </div>
-                <canvas id="cat" width="100" height="100" />
+                <canvas id="engine3" width="100" height="100" />
               </div>
               <div className="">
                 {data.map((item) => {
