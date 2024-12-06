@@ -369,7 +369,7 @@ export default function Home() {
                 <a href="/powerhouse1">
                   <div className="flex">
                     <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
-                    <p>Power House 1</p>
+                    <p>AM5 Power House 1</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
@@ -382,7 +382,7 @@ export default function Home() {
                 <a href="/powerhouse2">
                   <div className="flex">
                     <div className="bg-[#a75281] w-10 h-5 m-1"></div>
-                    <p>Power House 2</p>
+                    <p>AM5 Power House 2</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
@@ -395,11 +395,24 @@ export default function Home() {
                 <a href="/powerhouse3">
                   <div className="flex">
                     <div className="bg-[#C09741] w-10 h-5 m-1"></div>
-                    <p>Power House 3</p>
+                    <p>AM17 Power House 1</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
                           {(item.powerhouse3gen / 1000).toFixed(1)} MW
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
+                <a href="/am17_powerhouse2">
+                  <div className="flex">
+                    <div className="bg-[#C09741] w-10 h-5 m-1"></div>
+                    <p>AM17 Power House 2</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={item.id}>
+                          {(4100 / 1000).toFixed(1)} MW
                         </p>
                       );
                     })}
