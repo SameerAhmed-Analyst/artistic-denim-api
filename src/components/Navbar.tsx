@@ -19,21 +19,27 @@ import Image from "next/image";
 
 const products = [
   {
-    name: "Power House 1",
+    name: "AM5 Power House 1",
     description: "Get a better understanding of your traffic",
     href: "/powerhouse1",
     icon: ChartPieIcon,
   },
   {
-    name: "Power House 2",
+    name: "AM5 Power House 2",
     description: "Speak directly to your customers",
     href: "powerhouse2",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Power House 3",
-    description: "Speak directly to your customers",
+    name: "AM17 Power House 1",
+    description: "AM17 Power House 1",
     href: "powerhouse3",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "AM17 Power House 2",
+    description: "AM17 Power House 2",
+    href: "am17_powerhouse2",
     icon: CursorArrowRaysIcon,
   },
   {
