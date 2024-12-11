@@ -177,7 +177,11 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff1kw);
-      const percentageUsed = initializeChart("takeoff1", values, values.reduce((acc, curr) => acc + curr, 0));
+      const percentageUsed = initializeChart(
+        "takeoff1",
+        values,
+        values.reduce((acc, curr) => acc + curr, 0)
+      );
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -185,7 +189,11 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff2kw);
-      const percentageUsed = initializeChart("takeoff2", values, values.reduce((acc, curr) => acc + curr, 0));
+      const percentageUsed = initializeChart(
+        "takeoff2",
+        values,
+        values.reduce((acc, curr) => acc + curr, 0)
+      );
       setPercentageUsedDataT2(percentageUsed);
     }
   }, [data]);
@@ -193,7 +201,11 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff3kw);
-      const percentageUsed = initializeChart("takeoff3", values, values.reduce((acc, curr) => acc + curr, 0));
+      const percentageUsed = initializeChart(
+        "takeoff3",
+        values,
+        values.reduce((acc, curr) => acc + curr, 0)
+      );
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
@@ -201,7 +213,11 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff4kw);
-      const percentageUsed = initializeChart("takeoff4", values, values.reduce((acc, curr) => acc + curr, 0));
+      const percentageUsed = initializeChart(
+        "takeoff4",
+        values,
+        values.reduce((acc, curr) => acc + curr, 0)
+      );
       setPercentageUsedDataT4(percentageUsed);
     }
   }, [data]);
@@ -320,7 +336,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                10000 total capacity in KW
+                  10000 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -328,6 +344,9 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">CAT</CardTitle>
+              <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                R-LNG
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -384,6 +403,9 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">MAN</CardTitle>
+              <span className="-ml-24 text-xs font-bold text-white bg-sky-700 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                HFO
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -440,6 +462,9 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">MAK-1</CardTitle>
+              <span className="-ml-24 text-xs font-bold text-white bg-sky-700 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                HFO
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -496,6 +521,9 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">MAK-2</CardTitle>
+              <span className="-ml-24 text-xs font-bold text-white bg-sky-700 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                HFO
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -556,9 +584,7 @@ const Page = () => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AM-18
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AM-18</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -593,7 +619,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map(item=>item.Takeoff1kw.toFixed(0))} kW
+                  {data.map((item) => item.Takeoff1kw.toFixed(0))} kW
                 </div>
                 <canvas id="takeoff1" width="100" height="100" />
               </div>
@@ -611,9 +637,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                TOWARDS PH2
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">TOWARDS PH2</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -648,7 +672,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map(item=>item.Takeoff2kw.toFixed(0))} kW
+                  {data.map((item) => item.Takeoff2kw.toFixed(0))} kW
                 </div>
                 <canvas id="takeoff2" width="100" height="100" />
               </div>
@@ -666,9 +690,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AUXILARY
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AUXILARY</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -703,7 +725,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map(item=>item.Takeoff3kw.toFixed(0))} kW
+                  {data.map((item) => item.Takeoff3kw.toFixed(0))} kW
                 </div>
                 <canvas id="takeoff3" width="100" height="100" />
               </div>
@@ -721,9 +743,7 @@ const Page = () => {
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                AM-17A
-              </CardTitle>
+              <CardTitle className="text-xl font-bold">AM-17A</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -758,7 +778,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map(item=>item.Takeoff4kw.toFixed(0))} kW
+                  {data.map((item) => item.Takeoff4kw.toFixed(0))} kW
                 </div>
                 <canvas id="takeoff4" width="100" height="100" />
               </div>

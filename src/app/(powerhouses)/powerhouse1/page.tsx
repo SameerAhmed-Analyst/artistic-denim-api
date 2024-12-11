@@ -226,7 +226,7 @@ const Page = () => {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 1</CardTitle>
               <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
-                  N-GAS
+                N-GAS
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -285,7 +285,7 @@ const Page = () => {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 2</CardTitle>
               <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
-                  N-GAS
+                N-GAS
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +344,7 @@ const Page = () => {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 3</CardTitle>
               <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
-                  N-GAS
+                N-GAS
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -403,7 +403,7 @@ const Page = () => {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 4</CardTitle>
               <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
-                  N-GAS
+                N-GAS
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -462,7 +462,7 @@ const Page = () => {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
               <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
-                  N-GAS
+                N-GAS
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -520,6 +520,9 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
+              <span className="-ml-24 text-xs font-bold bg-red-500 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                DIESEL
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -576,6 +579,9 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 7</CardTitle>
+              <span className="-ml-24 text-xs font-bold bg-red-500 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                DIESEL
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
