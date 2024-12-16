@@ -298,6 +298,27 @@ const Page = () => {
                   DIESEL
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.turbinekw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation: "blink 3s infinite", // Slow down blinking to 3 seconds
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -341,7 +362,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.turbinekw)} kW</p>
-                      <p>Energy {Math.trunc(item.turbinekwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -364,6 +384,28 @@ const Page = () => {
                   R-LNG
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.engine1kw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation:
+                      item.engine1kw > 10 ? "blink 3s infinite" : "none", // Apply blink only to green
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -407,7 +449,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.engine1kw)} kW</p>
-                      <p>Energy {Math.trunc(item.engine1kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -430,6 +471,28 @@ const Page = () => {
                   R-LNG
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.engine2kw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation:
+                      item.engine2kw > 10 ? "blink 3s infinite" : "none", // Apply blink only to green
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -473,7 +536,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.engine2kw)} kW</p>
-                      <p>Energy {Math.trunc(item.engine2kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -496,6 +558,28 @@ const Page = () => {
                   R-LNG
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.engine3kw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation:
+                      item.engine3kw > 10 ? "blink 3s infinite" : "none", // Apply blink only to green
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -539,7 +623,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.engine3kw)} kW</p>
-                      <p>Energy {Math.trunc(item.engine3kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -562,6 +645,28 @@ const Page = () => {
                   R-LNG
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.engine4kw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation:
+                      item.engine4kw > 10 ? "blink 3s infinite" : "none", // Apply blink only to green
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -605,7 +710,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.engine4kw)} kW</p>
-                      <p>Energy {Math.trunc(item.engine4kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -628,6 +732,28 @@ const Page = () => {
                   R-LNG
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.engine5kw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation:
+                      item.engine5kw > 10 ? "blink 3s infinite" : "none", // Apply blink only to green
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -671,7 +797,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.engine5kw)} kW</p>
-                      <p>Energy {Math.trunc(item.engine5kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -694,6 +819,27 @@ const Page = () => {
                   R-LNG
                 </span>
               )}
+              {data.map((item) => (
+                <span
+                  key={item.id}
+                  className={`${
+                    item.engine6kw > 10 ? "bg-green-600" : "bg-red-500"
+                  } -ml-24 w-4 h-4 rounded-full border-2 border-transparent shadow-md`}
+                  style={{
+                    animation: "blink 3s infinite", // Slow down blinking to 3 seconds
+                  }}
+                >
+                  <style>
+                    {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                    `}
+                  </style>
+                </span>
+              ))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -737,7 +883,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.engine6kw)} kW</p>
-                      <p>Energy {Math.trunc(item.engine6kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -800,7 +945,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.Takeoff4kw)} kW</p>
-                      <p>Energy {Math.trunc(item.Takeoff4kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -858,7 +1002,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.Takeoff5kw)} kW</p>
-                      <p>Energy {Math.trunc(item.Takeoff5kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -916,7 +1059,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.Takeoff6kw)} kW</p>
-                      <p>Energy {Math.trunc(item.Takeoff6kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -972,7 +1114,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.Takeoff7kw)} kW</p>
-                      <p>Energy {Math.trunc(item.Takeoff7kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -1030,7 +1171,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.Takeoff8kw)} kW</p>
-                      <p>Energy {Math.trunc(item.Takeoff8kwh)} kWh</p>
                     </div>
                   );
                 })}
@@ -1088,7 +1228,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {Math.trunc(item.AUX_LV_Takeoff)} kW</p>
-                      <p>Energy {Math.trunc(item.AUX_LV_KWH)} kWh</p>
                     </div>
                   );
                 })}
