@@ -219,7 +219,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.solar3_kW} kW</p>
-                      <p>Energy {item.solar3_kWh} kWh</p>
                     </div>
                   );
                 })}
@@ -275,7 +274,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.solar4_kW} kW</p>
-                      <p>Energy {item.solar4_kWh} kWh</p>
                     </div>
                   );
                 })}
@@ -331,7 +329,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.solar5_kW} kW</p>
-                      <p>Energy {item.solar5_kWh} kWh</p>
                     </div>
                   );
                 })}
@@ -396,7 +393,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.AM17_solar1_kW} kW</p>
-                      <p>Energy {item.AM17_solar1_kWh} kWh</p>
                     </div>
                   );
                 })}
@@ -452,7 +448,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.AM17_solar2_kW} kW</p>
-                      <p>Energy {item.AM17_solar2_kWh} kWh</p>
                     </div>
                   );
                 })}
@@ -517,7 +512,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.AM8_solar_kW} kW</p>
-                      <p>Energy {item.AM8_solar_kWh} kWh</p>
                     </div>
                   );
                 })}

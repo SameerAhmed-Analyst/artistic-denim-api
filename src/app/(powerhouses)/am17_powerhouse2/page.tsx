@@ -231,7 +231,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.ENGINE1_KW} kW</p>
-                      <p>Energy {item.ENGINE1_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -290,7 +289,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.ENGINE2_KW} kW</p>
-                      <p>Energy {item.ENGINE2_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -349,7 +347,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.ENGINE3_KW} kW</p>
-                      <p>Energy {item.ENGINE3_KWH} kWh</p>
                     </div>
                   );
                 })}
@@ -410,7 +407,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.TOWARDS_PH1_kw} kW</p>
-                      <p>Energy {item.TOWARDS_PH1_kwh} kWh</p>
                     </div>
                   );
                 })}
@@ -463,7 +459,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.AM17_B_kw} kW</p>
-                      <p>Energy {item.AM17_B_kwh} kWh</p>
                     </div>
                   );
                 })}
@@ -516,7 +511,6 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.AUXILIARY_kw} kW</p>
-                      <p>Energy {item.AUXILIARY_kwh} kWh</p>
                     </div>
                   );
                 })}
