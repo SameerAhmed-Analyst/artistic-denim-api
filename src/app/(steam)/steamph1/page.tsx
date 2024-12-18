@@ -12,6 +12,7 @@ export interface SteamData {
   whrbsteam: number;
   gasfiredsteamflow: number;
   gasfiredgasflow: number;
+  gasfiredwaterflow: number;
 }
 
 async function getData() {
@@ -165,7 +166,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.gasfiredsteamflow} T/H</p>
-                    <p>Gas Flow {item.gasfiredgasflow} M3/H</p>
+                    <p>Water Flow {item.gasfiredwaterflow} M3/H</p>
+                    {/* <p>Gas Flow {item.gasfiredgasflow} M3/H</p> */}
                   </div>
                 );
               })}
