@@ -25,6 +25,7 @@ interface PowerDataTypes {
   fgc_mbar: number;
   industrialgas_psi: number;
   industrialgas_mbar: number;
+  totalsolargen: number;
 }
 
 interface SolarData {
@@ -66,25 +67,6 @@ async function getData() {
   }
 }
 
-async function getSolarData() {
-  try {
-    const res = await fetch("/api/v1/solar", {
-      method: "GET",
-      cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    const result = await res.json();
-    return result;
-  } catch (error) {
-    console.log("error: " + error);
-  }
-}
-
 export default function Home() {
   const [data, setData] = useState<PowerDataTypes[]>([]);
   const [percentageUsedDataPH1, setPercentageUsedDataPH1] = useState("");
@@ -93,14 +75,11 @@ export default function Home() {
   const [percentageUsedDataEPH1, setPercentageUsedDataEPH1] = useState("");
   const [percentageUsedDataEPH2, setPercentageUsedDataEPH2] = useState("");
   const [percentageUsedDataSolar, setPercentageUsedDataSolar] = useState("");
-  const [solarData, setSolarData] = useState<SolarData[]>([]);
   const [totalSolar, setTotalSolar] = useState(0);
 
   const refreshList = async () => {
     const result = await getData();
     setData(result.data);
-    const resultSolar = await getSolarData();
-    setSolarData(resultSolar.data);
   };
 
   useEffect(() => {
@@ -147,7 +126,7 @@ export default function Home() {
   // };
   
   useEffect(() => {
-    if (data.length > 0 && solarData.length > 0) {
+    if (data.length > 0) {
       const ctx = document.getElementById("electricalph") as HTMLCanvasElement;
       let chartStatus = Chart.getChart(ctx);
 
@@ -159,7 +138,7 @@ export default function Home() {
       const valuesph2 = data.map((item) => item.powerhouse2gen);
       const valuesph3 = data.map((item) => item.powerhouse3gen);
       const valuesph4 = data.map((item) => item.AM17_PH2);
-      const valuesSolar = solarData.map((item) => item.solar_total_kW+item.AM17_solar1_kW+item.AM17_solar2_kW+item.AM8_solar_kW);
+      const valuesSolar = data.map((item) => item.totalsolargen);
 
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
@@ -211,7 +190,7 @@ export default function Home() {
       });
       chart.update(); // Update the chart to apply changes
     }
-  }, [data, solarData]);
+  }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -431,10 +410,10 @@ export default function Home() {
                   <div className="flex">
                     <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
                     <p>Solar</p>
-                    {solarData.map((item) => {
+                    {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
-                          {((item.solar_total_kW+item.AM17_solar1_kW+item.AM17_solar2_kW+item.AM8_solar_kW) / 1000).toFixed(2)} MW
+                          {((item.totalsolargen) / 1000).toFixed(2)} MW
                         </p>
                       );
                     })}
@@ -445,7 +424,7 @@ export default function Home() {
                   {data.map((item) => {
                     return (
                       <p className="ml-auto mr-5" key={item.id}>
-                        {((item.powerhouse1gen + item.powerhouse2gen + item.powerhouse3gen + item.AM17_PH2 + totalSolar) / 1000).toFixed(1)}{" "}
+                        {((item.powerhouse1gen + item.powerhouse2gen + item.powerhouse3gen + item.AM17_PH2 + item.totalsolargen) / 1000).toFixed(1)}{" "}
                         MW
                       </p>
                     );
