@@ -28,26 +28,6 @@ interface PowerDataTypes {
   totalsolargen: number;
 }
 
-interface SolarData {
-  id: number;
-  solar3_kW: number;
-  solar3_kWh: number;
-  solar4_kW: number;
-  solar4_kWh: number;
-  solar5_kW: number;
-  solar5_kWh: number;
-  solar_total_kW: number;
-  solar_total_kWh: number;
-  AM17_solar1_kW: number;
-  AM17_solar1_kWh: number;
-  AM17_solar2_kW: number;
-  AM17_solar2_kWh: number;
-  AM17_total_kW: number;
-  AM17_total_kWh: number;
-  AM8_solar_kW: number;
-  AM8_solar_kWh: number;
-}
-
 async function getData() {
   try {
     const res = await fetch("/api/v1/dashboard", {
@@ -330,7 +310,7 @@ export default function Home() {
                           item.powerhouse2gen + 
                           item.powerhouse3gen +
                           item.AM17_PH2 +
-                          totalSolar) /
+                          item.totalsolargen) /
                         1000
                       ).toFixed(1)
                     )}{" "}
