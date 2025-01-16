@@ -380,7 +380,7 @@ export default function Home() {
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={item.id}>
-                          {(4100 / 1000).toFixed(1)} MW
+                          {(item.AM17_PH2 / 1000).toFixed(1)} MW
                         </p>
                       );
                     })}
