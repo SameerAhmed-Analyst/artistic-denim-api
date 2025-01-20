@@ -168,7 +168,7 @@ const Page = () => {
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.gasfiredsteamflow} T/H</p>
                     <p>Water Flow {item.gasfiredwaterflow} M3/H</p>
-                    <p>Water Flow {item.gasfiredpressure} PSI</p>
+                    <p>Steam Pressure {item.gasfiredpressure} PSI</p>
                     {/* <p>Gas Flow {item.gasfiredgasflow} M3/H</p> */}
                   </div>
                 );
