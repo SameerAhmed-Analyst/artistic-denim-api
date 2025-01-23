@@ -268,8 +268,8 @@ export default function Navbar() {
           <a href="/status" className="text-sm font-semibold leading-6 text-white">
             Status
           </a>
-          <a href="/machines" className="text-sm font-semibold leading-6 text-white">
-            Machines
+          <a href="/compressors" className="text-sm font-semibold leading-6 text-white">
+            Compressors
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -380,10 +380,10 @@ export default function Navbar() {
                   Status
                 </a>
                 <a
-                  href="/machines"
+                  href="/compressors"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-700"
                 >
-                  Machines
+                  Compressors
                 </a>
               </div>
               <div className="py-6">
