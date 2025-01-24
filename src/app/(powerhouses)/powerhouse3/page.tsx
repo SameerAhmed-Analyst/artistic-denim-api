@@ -159,7 +159,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAK1_KW);
-      const percentageUsed = initializeChart("mak1", values, 2470);
+      const percentageUsed = initializeChart("mak1", values, 2450);
       setPercentageUsedDataMAK1(percentageUsed);
     }
   }, [data]);
@@ -167,7 +167,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.MAK2_KW);
-      const percentageUsed = initializeChart("mak2", values, 2470);
+      const percentageUsed = initializeChart("mak2", values, 2450);
       setPercentageUsedDataMAK2(percentageUsed);
     }
   }, [data]);
@@ -177,11 +177,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff1kw);
-      const percentageUsed = initializeChart(
-        "takeoff1",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("takeoff1", values, 2250);
       setPercentageUsedDataT1(percentageUsed);
     }
   }, [data]);
@@ -201,11 +197,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff3kw);
-      const percentageUsed = initializeChart(
-        "takeoff3",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("takeoff3", values, 1250);
       setPercentageUsedDataT3(percentageUsed);
     }
   }, [data]);
@@ -213,11 +205,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.Takeoff4kw);
-      const percentageUsed = initializeChart(
-        "takeoff4",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("takeoff4", values, 5500);
       setPercentageUsedDataT4(percentageUsed);
     }
   }, [data]);
@@ -508,7 +496,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2470 total capacity in KW
+                  2450 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -566,7 +554,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  2470 total capacity in KW
+                  2450 total capacity in KW
                 </p>
               </div>
             </CardContent>
@@ -613,7 +601,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map((item) => item.Takeoff1kw.toFixed(0))} kW
+                  {percentageUsedDataT1} %
                 </div>
                 <canvas id="takeoff1" width="100" height="100" />
               </div>
@@ -625,6 +613,9 @@ const Page = () => {
                     </div>
                   );
                 })}
+                <p className="text-xs text-muted-foreground">
+                  2250 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -717,7 +708,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map((item) => item.Takeoff3kw.toFixed(0))} kW
+                  {percentageUsedDataT3} %
                 </div>
                 <canvas id="takeoff3" width="100" height="100" />
               </div>
@@ -729,6 +720,9 @@ const Page = () => {
                     </div>
                   );
                 })}
+                <p className="text-xs text-muted-foreground">
+                  1250 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -769,7 +763,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map((item) => item.Takeoff4kw.toFixed(0))} kW
+                  {percentageUsedDataT4} %
                 </div>
                 <canvas id="takeoff4" width="100" height="100" />
               </div>
@@ -781,6 +775,9 @@ const Page = () => {
                     </div>
                   );
                 })}
+                <p className="text-xs text-muted-foreground">
+                  5500 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>

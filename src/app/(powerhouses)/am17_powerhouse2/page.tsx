@@ -140,23 +140,11 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.TOWARDS_PH1_kw);
-      const percentageUsed = initializeChart(
-        "takeoff1",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
-      setPercentageUsedDataTOPH1(percentageUsed);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (data.length > 0) {
       const values = data.map((item) => item.AM17_B_kw);
       const percentageUsed = initializeChart(
         "takeoff2",
         values,
-        values.reduce((acc, curr) => acc + curr, 0)
+        5500
       );
       setPercentageUsedDataAM17B(percentageUsed);
     }
@@ -169,7 +157,7 @@ const Page = () => {
       const percentageUsed = initializeChart(
         "takeoff3",
         values,
-        values.reduce((acc, curr) => acc + curr, 0)
+        1250
       );
       setPercentageUsedDataAUX(percentageUsed);
     }
@@ -363,58 +351,6 @@ const Page = () => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">TOWARDS PH 1</CardTitle>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="h-4 w-4 text-muted-foreground"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
-            </CardHeader>
-            <CardContent className="flex justify-evenly">
-              <div
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  float: "left",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "100%",
-                    height: "40px",
-                    position: "absolute",
-                    top: "55%",
-                    left: "0",
-                    marginTop: "-20px",
-                    lineHeight: "19px",
-                    textAlign: "center",
-                  }}
-                >
-                  {data.map((item) => item.TOWARDS_PH1_kw.toFixed(0))} kW
-                </div>
-                <canvas id="takeoff1" width="100" height="100" />
-              </div>
-              <div className="">
-                {data.map((item) => {
-                  return (
-                    <div key={item.id} className="pt-3 text-base font-bold">
-                      <p>Load {item.TOWARDS_PH1_kw} kW</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="p-0">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">AM-17 B</CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -450,7 +386,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map((item) => item.AM17_B_kw.toFixed(0))} kW
+                  {percentageUsedDataAM17B} %
                 </div>
                 <canvas id="takeoff2" width="100" height="100" />
               </div>
@@ -462,6 +398,9 @@ const Page = () => {
                     </div>
                   );
                 })}
+                <p className="text-xs text-muted-foreground">
+                  5500 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -502,7 +441,7 @@ const Page = () => {
                     textAlign: "center",
                   }}
                 >
-                  {data.map((item) => item.AUXILIARY_kw.toFixed(0))} kW
+                  {percentageUsedDataAUX} %
                 </div>
                 <canvas id="takeoff3" width="100" height="100" />
               </div>
@@ -514,6 +453,9 @@ const Page = () => {
                     </div>
                   );
                 })}
+                <p className="text-xs text-muted-foreground">
+                  1250 total capacity in KW
+                </p>
               </div>
             </CardContent>
           </Card>
