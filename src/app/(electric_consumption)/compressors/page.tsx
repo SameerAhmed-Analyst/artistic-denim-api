@@ -106,11 +106,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.compressor_1_2_kW);
-      const percentageUsed = initializeChart(
-        "comp1_2",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("comp1_2", values, 250.0);
       setPercentageUsedDataC1_2(percentageUsed);
     }
   }, [data]);
@@ -118,7 +114,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.compressor_3_kW);
-      const percentageUsed = initializeChart("comp3", values, 237.00);
+      const percentageUsed = initializeChart("comp3", values, 250.0);
       setPercentageUsedDataC3(percentageUsed);
     }
   }, [data]);
@@ -126,11 +122,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.compressor_4_kW);
-      const percentageUsed = initializeChart(
-        "comp4",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("comp4", values, 250);
       setPercentageUsedDataC4(percentageUsed);
     }
   }, [data]);
@@ -138,11 +130,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.compressor_5_kW);
-      const percentageUsed = initializeChart(
-        "comp5",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("comp5", values, 250);
       setPercentageUsedDataC5(percentageUsed);
     }
   }, [data]);
@@ -150,11 +138,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.compressor_6_kW);
-      const percentageUsed = initializeChart(
-        "comp6",
-        values,
-        values.reduce((acc, curr) => acc + curr, 0)
-      );
+      const percentageUsed = initializeChart("comp6", values, 160);
       setPercentageUsedDataC6(percentageUsed);
     }
   }, [data]);
@@ -200,7 +184,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {data.map((item) => item.compressor_1_2_kW.toFixed(0))} kW
+                {percentageUsedDataC1_2} %
               </div>
               <canvas id="comp1_2" width="100" height="100" />
             </div>
@@ -212,6 +196,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                250 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -264,6 +251,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                250 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -304,7 +294,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {data.map((item) => item.compressor_4_kW.toFixed(0))} kW
+                {percentageUsedDataC4} %
               </div>
               <canvas id="comp4" width="100" height="100" />
             </div>
@@ -316,6 +306,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                250 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -356,7 +349,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {data.map((item) => item.compressor_5_kW.toFixed(0))} kW
+                {percentageUsedDataC5} %
               </div>
               <canvas id="comp5" width="100" height="100" />
             </div>
@@ -368,6 +361,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                250 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -408,7 +404,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {data.map((item) => item.compressor_6_kW.toFixed(0))} kW
+                {percentageUsedDataC6} %
               </div>
               <canvas id="comp6" width="100" height="100" />
             </div>
@@ -420,6 +416,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                160 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>

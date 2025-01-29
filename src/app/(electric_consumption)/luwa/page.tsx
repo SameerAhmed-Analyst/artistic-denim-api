@@ -107,7 +107,7 @@ const Page = () => {
       const percentageUsed = initializeChart(
         "luwa1",
         values,
-        values.reduce((acc, curr) => acc + curr, 0)
+        250
       );
       setPercentageUsedDataL1(percentageUsed);
     }
@@ -119,7 +119,7 @@ const Page = () => {
       const percentageUsed = initializeChart(
         "luwa2",
         values,
-        values.reduce((acc, curr) => acc + curr, 0)
+        250
       );
       setPercentageUsedDataL2(percentageUsed);
     }
@@ -131,7 +131,7 @@ const Page = () => {
         <h1 className="text-center text-xl font-bold">LUWA LOAD</h1>
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">LUWA 2</CardTitle>
+            <CardTitle className="text-xl font-bold">LUWA 1</CardTitle>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -178,6 +178,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                250 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -230,6 +233,9 @@ const Page = () => {
                   </div>
                 );
               })}
+              <p className="text-xs text-muted-foreground">
+                250 total capacity in KW
+              </p>
             </div>
           </CardContent>
         </Card>
