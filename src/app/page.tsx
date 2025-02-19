@@ -343,7 +343,7 @@ export default function Home() {
                     {data.map((item) =>
                       (
                         (item.powerhouse1gen +
-                          item.powerhouse2gen + 
+                          item.powerhouse2gen +
                           item.powerhouse3gen +
                           item.AM17_PH2 +
                           item.totalsolargen) /
@@ -376,7 +376,7 @@ export default function Home() {
                     <p>AM5 Power House 1</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={1}>
                           {(item.powerhouse1gen / 1000).toFixed(1)} MW
                         </p>
                       );
@@ -389,7 +389,7 @@ export default function Home() {
                     <p>AM5 Power House 2</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={2}>
                           {(item.powerhouse2gen / 1000).toFixed(1)} MW
                         </p>
                       );
@@ -402,7 +402,7 @@ export default function Home() {
                     <p>AM17 Power House 1</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={3}>
                           {(item.powerhouse3gen / 1000).toFixed(1)} MW
                         </p>
                       );
@@ -415,7 +415,7 @@ export default function Home() {
                     <p>AM17 Power House 2</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={4}>
                           {(item.AM17_PH2 / 1000).toFixed(1)} MW
                         </p>
                       );
@@ -428,8 +428,8 @@ export default function Home() {
                     <p>Solar</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
-                          {((item.totalsolargen) / 1000).toFixed(2)} MW
+                        <p className="ml-auto mr-5" key={5}>
+                          {(item.totalsolargen / 1000).toFixed(2)} MW
                         </p>
                       );
                     })}
@@ -439,8 +439,15 @@ export default function Home() {
                   <p className="ml-1">Total Power Generation</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>
-                        {((item.powerhouse1gen + item.powerhouse2gen + item.powerhouse3gen + item.AM17_PH2 + item.totalsolargen) / 1000).toFixed(1)}{" "}
+                      <p className="ml-auto mr-5" key={18}>
+                        {(
+                          (item.powerhouse1gen +
+                            item.powerhouse2gen +
+                            item.powerhouse3gen +
+                            item.AM17_PH2 +
+                            item.totalsolargen) /
+                          1000
+                        ).toFixed(1)}{" "}
                         MW
                       </p>
                     );
@@ -546,7 +553,7 @@ export default function Home() {
                     <p>Steam Power House 1</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={6}>
                           {item.steamph1} T/H
                         </p>
                       );
@@ -559,7 +566,7 @@ export default function Home() {
                     <p>Steam Power House 2</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={7}>
                           {item.steamph2} T/H
                         </p>
                       );
@@ -572,7 +579,7 @@ export default function Home() {
                     <p>Coal Boiler</p>
                     {data.map((item) => {
                       return (
-                        <p className="ml-auto mr-5" key={item.id}>
+                        <p className="ml-auto mr-5" key={8}>
                           {item.cb} T/H
                         </p>
                       );
@@ -583,7 +590,7 @@ export default function Home() {
                   <p className="ml-1">Total Steam Generation</p>
                   {data.map((item) => {
                     return (
-                      <p className="ml-auto mr-5" key={item.id}>
+                      <p className="ml-auto mr-5" key={9}>
                         {(item.steamph1 + item.steamph2 + item.cb).toFixed(1)}{" "}
                         T/H
                       </p>
@@ -615,11 +622,11 @@ export default function Home() {
                   <div className="w-[69.58px]">Capative</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">
+                      <div key={10} className="w-[50.63px]">
                         {item.ngas_psi}
                       </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">
+                      <div key={11} className="w-[53.64px]">
                         {item.ngas_mbar}
                       </div>
                       <div>mBAR</div>
@@ -630,11 +637,11 @@ export default function Home() {
                   <div className="w-[69.58px]">Industrial</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">
+                      <div key={12} className="w-[50.63px]">
                         {item.industrialgas_psi}
                       </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">
+                      <div key={13} className="w-[53.64px]">
                         {item.industrialgas_mbar}
                       </div>
                       <div>mBAR</div>
@@ -645,11 +652,11 @@ export default function Home() {
                   <div className="w-[69.58px]">RLNG</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">
+                      <div key={14} className="w-[50.63px]">
                         {item.rlng_psi}
                       </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">
+                      <div key={15} className="w-[53.64px]">
                         {item.rlng_mbar}
                       </div>
                       <div>mBAR</div>
@@ -660,11 +667,11 @@ export default function Home() {
                   <div className="w-[69.58px]">FGC</div>
                   {data.map((item) => (
                     <>
-                      <div key={item.id} className="w-[50.63px]">
+                      <div key={16} className="w-[50.63px]">
                         {item.fgc}
                       </div>
                       <div>PSI</div>
-                      <div key={item.id} className="w-[53.64px]">
+                      <div key={17} className="w-[53.64px]">
                         {item.fgc_mbar}
                       </div>
                       <div>&nbsp;&nbsp;&nbsp;BAR</div>
