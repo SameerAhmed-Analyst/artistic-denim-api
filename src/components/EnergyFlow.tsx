@@ -639,7 +639,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const FloatingLine = ({ path, color, reverse = false }) => (
+interface FloatingLineProps {
+  path: string;
+  color: string;
+  reverse?: boolean;
+}
+
+const FloatingLine = ({ path, color, reverse = false } : FloatingLineProps) => (
   <motion.path
     d={path}
     stroke={color}
