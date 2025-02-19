@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+// import EnergyFlow from "@/components/EnergyFlow_old";
+import EnergyFlow from "@/components/EnergyFlow";
 
 interface PowerDataTypes {
   id: number;
@@ -72,16 +74,16 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
-   // Testing new thing
+  // Testing new thing
   //  const outsideTextLabels = {
   //   id: 'outsideTextLabels',
   //   afterDatasetsDraw(chart, args, plugins) {
   //     const { ctx, data } = chart;
-  
+
   //     const xCenter = chart.getDatasetMeta(0).data[0].x;
   //     const yCenter = chart.getDatasetMeta(0).data[0].y;
   //     const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius - 20;
-  
+
   //     chart.getDatasetMeta(0).data.forEach((dataPoint, index) => {
   //       const value = data.datasets[0].data[index];
   //       console.log(value)
@@ -92,7 +94,7 @@ export default function Home() {
   //         const centerAngle = (startAngle + endAngle) / 2;
   //         const xCoor = (outerRadius + offset) * Math.cos(centerAngle);
   //         const yCoor = (outerRadius + offset) * Math.sin(centerAngle);
-  
+
   //         ctx.save();
   //         ctx.translate(xCenter, yCenter);
   //         ctx.font = 'bold 14px sans-serif';
@@ -104,7 +106,7 @@ export default function Home() {
   //     });
   //   }
   // };
-  
+
   useEffect(() => {
     if (data.length > 0) {
       const ctx = document.getElementById("electricalph") as HTMLCanvasElement;
@@ -145,8 +147,20 @@ export default function Home() {
           datasets: [
             {
               label: "D",
-              data: [totalValueph1, totalValueph2, totalValueph3, totalValueph4, totalValueSolar],
-              backgroundColor: ["#384C6B", "#a75281", "#C09741", "#4F9D9A", "#9595B7"],
+              data: [
+                totalValueph1,
+                totalValueph2,
+                totalValueph3,
+                totalValueph4,
+                totalValueSolar,
+              ],
+              backgroundColor: [
+                "#384C6B",
+                "#a75281",
+                "#C09741",
+                "#4F9D9A",
+                "#9595B7",
+              ],
             },
           ],
         },
@@ -166,7 +180,7 @@ export default function Home() {
         },
         plugins: [
           // outsideTextLabels
-        ]
+        ],
       });
       chart.update(); // Update the chart to apply changes
     }
@@ -223,7 +237,7 @@ export default function Home() {
         },
         plugins: [
           // outsideTextLabels
-        ]
+        ],
       });
       chart.update(); // Update the chart to apply changes
     }
@@ -235,6 +249,28 @@ export default function Home() {
         {/* <h1 className="text-2xl font-bold text-center pt-5">DASHBOARD</h1> */}
         <div className="p-5">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="p-0 m-0">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-0">
+                <CardTitle className="text-xl font-bold">
+                  Overview <sup className="text-red-600 text-xs">* Testing</sup>
+                </CardTitle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </CardHeader>
+              <CardContent className="p-0">
+                <EnergyFlow />
+              </CardContent>
+            </Card>
             <Card className="p-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
                 <CardTitle className="text-xl font-bold">
