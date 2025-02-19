@@ -739,7 +739,7 @@ export default function EnergyFlow() {
 
   return (
     <svg
-      className="w-full max-w-[400px] h-auto"
+      className="w-full max-w-[500px] h-auto"
       viewBox="0 0 400 400"
       preserveAspectRatio="xMidYMid meet"
     >
