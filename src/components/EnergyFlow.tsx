@@ -645,6 +645,21 @@ interface FloatingLineProps {
   reverse?: boolean;
 }
 
+interface NodeProps {
+  x: number;
+  y: number;
+  color: string;
+  title: string;
+  value: string;
+}
+
+interface FlowValueProps {
+  x: string;
+  y: string;
+  value: string;
+  rotate?: number;
+}
+
 const FloatingLine = ({ path, color, reverse = false } : FloatingLineProps) => (
   <motion.path
     d={path}
@@ -662,7 +677,7 @@ const FloatingLine = ({ path, color, reverse = false } : FloatingLineProps) => (
   />
 );
 
-const Node = ({ x, y, color, title, value }) => (
+const Node = ({ x, y, color, title, value }: NodeProps) => (
   <g transform={`translate(${x},${y})`}>
     <circle r="40" fill="white" stroke={color} strokeWidth="2" />
     {/* Value positioned at the center of the circle */}
@@ -686,7 +701,7 @@ const Node = ({ x, y, color, title, value }) => (
   </g>
 );
 
-const FlowValue = ({ x, y, value, rotate = 0 }) => (
+const FlowValue = ({ x, y, value, rotate = 0 }: FlowValueProps) => (
   <text
     x={x}
     y={y}
