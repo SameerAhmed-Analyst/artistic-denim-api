@@ -109,6 +109,12 @@ const consumption = [
     href: "/luwa",
     icon: CursorArrowRaysIcon,
   },
+  {
+    name: "Finishing",
+    description: "Speak directly to your customers",
+    href: "/finishing/shed1",
+    icon: CursorArrowRaysIcon,
+  },
 ];
 
 
