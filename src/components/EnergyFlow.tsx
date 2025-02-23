@@ -660,7 +660,7 @@ interface FlowValueProps {
   rotate?: number;
 }
 
-const FloatingLine = ({ path, color, reverse = false } : FloatingLineProps) => (
+const FloatingLine = ({ path, color, reverse = false }: FloatingLineProps) => (
   <motion.path
     d={path}
     stroke={color}
@@ -761,7 +761,7 @@ export default function EnergyFlow() {
   return (
     <svg
       className="w-full max-w-[500px] h-auto"
-      viewBox="0 0 400 400"
+      viewBox="0 0 400 350"
       preserveAspectRatio="xMidYMid meet"
     >
       {/* Static Paths */}
@@ -771,15 +771,19 @@ export default function EnergyFlow() {
 
       {/* Floating Lines */}
       {flowData.ph1toPH2 > 0 ? (
-        <FloatingLine path={paths.ph1toPH2} color="#fbbf24" reverse={true} />
+        <FloatingLine path={paths.ph1toPH2} color="#ec4899" reverse={true} />
       ) : (
         <FloatingLine path={paths.ph1toPH2} color="#fbbf24" reverse={false} />
       )}
-      <FloatingLine path={paths.ph2toPH3} color="#ec4899" />
+      {flowData.ph2toPH3 > 0 ? (
+        <FloatingLine path={paths.ph2toPH3} color="#ec4899" reverse={false} />
+      ) : (
+        <FloatingLine path={paths.ph2toPH3} color="#fb1f24" reverse={true} />
+      )}
       {flowData.ph3toPH4 > 0 ? (
         <FloatingLine path={paths.ph3toPH4} color="#fb1f24" reverse={false} />
       ) : (
-        <FloatingLine path={paths.ph3toPH4} color="#fb1f24" reverse={true} />
+        <FloatingLine path={paths.ph3toPH4} color="#60a5fa" reverse={true} />
       )}
 
       {/* Flow Values */}
@@ -793,7 +797,9 @@ export default function EnergyFlow() {
       <FlowValue
         x="320"
         y="170"
-        value={`${flowData.ph2toPH3} KW ↓`}
+        value={`${Math.abs(flowData.ph2toPH3)} KW ${
+          flowData.ph2toPH3 > 0 ? "←" : "→"
+        }`}
         rotate={-90}
       />
       <FlowValue
@@ -807,26 +813,50 @@ export default function EnergyFlow() {
       {/* Total KW in the middle */}
       <text
         x="200"
-        y="160"
+        y="150"
         textAnchor="middle"
-        className="text-[16px] font-bold fill-gray-700"
+        className="text-[18px] font-bold fill-gray-700"
       >
-        Total KW
+        Total
       </text>
       <text
         x="200"
-        y="190"
+        y="180"
         textAnchor="middle"
-        className="text-[20px] font-medium fill-[#1b2d92]"
+        className="text-[24px] font-bold fill-[#1b2d92]"
       >
         {flowData.totalGen} KW
       </text>
 
       {/* Nodes */}
-      <Node x={100} y={70} color="#fbbf24" title="PH1" value={`${((flowData.ph1Total)/1000).toFixed(2)} MW`} />
-      <Node x={300} y={70} color="#ec4899" title="PH2" value={`${((flowData.ph2Total)/1000).toFixed(2)} MW`} />
-      <Node x={300} y={270} color="#fb1f24" title="PH3" value={`${((flowData.ph3Total)/1000).toFixed(2)} MW`} />
-      <Node x={100} y={270} color="#60a5fa" title="PH4" value={`${((flowData.ph4Total)/1000).toFixed(2)} MW`} />
+      <Node
+        x={100}
+        y={70}
+        color="#fbbf24"
+        title="PH1"
+        value={`${(flowData.ph1Total / 1000).toFixed(2)} MW`}
+      />
+      <Node
+        x={300}
+        y={70}
+        color="#ec4899"
+        title="PH2"
+        value={`${(flowData.ph2Total / 1000).toFixed(2)} MW`}
+      />
+      <Node
+        x={300}
+        y={270}
+        color="#fb1f24"
+        title="PH3"
+        value={`${(flowData.ph3Total / 1000).toFixed(2)} MW`}
+      />
+      <Node
+        x={100}
+        y={270}
+        color="#60a5fa"
+        title="PH4"
+        value={`${(flowData.ph4Total / 1000).toFixed(2)} MW`}
+      />
     </svg>
   );
 }
