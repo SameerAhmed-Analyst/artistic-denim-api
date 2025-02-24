@@ -806,7 +806,7 @@ export default function EnergyFlow() {
         x="200"
         y="290"
         value={`${Math.abs(flowData.ph3toPH4)} KW ${
-          flowData.ph3toPH4 > 0 ? "←" : "→"
+          flowData.ph3toPH4 > 0 ? "→" : "←"
         }`}
       />
 
