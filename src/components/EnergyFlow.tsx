@@ -781,9 +781,9 @@ export default function EnergyFlow() {
         <FloatingLine path={paths.ph2toPH3} color="#fb1f24" reverse={true} />
       )}
       {flowData.ph3toPH4 > 0 ? (
-        <FloatingLine path={paths.ph3toPH4} color="#60a5fa" reverse={true} />
-      ) : (
         <FloatingLine path={paths.ph3toPH4} color="#fb1f24" reverse={false} />
+      ) : (
+        <FloatingLine path={paths.ph3toPH4} color="#60a5fa" reverse={true} />
       )}
 
       {/* Flow Values */}
