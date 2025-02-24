@@ -11,11 +11,13 @@ export const GET = async () => {
     try {
         const result1 = await pool.request().query('SELECT * FROM OVERVIEW');
         const result2 = await pool.request().query('SELECT powerhouse1gen, powerhouse2gen, powerhouse3gen, AM17_PH2, totalpowergen FROM dashboard');
+        const result3 = await pool.request().query('SELECT MAN_KW, MAK1_KW, MAK2_KW FROM powerhouse3');
         
         // Combine results
         const combinedResults = {
             overview: result1.recordset,
-            dashboard: result2.recordset
+            dashboard: result2.recordset,
+            powerhouse3: result3.recordset
         };
     
         return NextResponse.json({ data: combinedResults });

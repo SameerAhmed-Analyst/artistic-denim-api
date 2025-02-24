@@ -723,6 +723,9 @@ export default function EnergyFlow() {
     ph2Total: 0,
     ph3Total: 0,
     ph4Total: 0,
+    MAN_KW: 0,
+    MAK1_KW: 0,
+    MAK2_KW: 0,
   });
 
   useEffect(() => {
@@ -739,6 +742,9 @@ export default function EnergyFlow() {
           ph2Total: data.data.dashboard[0].powerhouse2gen,
           ph3Total: data.data.dashboard[0].powerhouse3gen,
           ph4Total: data.data.dashboard[0].AM17_PH2,
+          MAN_KW: data.data.powerhouse3[0].MAN_KW,
+          MAK1_KW: data.data.powerhouse3[0].MAK1_KW,
+          MAK2_KW: data.data.powerhouse3[0].MAK2_KW,
         });
       } catch (error) {
         console.error("Error fetching flow data:", error);
@@ -857,6 +863,16 @@ export default function EnergyFlow() {
         title="PH4"
         value={`${(flowData.ph4Total / 1000).toFixed(2)} MW`}
       />
+      <text
+        x="305"
+        y="325"
+        textAnchor="middle"
+        className="text-[12px] font-bold fill-gray-700"
+      >
+        {flowData.MAN_KW > 10 || flowData.MAK1_KW > 10 || flowData.MAK2_KW > 10
+          ? `HFO → ${flowData.MAN_KW + flowData.MAK1_KW + flowData.MAK2_KW} kW`
+          : " "}
+      </text>
     </svg>
   );
 }
