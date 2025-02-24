@@ -870,7 +870,7 @@ export default function EnergyFlow() {
         className="text-[12px] font-bold fill-gray-700"
       >
         {flowData.MAN_KW > 10 || flowData.MAK1_KW > 10 || flowData.MAK2_KW > 10
-          ? `HFO → ${flowData.MAN_KW + flowData.MAK1_KW + flowData.MAK2_KW} kW`
+          ? `HFO → ${(flowData.MAN_KW + flowData.MAK1_KW + flowData.MAK2_KW).toFixed(0)} kW`
           : " "}
       </text>
     </svg>
