@@ -252,21 +252,23 @@ export default function Home() {
             <Card className="p-0 m-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-0">
                 <CardTitle className="text-xl font-bold">
-                  Overview 
+                  Overview
                   {/* <sup className="text-red-600 text-xs">* Testing</sup> */}
                 </CardTitle>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="h-4 w-4 text-muted-foreground"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>
+                <a href="/custom_report">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="h-4 w-4 text-muted-foreground"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                  </svg>
+                </a>
               </CardHeader>
               <CardContent className="p-0">
                 <EnergyFlow />
