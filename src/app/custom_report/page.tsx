@@ -277,7 +277,7 @@ export default function Home() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-xl md:text-2xl font-bold mb-4 text-center">
-        Report Fetching System
+        Report Generate
       </h1>
 
       {/* Date Pickers (Responsive Layout) */}
@@ -317,7 +317,7 @@ export default function Home() {
         className="bg-blue-500 text-white px-4 py-2 w-full md:w-auto rounded hover:bg-blue-700 transition"
         disabled={loading}
       >
-        {loading ? "Fetching..." : "Fetch Data"}
+        {loading ? "Fetching..." : "Generate Report"}
       </button>
 
       {/* Charts (Fully Responsive) */}
