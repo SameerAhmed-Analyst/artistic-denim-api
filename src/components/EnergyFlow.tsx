@@ -91,7 +91,7 @@ export default function EnergyFlow() {
     MAK1_KW: 0,
     MAK2_KW: 0,
     turbinekw: 0,
-    engine6kw: 0, 
+    engine6kw: 0,
     engine7kw: 0,
   });
 
@@ -205,34 +205,42 @@ export default function EnergyFlow() {
       </text>
 
       {/* Nodes */}
-      <Node
-        x={100}
-        y={70}
-        color="#fbbf24"
-        title="PH1"
-        value={`${(flowData.ph1Total / 1000).toFixed(2)} MW`}
-      />
-      <Node
-        x={300}
-        y={70}
-        color="#ec4899"
-        title="PH2"
-        value={`${(flowData.ph2Total / 1000).toFixed(2)} MW`}
-      />
-      <Node
-        x={300}
-        y={270}
-        color="#fb1f24"
-        title="PH3"
-        value={`${(flowData.ph3Total / 1000).toFixed(2)} MW`}
-      />
-      <Node
-        x={100}
-        y={270}
-        color="#60a5fa"
-        title="PH4"
-        value={`${(flowData.ph4Total / 1000).toFixed(2)} MW`}
-      />
+      <a href="/powerhouse1">
+        <Node
+          x={100}
+          y={70}
+          color="#fbbf24"
+          title="PH1"
+          value={`${(flowData.ph1Total / 1000).toFixed(2)} MW`}
+        />
+      </a>
+      <a href="/powerhouse2">
+        <Node
+          x={300}
+          y={70}
+          color="#ec4899"
+          title="PH2"
+          value={`${(flowData.ph2Total / 1000).toFixed(2)} MW`}
+        />
+      </a>
+      <a href="/powerhouse3">
+        <Node
+          x={300}
+          y={270}
+          color="#fb1f24"
+          title="PH3"
+          value={`${(flowData.ph3Total / 1000).toFixed(2)} MW`}
+        />
+      </a>
+      <a href="/am17_powerhouse2">
+        <Node
+          x={100}
+          y={270}
+          color="#60a5fa"
+          title="PH4"
+          value={`${(flowData.ph4Total / 1000).toFixed(2)} MW`}
+        />
+      </a>
       <text
         x="305"
         y="325"
@@ -264,7 +272,9 @@ export default function EnergyFlow() {
         className="text-[12px] font-bold fill-gray-700"
       >
         {flowData.engine6kw > 10 || flowData.engine7kw > 10
-          ? `DIESEL → ${(flowData.engine6kw + flowData.engine7kw).toFixed(0)} kW`
+          ? `DIESEL → ${(flowData.engine6kw + flowData.engine7kw).toFixed(
+              0
+            )} kW`
           : " "}
       </text>
     </svg>
