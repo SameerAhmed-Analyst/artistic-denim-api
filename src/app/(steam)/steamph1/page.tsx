@@ -10,6 +10,12 @@ import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 export interface SteamData {
   id: number;
   whrbsteam: number;
+  whrb1steam: number;
+  whrb1pressure: number;
+  whrb1water: number;
+  whrb2steam: number;
+  whrb2pressure: number;
+  whrb2water: number;
   gasfiredsteamflow: number;
   gasfiredgasflow: number;
   gasfiredwaterflow: number;
@@ -169,7 +175,7 @@ const Page = () => {
                     <p>Steam Flow {item.gasfiredsteamflow} T/H</p>
                     <p>Water Flow {item.gasfiredwaterflow} M3/H</p>
                     <p>Steam Pressure {item.gasfiredpressure} PSI</p>
-                    {/* <p>Gas Flow {item.gasfiredgasflow} M3/H</p> */}
+                    <p>Gas Flow {item.gasfiredgasflow} M3/H</p>
                   </div>
                 );
               })}
@@ -181,7 +187,7 @@ const Page = () => {
         </Card>
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">WHRB</CardTitle>
+            <CardTitle className="text-xl font-bold">WHRB 1</CardTitle>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -224,7 +230,121 @@ const Page = () => {
               {data.map((item) => {
                 return (
                   <div key={item.id} className="text-sm">
-                    <p>Steam Flow {item.whrbsteam} T/H</p>
+                    <p>Steam Flow {item.whrb1steam} T/H</p>
+                    <p>Steam Pressure {item.whrb1pressure} PSI</p>                    
+                    <p>Water Flow {item.whrb1water} M3/H</p>
+                  </div>
+                );
+              })}
+              {/* <p className="text-xs text-muted-foreground">
+                1500 total capacity in KW
+              </p> */}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 2</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedData1}%
+              </div>
+              <canvas id="whrb" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {item.whrb1steam} T/H</p>
+                    <p>Steam Pressure {item.whrb2pressure} PSI</p>                    
+                    <p>Water Flow {item.whrb2water} M3/H</p> 
+                  </div>
+                );
+              })}
+              {/* <p className="text-xs text-muted-foreground">
+                1500 total capacity in KW
+              </p> */}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 3 & 4</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedData1}%
+              </div>
+              <canvas id="whrb" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {item.whrbsteam-item.whrb1steam-item.whrb2steam} T/H</p>
                   </div>
                 );
               })}
