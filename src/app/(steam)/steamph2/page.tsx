@@ -9,6 +9,7 @@ import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 export interface SteamData {
   id: number;
   hrsgsteamflow: number;
+  hrsgfreesteamflow: number;
   hrsgsteamtotal: number;
   hrsgwaterflow: number;
   hrsgwatertotal: number;
@@ -215,6 +216,7 @@ const Page = () => {
                     <p>Steam Flow {item.hrsgsteamflow} T/H</p>
                     <p>Steam Pressure {item.hrsgsteampressure} PSI</p>                
                     <p>Water Flow {item.hrsgwaterflow} M3/H</p>            
+                    <p>Free Steam Flow {item.hrsgfreesteamflow} T/H</p>
                   </div>
                 );
               })}
