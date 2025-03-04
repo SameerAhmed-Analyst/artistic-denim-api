@@ -216,7 +216,7 @@ const Page = () => {
                     <p>Steam Flow {item.hrsgsteamflow} T/H</p>
                     <p>Steam Pressure {item.hrsgsteampressure} PSI</p>                
                     <p>Water Flow {item.hrsgwaterflow} M3/H</p>            
-                    <p>Free Steam Flow {item.hrsgfreesteamflow} T/H</p>
+                    <p>Free Steam {item.hrsgfreesteamflow} T/H</p>
                   </div>
                 );
               })}
