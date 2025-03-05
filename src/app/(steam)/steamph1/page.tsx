@@ -44,7 +44,9 @@ async function getData() {
 const Page = () => {
   const [data, setData] = useState<SteamData[]>([]);
   const [percentageUsedData, setPercentageUsedData] = useState("");
-  const [percentageUsedData1, setPercentageUsedData1] = useState("");
+  const [percentageUsedDataW1, setPercentageUsedDataW1] = useState("");
+  const [percentageUsedDataW2, setPercentageUsedDataW2] = useState("");
+  const [percentageUsedDataW3_4, setPercentageUsedDataW3_4] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -117,9 +119,25 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
+      const values = data.map((item) => item.whrb1steam);
+      const percentageUsed = initializeChart("whrb1", values, 1.5);
+      setPercentageUsedDataW1(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.whrb2steam);
+      const percentageUsed = initializeChart("whrb2", values, 1.5);
+      setPercentageUsedDataW2(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
       const values = data.map((item) => item.whrbsteam);
-      const percentageUsed = initializeChart("whrb", values, 20.0);
-      setPercentageUsedData1(percentageUsed);
+      const percentageUsed = initializeChart("whrb3&4", values, 3.0);
+      setPercentageUsedDataW3_4(percentageUsed);
     }
   }, [data]);
 
@@ -222,9 +240,9 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {0}%
+                {percentageUsedDataW1}%
               </div>
-              <canvas id="whrb" width="100" height="100" />
+              <canvas id="whrb1" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
@@ -279,9 +297,9 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {0}%
+                {percentageUsedDataW2}%
               </div>
-              <canvas id="whrb" width="100" height="100" />
+              <canvas id="whrb2" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
@@ -336,9 +354,9 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {percentageUsedData1}%
+                {percentageUsedDataW3_4}%
               </div>
-              <canvas id="whrb" width="100" height="100" />
+              <canvas id="whrb3&4" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
