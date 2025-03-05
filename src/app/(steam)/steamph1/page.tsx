@@ -222,7 +222,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {percentageUsedData1}%
+                {0}%
               </div>
               <canvas id="whrb" width="100" height="100" />
             </div>
@@ -279,7 +279,7 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {percentageUsedData1}%
+                {0}%
               </div>
               <canvas id="whrb" width="100" height="100" />
             </div>
@@ -287,7 +287,7 @@ const Page = () => {
               {data.map((item) => {
                 return (
                   <div key={item.id} className="text-sm">
-                    <p>Steam Flow {item.whrb1steam} T/H</p>
+                    <p>Steam Flow {item.whrb2steam} T/H</p>
                     <p>Steam Pressure {item.whrb2pressure} PSI</p>                    
                     <p>Water Flow {item.whrb2water} M3/H</p> 
                   </div>
