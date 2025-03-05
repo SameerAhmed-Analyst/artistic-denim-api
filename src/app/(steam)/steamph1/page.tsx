@@ -362,7 +362,7 @@ const Page = () => {
               {data.map((item) => {
                 return (
                   <div key={item.id} className="text-sm">
-                    <p>Steam Flow {item.whrbsteam-item.whrb1steam-item.whrb2steam} T/H</p>
+                    <p>Steam Flow {(item.whrbsteam-item.whrb1steam-item.whrb2steam).toFixed(2)} T/H</p>
                   </div>
                 );
               })}
