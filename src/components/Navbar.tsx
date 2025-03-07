@@ -112,7 +112,7 @@ const consumption = [
   {
     name: "Finishing",
     description: "Speak directly to your customers",
-    href: "/finishing/shed1",
+    href: "/finishing",
     icon: CursorArrowRaysIcon,
   },
 ];
