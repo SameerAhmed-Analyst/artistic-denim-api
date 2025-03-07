@@ -39,13 +39,30 @@
 
 // export default Shed1Page;
 
+import React from "react";
+import Link from "next/link";
 
-import React from 'react'
-
-const page = () => {
+const Page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="container mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Finishing</h1>
+      <div className="flex gap-4">
+        {/* Link to Shed 1 page */}
+        <Link href="/finishing/shed/1">
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">
+            Shed 1
+          </button>
+        </Link>
 
-export default page
+        {/* Link to Shed 2 page */}
+        <Link href="/finishing/shed/2">
+          <button className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700">
+            Shed 2
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Page;
