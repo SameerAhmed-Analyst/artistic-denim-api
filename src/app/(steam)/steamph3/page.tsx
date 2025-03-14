@@ -154,7 +154,7 @@ const Page = () => {
                 </div>
                 <canvas id="coal" width="100" height="100" />
               </div>
-              <div className="">
+              <div className="flex flex-col justify-center h-[86px]">
                 {data.map((item) => {
                   return (
                     <div key={item.id} className="text-sm">
