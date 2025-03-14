@@ -159,7 +159,7 @@ const Page = () => {
                   return (
                     <div key={item.id} className="text-sm">
                       <p>Steam Flow {item.steamflow} T/H</p>
-                      <p>Steam Pressure {item.steampressure} PSI</p>
+                      <p>Steam Pressure {(item.steampressure).toFixed(1)} PSI</p>
                       <p>Water Flow {item.waterflow} M3/H</p>
                     </div>
                   );
