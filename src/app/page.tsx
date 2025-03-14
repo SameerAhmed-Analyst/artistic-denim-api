@@ -30,7 +30,16 @@ interface PowerDataTypes {
   totalsolargen: number;
 }
 
-async function getData() {
+interface SteamPressureType {
+  hrsgsteampressure: number;
+}
+
+interface ApiResponse {
+  dashboard: PowerDataTypes[];
+  steam_p_hrsg: SteamPressureType[];
+}
+
+async function getData(): Promise<ApiResponse | null> {
   try {
     const res = await fetch("/api/v1/dashboard", {
       method: "GET",
@@ -39,18 +48,22 @@ async function getData() {
         "Content-Type": "application/json",
       },
     });
+
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
+
     const result = await res.json();
-    return result;
+    return result.data;
   } catch (error) {
-    console.log("error: " + error);
+    console.error("Error fetching data:", error);
+    return null;
   }
 }
 
 export default function Home() {
   const [data, setData] = useState<PowerDataTypes[]>([]);
+  const [steamPressure, setSteamPressure] = useState<number | null>(null);
   const [percentageUsedDataPH1, setPercentageUsedDataPH1] = useState("");
   const [percentageUsedDataPH2, setPercentageUsedDataPH2] = useState("");
   const [percentageUsedDataCoal, setPercentageUsedDataCoal] = useState("");
@@ -61,7 +74,10 @@ export default function Home() {
 
   const refreshList = async () => {
     const result = await getData();
-    setData(result.data);
+    if (result) {
+      setData(result.dashboard);
+      setSteamPressure(result.steam_p_hrsg[0]?.hrsgsteampressure ?? null);
+    }
   };
 
   useEffect(() => {
@@ -485,40 +501,13 @@ export default function Home() {
                     marginTop: "15px",
                   }}
                 >
+                  {/* Total Steam Flow (T/H) */}
                   <div
                     style={{
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "21%",
-                      left: "131px",
-                      lineHeight: "19px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                    }}
-                  >
-                    {/* {percentageUsedDataPH1}% */}
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "99%",
-                      left: "0",
-                      lineHeight: "19px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                    }}
-                  >
-                    {/* {percentageUsedDataPH2}% */}
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "53%",
+                      top: "50%",
                       left: "0",
                       marginTop: "-20px",
                       lineHeight: "19px",
@@ -527,25 +516,36 @@ export default function Home() {
                       fontSize: "x-large",
                     }}
                   >
-                    {data.map((item) =>
-                      (item.steamph1 + item.steamph2 + item.cb).toFixed(1)
-                    )}{" "}
+                    {data.length > 0
+                      ? (
+                          data[0].steamph1 +
+                          data[0].steamph2 +
+                          data[0].cb
+                        ).toFixed(1)
+                      : "N/A"}{" "}
                     T/H
                   </div>
+                  {/* Steam Pressure (PSI) below T/H */}
                   <div
                     style={{
                       width: "100%",
                       height: "40px",
                       position: "absolute",
-                      top: "23%",
-                      right: "135px",
+                      top: "53%", // Adjusted position below T/H
+                      left: "0",
                       lineHeight: "19px",
-                      fontWeight: "bold",
                       textAlign: "center",
+                      fontWeight: "bold",
+                      fontSize: "large",
+                      color: "#8E44AD", // Optional: Highlight PSI value
                     }}
                   >
-                    {/* {percentageUsedDataCoal}% */}
+                    {steamPressure !== null
+                      ? `${steamPressure} PSI`
+                      : "N/A PSI"}
                   </div>
+
+                  {/* Canvas for Chart */}
                   <canvas id="powerhouse2gen" width="200" height="200" />
                 </div>
               </CardContent>
