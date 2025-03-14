@@ -10,11 +10,8 @@ import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 export interface SteamData {
   id: number;
   steamflow: number;
-  steamtotal: number;
+  steampressure: number;
   waterflow: number;
-  watertotal: number;
-  gasflow: number;
-  gastotal: number;
 }
 
 async function getData() {
@@ -49,7 +46,7 @@ const Page = () => {
     refreshList();
 
     const intervalId = setInterval(() => {
-      refreshList(); // Fetch data every 3 seconds
+      refreshList(); // Fetch data every 1 seconds
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -162,9 +159,8 @@ const Page = () => {
                   return (
                     <div key={item.id} className="text-sm">
                       <p>Steam Flow {item.steamflow} T/H</p>
-                      <p>Steam Total {item.steamtotal} Ton</p>
+                      <p>Steam Pressure {item.steampressure} PSI</p>
                       <p>Water Flow {item.waterflow} M3/H</p>
-                      <p>Water Total {item.watertotal} M3</p>
                     </div>
                   );
                 })}
