@@ -260,7 +260,7 @@ export default function Home() {
             <Card className="p-0 m-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-0">
                 <CardTitle className="text-xl font-bold">
-                  Steam Overview
+                  Steam
                   <sup className="text-red-600 text-xs">* Under Development</sup>
                 </CardTitle>
                 <a href="/">
