@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-// import EnergyFlow from "@/components/EnergyFlow_old";
 import EnergyFlow from "@/components/EnergyFlow";
+import SeparatedSourcesCard from "@/components/separated-sources-card";
 
 interface PowerDataTypes {
   id: number;
@@ -89,39 +89,6 @@ export default function Home() {
 
     return () => clearInterval(intervalId);
   }, []);
-
-  // Testing new thing
-  //  const outsideTextLabels = {
-  //   id: 'outsideTextLabels',
-  //   afterDatasetsDraw(chart, args, plugins) {
-  //     const { ctx, data } = chart;
-
-  //     const xCenter = chart.getDatasetMeta(0).data[0].x;
-  //     const yCenter = chart.getDatasetMeta(0).data[0].y;
-  //     const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius - 20;
-
-  //     chart.getDatasetMeta(0).data.forEach((dataPoint, index) => {
-  //       const value = data.datasets[0].data[index];
-  //       console.log(value)
-  //       if (value !== 0 && value >= 1) {
-  //         const offset = dataPoint.options.offset;
-  //         const startAngle = dataPoint.startAngle;
-  //         const endAngle = dataPoint.endAngle;
-  //         const centerAngle = (startAngle + endAngle) / 2;
-  //         const xCoor = (outerRadius + offset) * Math.cos(centerAngle);
-  //         const yCoor = (outerRadius + offset) * Math.sin(centerAngle);
-
-  //         ctx.save();
-  //         ctx.translate(xCenter, yCenter);
-  //         ctx.font = 'bold 14px sans-serif';
-  //         ctx.textAlign = 'center';
-  //         ctx.textBaseline = 'middle';
-  //         ctx.fillText(value, xCoor, yCoor);
-  //         ctx.restore();
-  //       }
-  //     });
-  //   }
-  // };
 
   useEffect(() => {
     if (data.length > 0) {
@@ -288,6 +255,31 @@ export default function Home() {
               </CardHeader>
               <CardContent className="p-0">
                 <EnergyFlow />
+              </CardContent>
+            </Card>
+            <Card className="p-0 m-0">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-0">
+                <CardTitle className="text-xl font-bold">
+                  Steam Overview
+                  {/* <sup className="text-red-600 text-xs">* Testing</sup> */}
+                </CardTitle>
+                <a href="/">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="h-4 w-4 text-muted-foreground"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                  </svg>
+                </a>
+              </CardHeader>
+              <CardContent className="p-0">
+                <SeparatedSourcesCard />
               </CardContent>
             </Card>
             <Card className="p-0">
