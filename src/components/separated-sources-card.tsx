@@ -301,18 +301,18 @@ const SourceNode = ({
   return (
     <div className="flex flex-col items-center">
       <div
-        className="relative w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] rounded-full border-2 flex flex-col items-center justify-center bg-white"
+        className="relative w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] rounded-full border-2 flex flex-col items-center justify-center bg-white"
         style={{ borderColor: color }}
       >
-        <div className="text-center text-xs sm:text-sm font-medium">
+        <div className="text-center text-[10px] font-bold">
           {steamValue.toFixed(2)} TON/h
         </div>
-        <div className="text-center text-xs sm:text-sm text-gray-600">
+        <div className="text-center text-[10px] text-gray-600">
           {pressureValue.toFixed(1)} PSI
         </div>
-      </div>
-      <div className="mt-2 text-center text-xs sm:text-sm font-medium text-gray-700">
-        {title}
+        <div className="absolute bottom-1 text-center text-[8px] font-medium text-gray-700">
+          {title}
+        </div>
       </div>
     </div>
   );
@@ -356,37 +356,37 @@ export default function SeparatedSourcesCard() {
 
   return (
     <div className="p-4">
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 justify-items-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center">
         <SourceNode
-          title="Power House 1"
+          title="PH 1"
           steamValue={sourceData.ph1Steam}
           pressureValue={0.0}
-          color="#3b82f6"
+          color="#8b5cf6"
         />
         <SourceNode
-          title="Power House 2"
+          title="PH 2"
           steamValue={sourceData.ph2Steam}
           pressureValue={0.0}
           color="#8b5cf6"
         />
         <SourceNode
-          title="Power House 3"
+          title="PH 3"
           steamValue={sourceData.ph3Steam}
           pressureValue={0.0}
-          color="#ec4899"
+          color="#8b5cf6"
         />
         <SourceNode
-          title="Power House 4"
+          title="PH 4"
           steamValue={sourceData.ph4Steam}
           pressureValue={0.0}
-          color="#f59e0b"
+          color="#8b5cf6"
         />
         <div className="col-span-2 sm:col-span-1 sm:order-none">
           <SourceNode
-            title="Coal Boiler"
+            title="CB"
             steamValue={sourceData.coalSteam}
             pressureValue={0.0}
-            color="#10b981"
+            color="#8b5cf6"
           />
         </div>
       </div>
