@@ -5,18 +5,35 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-// import Hrsg from "@/components/Hrsg";
 
 export interface SteamData {
   id: number;
-  steamflow: number;
-  steampressure: number;
-  waterflow: number;
+  whrb1steamflow: number;
+  whrb2steamflow: number;
+  whrb3steamflow: number;
+  whrb4steamflow: number;
+  whrb1steamtotal: number;
+  whrb2steamtotal: number;
+  whrb3steamtotal: number;
+  whrb4steamtotal: number;
+  whrb1waterflow: number;
+  whrb2waterflow: number;
+  whrb3waterflow: number;
+  whrb4waterflow: number;
+  whrb1watertotal: number;
+  whrb2watertotal: number;
+  whrb3watertotal: number;
+  whrb4watertotal: number;
+  hrsgsteampressure: number;
+  whrb1steampressure: number;
+  whrb2steampressure: number;
+  whrb3steampressure: number;
+  whrb4steampressure: number;
 }
 
 async function getData() {
   try {
-    const res = await fetch("/api/v1/steampowerhouse3", {
+    const res = await fetch("/api/v1/steampowerhouse2", {
       method: "GET",
       cache: "no-store",
       headers: {
@@ -36,6 +53,10 @@ async function getData() {
 const Page = () => {
   const [data, setData] = useState<SteamData[]>([]);
   const [percentageUsedData, setPercentageUsedData] = useState("");
+  const [percentageUsedDataE2, setPercentageUsedDataE2] = useState("");
+  const [percentageUsedDataE3, setPercentageUsedDataE3] = useState("");
+  const [percentageUsedDataE4, setPercentageUsedDataE4] = useState("");
+  const [percentageUsedDataE5, setPercentageUsedDataE5] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -100,77 +121,318 @@ const Page = () => {
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.steamflow);
-      const percentageUsed = initializeChart("coal", values, 15.0);
-      setPercentageUsedData(percentageUsed);
+      const values = [0.0];
+      const percentageUsed = initializeChart("whrb1", values, 1.0);
+      setPercentageUsedDataE2(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = [0.0];
+      const percentageUsed = initializeChart("whrb2", values, 1.6);
+      setPercentageUsedDataE3(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = [0.0];
+      const percentageUsed = initializeChart("whrb3", values, 1.6);
+      setPercentageUsedDataE4(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = [0.0];
+      const percentageUsed = initializeChart("whrb4", values, 1.0);
+      setPercentageUsedDataE5(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = [0.0];
+      const percentageUsed = initializeChart("whrb5", values, 1.0);
+      setPercentageUsedDataE5(percentageUsed);
     }
   }, [data]);
 
   return (
-    <div>
-      <h1 className="pt-5 text-center text-xl font-bold">Coal Boiler</h1>
-      <div className="p-5">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="p-0">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-              <CardTitle className="text-xl font-bold">
-                Coal Fire Boiler
-              </CardTitle>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="h-4 w-4 text-muted-foreground"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
-            </CardHeader>
-            <CardContent className="flex justify-evenly">
+    <div className="p-5">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <h1 className="text-center text-xl font-bold">Power house 3 AND 4 Generation</h1>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 1</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
               <div
                 style={{
-                  width: "100px",
-                  height: "100px",
-                  float: "left",
-                  position: "relative",
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
                 }}
               >
-                <div
-                  style={{
-                    width: "100%",
-                    height: "40px",
-                    position: "absolute",
-                    top: "55%",
-                    left: "0",
-                    marginTop: "-20px",
-                    lineHeight: "19px",
-                    textAlign: "center",
-                  }}
-                >
-                  {percentageUsedData}%
-                </div>
-                <canvas id="coal" width="100" height="100" />
+                {percentageUsedDataE2}%
               </div>
-              <div className="flex flex-col justify-center h-[86px]">
-                {data.map((item) => {
-                  return (
-                    <div key={item.id} className="text-sm">
-                      <p>Steam Flow {item.steamflow} T/H</p>
-                      <p>Steam Pressure {(item.steampressure).toFixed(1)} PSI</p>
-                      <p>Water Flow {item.waterflow} M3/H</p>
-                    </div>
-                  );
-                })}
-                {/* <p className="text-xs text-muted-foreground">
-                1500 total capacity in KW
-              </p> */}
+              <canvas id="whrb1" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {0} T/H</p>
+                    <p>Steam Pressure {0} PSI</p>                    
+                    <p>Water Flow {0} M3/H</p>            
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 2</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE3}%
               </div>
-            </CardContent>
-          </Card>
-        </div>
+              <canvas id="whrb2" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {0} T/H</p>
+                    <p>Steam Pressure {0} PSI</p>               
+                    <p>Water Flow {0} M3/H</p>            
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 3</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE4}%
+              </div>
+              <canvas id="whrb3" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {0} T/H</p>
+                    <p>Steam Pressure {0} PSI</p>                
+                    <p>Water Flow {0} M3/H</p>            
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 4</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE5}%
+              </div>
+              <canvas id="whrb4" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {0} T/H</p>
+                    <p>Steam Pressure {0} PSI</p>                
+                    <p>Water Flow {0} M3/H</p>            
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 5</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataE5}%
+              </div>
+              <canvas id="whrb5" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {0} T/H</p>
+                    <p>Steam Pressure {0} PSI</p>                
+                    <p>Water Flow {0} M3/H</p>            
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

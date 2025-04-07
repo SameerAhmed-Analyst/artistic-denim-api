@@ -261,7 +261,9 @@ export default function Home() {
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-0">
                 <CardTitle className="text-xl font-bold">
                   Steam
-                  <sup className="text-red-600 text-xs">* Under Development</sup>
+                  <sup className="text-red-600 text-xs">
+                    * Under Development
+                  </sup>
                 </CardTitle>
                 <a href="/">
                   <svg
@@ -569,6 +571,15 @@ export default function Home() {
                   </div>
                 </a>
                 <a href="/steamph3">
+                  <div className="flex">
+                    <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
+                    <p>Steam Power House 3</p>
+                    <p className="ml-auto mr-5" key={8}>
+                      {0.0} T/H
+                    </p>
+                  </div>
+                </a>
+                <a href="/coalboiler">
                   <div className="flex">
                     <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
                     <p>Coal Boiler</p>

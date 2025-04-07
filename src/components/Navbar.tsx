@@ -82,9 +82,15 @@ const steams = [
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Coal Boiler",
+    name: "Steam 3",
     description: "Speak directly to your customers",
     href: "/steamph3",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Coal Boiler",
+    description: "Speak directly to your customers",
+    href: "/coalboiler",
     icon: CursorArrowRaysIcon,
   },
   {
