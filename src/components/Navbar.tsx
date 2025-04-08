@@ -88,6 +88,12 @@ const steams = [
     icon: CursorArrowRaysIcon,
   },
   {
+    name: "Steam 4",
+    description: "Speak directly to your customers",
+    href: "/steamph4",
+    icon: CursorArrowRaysIcon,
+  },
+  {
     name: "Coal Boiler",
     description: "Speak directly to your customers",
     href: "/coalboiler",

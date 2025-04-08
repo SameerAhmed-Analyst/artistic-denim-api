@@ -16,6 +16,8 @@ interface PowerDataTypes {
   totalpowergen: number;
   steamph1: number;
   steamph2: number;
+  steamph3: number;
+  steamph4: number;
   cb: number;
   steamgen: number;
   ps: null;
@@ -64,9 +66,6 @@ async function getData(): Promise<ApiResponse | null> {
 export default function Home() {
   const [data, setData] = useState<PowerDataTypes[]>([]);
   const [steamPressure, setSteamPressure] = useState<number | null>(null);
-  const [percentageUsedDataPH1, setPercentageUsedDataPH1] = useState("");
-  const [percentageUsedDataPH2, setPercentageUsedDataPH2] = useState("");
-  const [percentageUsedDataCoal, setPercentageUsedDataCoal] = useState("");
   const [percentageUsedDataEPH1, setPercentageUsedDataEPH1] = useState("");
   const [percentageUsedDataEPH2, setPercentageUsedDataEPH2] = useState("");
   const [percentageUsedDataSolar, setPercentageUsedDataSolar] = useState("");
@@ -182,16 +181,14 @@ export default function Home() {
 
       const valuesph1 = data.map((item) => item.steamph1);
       const valuesph2 = data.map((item) => item.steamph2);
+      const valuesph3 = data.map((item) => item.steamph3);
+      const valuesph4 = data.map((item) => item.steamph4);
       const valuesCoal = data.map((item) => item.cb);
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
+      const totalValueph3 = valuesph3.reduce((acc, curr) => acc + curr, 0);
+      const totalValueph4 = valuesph4.reduce((acc, curr) => acc + curr, 0);
       const totalValueCoal = valuesCoal.reduce((acc, curr) => acc + curr, 0);
-      const percentageUsedph1 = ((totalValueph1 / 22) * 100).toFixed(1);
-      const percentageUsedph2 = ((totalValueph2 / 21) * 100).toFixed(1);
-      const percentageUsedCoal = ((totalValueCoal / 21) * 100).toFixed(1);
-      setPercentageUsedDataPH1(percentageUsedph1);
-      setPercentageUsedDataPH2(percentageUsedph2);
-      setPercentageUsedDataCoal(percentageUsedCoal);
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -199,8 +196,8 @@ export default function Home() {
           datasets: [
             {
               label: "Data from API",
-              data: [totalValueph1, totalValueph2, totalValueCoal],
-              backgroundColor: ["#384C6B", "#E28A2B", "#9595B7"],
+              data: [totalValueph1, totalValueph2, totalValueph3, totalValueph4, totalValueCoal],
+              backgroundColor: ["#384C6B", "#b495b7", "#E28A2B", "#95b798", "#9595B7"],
             },
           ],
         },
@@ -386,7 +383,7 @@ export default function Home() {
                 <a href="/powerhouse1">
                   <div className="flex">
                     <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
-                    <p>AM5 Power House 1</p>
+                    <p>Power House 1</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={1}>
@@ -399,7 +396,7 @@ export default function Home() {
                 <a href="/powerhouse2">
                   <div className="flex">
                     <div className="bg-[#a75281] w-10 h-5 m-1"></div>
-                    <p>AM5 Power House 2</p>
+                    <p>Power House 2</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={2}>
@@ -412,7 +409,7 @@ export default function Home() {
                 <a href="/powerhouse3">
                   <div className="flex">
                     <div className="bg-[#C09741] w-10 h-5 m-1"></div>
-                    <p>AM17 Power House 1</p>
+                    <p>Power House 3</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={3}>
@@ -425,7 +422,7 @@ export default function Home() {
                 <a href="/am17_powerhouse2">
                   <div className="flex">
                     <div className="bg-[#4F9D9A] w-10 h-5 m-1"></div>
-                    <p>AM17 Power House 2</p>
+                    <p>Power House 4</p>
                     {data.map((item) => {
                       return (
                         <p className="ml-auto mr-5" key={4}>
@@ -469,7 +466,7 @@ export default function Home() {
               </div>
             </Card>
             <Card className="p-0">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardHeader className="flex flex-row items-center justify-between p-4">
                 <CardTitle className="text-xl font-bold">
                   Steam Generation
                 </CardTitle>
@@ -486,123 +483,98 @@ export default function Home() {
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </CardHeader>
+
               <CardContent className="flex justify-center">
-                <div
-                  style={{
-                    width: "250px",
-                    height: "250px",
-                    position: "relative",
-                    marginTop: "15px",
-                  }}
-                >
-                  {/* Total Steam Flow (T/H) */}
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "50%",
-                      left: "0",
-                      marginTop: "-20px",
-                      lineHeight: "19px",
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      fontSize: "x-large",
-                    }}
-                  >
-                    {data.length > 0
+                <div className="relative mt-4 w-[250px] h-[250px]">
+                  {/* Total Steam Flow */}
+                  <div className="absolute top-1/2 left-0 w-full -mt-5 text-center font-bold text-xl">
+                    {data?.[0]
                       ? (
                           data[0].steamph1 +
                           data[0].steamph2 +
+                          data[0].steamph3 +
+                          data[0].steamph4 +
                           data[0].cb
                         ).toFixed(1)
                       : "N/A"}{" "}
                     T/H
                   </div>
-                  {/* Steam Pressure (PSI) below T/H */}
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "40px",
-                      position: "absolute",
-                      top: "53%", // Adjusted position below T/H
-                      left: "0",
-                      lineHeight: "19px",
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      fontSize: "large",
-                      color: "#8E44AD", // Optional: Highlight PSI value
-                    }}
-                  >
+
+                  {/* Steam Pressure */}
+                  <div className="absolute top-[53%] left-0 w-full text-center font-bold text-lg text-purple-700">
                     {steamPressure !== null
                       ? `${steamPressure} PSI`
                       : "N/A PSI"}
                   </div>
 
-                  {/* Canvas for Chart */}
                   <canvas id="powerhouse2gen" width="200" height="200" />
                 </div>
               </CardContent>
-              <div className="">
-                <a href="/steamph1">
-                  <div className="flex">
-                    <div className="bg-[#384C6B] w-10 h-5 m-1"></div>
-                    <p>Steam Power House 1</p>
-                    {data.map((item) => {
-                      return (
-                        <p className="ml-auto mr-5" key={6}>
-                          {item.steamph1} T/H
-                        </p>
-                      );
-                    })}
-                  </div>
-                </a>
-                <a href="/steamph2">
-                  <div className="flex">
-                    <div className="bg-[#E28A2B] w-10 h-5 m-1"></div>
-                    <p>Steam Power House 2</p>
-                    {data.map((item) => {
-                      return (
-                        <p className="ml-auto mr-5" key={7}>
-                          {item.steamph2} T/H
-                        </p>
-                      );
-                    })}
-                  </div>
-                </a>
-                <a href="/steamph3">
-                  <div className="flex">
-                    <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
-                    <p>Steam Power House 3</p>
-                    <p className="ml-auto mr-5" key={8}>
-                      {0.0} T/H
-                    </p>
-                  </div>
-                </a>
-                <a href="/coalboiler">
-                  <div className="flex">
-                    <div className="bg-[#9595B7] w-10 h-5 m-1"></div>
-                    <p>Coal Boiler</p>
-                    {data.map((item) => {
-                      return (
-                        <p className="ml-auto mr-5" key={8}>
-                          {item.cb} T/H
-                        </p>
-                      );
-                    })}
-                  </div>
-                </a>
-                <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
-                  <p className="ml-1">Total Steam Generation</p>
-                  {data.map((item) => {
-                    return (
-                      <p className="ml-auto mr-5" key={9}>
-                        {(item.steamph1 + item.steamph2 + item.cb).toFixed(1)}{" "}
+
+              {/* Generation Details */}
+              <div>
+                {data?.[0] && (
+                  <>
+                    {[
+                      {
+                        href: "/steamph1",
+                        label: "Steam Power House 1", 
+                        color: "#384C6B",
+                        value: data[0].steamph1,
+                      },
+                      {
+                        href: "/steamph2",
+                        label: "Steam Power House 2",
+                        color: "#b495b7",
+                        value: data[0].steamph2,
+                      },
+                      {
+                        href: "/steamph3",
+                        label: "Steam Power House 3",
+                        color: "#E28A2B",
+                        value: data[0].steamph3,
+                      },
+                      {
+                        href: "/steamph4",
+                        label: "Steam Power House 4",
+                        color: "#95b798",
+                        value: data[0].steamph4,
+                      },
+                      {
+                        href: "/coalboiler",
+                        label: "Coal Boiler",
+                        color: "#9595B7",
+                        value: data[0].cb,
+                      },
+                    ].map((item, index) => (
+                      <a href={item.href} key={index}>
+                        <div className="flex items-center">
+                          <div
+                            className="w-10 h-5 m-1"
+                            style={{ backgroundColor: item.color }}
+                          ></div>
+                          <p>{item.label}</p>
+                          <p className="ml-auto mr-5">{item.value} T/H</p>
+                        </div>
+                      </a>
+                    ))}
+
+                    {/* Total */}
+                    <div className="flex items-center bg-[#1b2d92] m-1 p-1 text-white font-semibold rounded">
+                      <p className="ml-1">Total Steam Generation</p>
+                      <p className="ml-auto mr-5">
+                        {(
+                          data[0].steamph1 +
+                          data[0].steamph2 +
+                          data[0].steamph3 +
+                          data[0].steamph4 +
+                          data[0].cb
+                        ).toFixed(1)}{" "}
                         T/H
                       </p>
-                    );
-                  })}
-                </div>
+                    </div>
+                  </>
+                )}
               </div>
             </Card>
             <Card className="p-0">
