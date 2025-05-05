@@ -26,6 +26,30 @@ interface SolarData {
   AM8_solar_kWh: number;
 }
 
+interface EnergyData {
+  yesterday_consumption: number;
+}
+
+async function getEnergyUsedData() {
+  try {
+    const res = await fetch("/api/v1/energy_used", {
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const result = await res.json();
+    console.log(result.data[0].yesterday_consumption)
+    return result;
+  } catch (error) {
+    console.log("error: " + error);
+  }
+}
+
 async function getData() {
   try {
     const res = await fetch("/api/v1/solar", {
@@ -47,6 +71,7 @@ async function getData() {
 
 const Page = () => {
   const [data, setData] = useState<SolarData[]>([]);
+  const [energyUsed, setEnergyUsed] = useState<EnergyData[]>([]);
   const [percentageUsedDataS3, setPercentageUsedDataS3] = useState("");
   const [percentageUsedDataS4, setPercentageUsedDataS4] = useState("");
   const [percentageUsedDataS5, setPercentageUsedDataS5] = useState("");
@@ -56,7 +81,9 @@ const Page = () => {
 
   const refreshList = async () => {
     const result = await getData();
+    const result_used = await getEnergyUsedData();
     setData(result.data);
+    setEnergyUsed(result_used.data);
   };
 
   useEffect(() => {
@@ -189,7 +216,7 @@ const Page = () => {
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
               </svg>
             </CardHeader>
-            <CardContent className="flex justify-evenly">
+            <CardContent className="p-0 flex justify-evenly">
               <div
                 style={{
                   width: "100px",
@@ -227,6 +254,14 @@ const Page = () => {
                 </p>
               </div>
             </CardContent>
+            <div className="border-t px-4 py-3 flex flex-wrap items-center justify-between text-sm sm:flex-nowrap gap-1">
+              <span className="text-muted-foreground whitespace-nowrap">
+                Energy Produced
+              </span>
+              <span className="font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">
+                {energyUsed[0].yesterday_consumption?.toLocaleString() ?? 0} kWh
+              </span>
+            </div>
           </Card>
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
