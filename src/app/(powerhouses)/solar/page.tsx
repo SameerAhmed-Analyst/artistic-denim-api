@@ -43,7 +43,7 @@ async function getEnergyUsedData() {
       throw new Error("Failed to fetch data");
     }
     const result = await res.json();
-    console.log(result.data[0].yesterday_consumption)
+    console.log(result.data[0].yesterday_consumption);
     return result;
   } catch (error) {
     console.log("error: " + error);
@@ -259,7 +259,9 @@ const Page = () => {
                 Energy Produced
               </span>
               <span className="font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">
-                {energyUsed[0].yesterday_consumption?.toLocaleString() ?? 0} kWh
+                {energyUsed.length > 0
+                  ? `${energyUsed[0].yesterday_consumption.toLocaleString()} kWh`
+                  : "Loading..."}
               </span>
             </div>
           </Card>
