@@ -256,7 +256,7 @@ const Page = () => {
             </CardContent>
             <div className="border-t px-4 py-3 flex flex-wrap items-center justify-between text-sm sm:flex-nowrap gap-1">
               <span className="text-muted-foreground whitespace-nowrap">
-                Energy Produced
+                Energy Produced (Yesterday)
               </span>
               <span className="font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">
                 {energyUsed.length > 0
