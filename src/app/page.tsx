@@ -36,9 +36,41 @@ interface SteamPressureType {
   hrsgsteampressure: number;
 }
 
-interface ApiResponse {
+export interface Powerhouse1Takeoffs {
+  takeoff1kw: number;
+  takeoff2kw: number;
+  takeoff3kw: number;
+}
+
+export interface Powerhouse2Takeoffs {
+  Takeoff4kw: number;
+  Takeoff5kw: number;
+  Takeoff6kw: number;
+  Takeoff7kw: number;
+  Takeoff8kw: number;
+  AUX_LV_Takeoff: number;
+}
+
+export interface Powerhouse3Takeoffs {
+  Takeoff1kw: number;
+  Takeoff2kw: number;
+  Takeoff3kw: number;
+  Takeoff4kw: number;
+}
+
+export interface AM17Takeoffs {
+  AUXILIARY_kw: number;
+  TOWARDS_PH1_kw: number;
+  AM17_B_kw: number;
+}
+
+export interface ApiResponse {
   dashboard: PowerDataTypes[];
   steam_p_hrsg: SteamPressureType[];
+  ph1_takeoffs: Powerhouse1Takeoffs[];
+  ph2_takeoffs: Powerhouse2Takeoffs[];
+  ph3_takeoffs: Powerhouse3Takeoffs[];
+  am17_takeoffs: AM17Takeoffs[];
 }
 
 async function getData(): Promise<ApiResponse | null> {
@@ -66,6 +98,10 @@ async function getData(): Promise<ApiResponse | null> {
 export default function Home() {
   const [data, setData] = useState<PowerDataTypes[]>([]);
   const [steamPressure, setSteamPressure] = useState<number | null>(null);
+  const [ph1Takeoffs, setPh1Takeoffs] = useState<Powerhouse1Takeoffs[]>([]);
+  const [ph2Takeoffs, setPh2Takeoffs] = useState<Powerhouse2Takeoffs[]>([]);
+  const [ph3Takeoffs, setPh3Takeoffs] = useState<Powerhouse3Takeoffs[]>([]);
+  const [am17Takeoffs, setAm17Takeoffs] = useState<AM17Takeoffs[]>([]);
   const [percentageUsedDataEPH1, setPercentageUsedDataEPH1] = useState("");
   const [percentageUsedDataEPH2, setPercentageUsedDataEPH2] = useState("");
   const [percentageUsedDataSolar, setPercentageUsedDataSolar] = useState("");
@@ -76,6 +112,10 @@ export default function Home() {
     if (result) {
       setData(result.dashboard);
       setSteamPressure(result.steam_p_hrsg[0]?.hrsgsteampressure ?? null);
+      setPh1Takeoffs(result.ph1_takeoffs);
+      setPh2Takeoffs(result.ph2_takeoffs);
+      setPh3Takeoffs(result.ph3_takeoffs);
+      setAm17Takeoffs(result.am17_takeoffs);
     }
   };
 
@@ -196,8 +236,20 @@ export default function Home() {
           datasets: [
             {
               label: "Data from API",
-              data: [totalValueph1, totalValueph2, totalValueph3, totalValueph4, totalValueCoal],
-              backgroundColor: ["#384C6B", "#b495b7", "#E28A2B", "#95b798", "#9595B7"],
+              data: [
+                totalValueph1,
+                totalValueph2,
+                totalValueph3,
+                totalValueph4,
+                totalValueCoal,
+              ],
+              backgroundColor: [
+                "#384C6B",
+                "#b495b7",
+                "#E28A2B",
+                "#95b798",
+                "#9595B7",
+              ],
             },
           ],
         },
@@ -222,6 +274,25 @@ export default function Home() {
       chart.update(); // Update the chart to apply changes
     }
   }, [data]);
+
+  const am5Value =
+    (ph1Takeoffs[0]?.takeoff1kw ?? 0) +
+    (ph1Takeoffs[0]?.takeoff2kw ?? 0) +
+    (ph1Takeoffs[0]?.takeoff3kw ?? 0) +
+    (ph2Takeoffs[0]?.Takeoff4kw ?? 0) +
+    (ph2Takeoffs[0]?.Takeoff5kw ?? 0) +
+    (ph2Takeoffs[0]?.Takeoff6kw ?? 0) +
+    (ph2Takeoffs[0]?.AUX_LV_Takeoff ?? 0);
+
+  const am17AValue =
+    (ph3Takeoffs[0]?.Takeoff3kw ?? 0) + (ph3Takeoffs[0]?.Takeoff4kw ?? 0);
+
+  const am17BValue =
+    am17Takeoffs[0]?.AM17_B_kw ?? 0 + am17Takeoffs[0]?.AUXILIARY_kw ?? 0;
+
+  const am8Value = ph2Takeoffs[0]?.Takeoff7kw ?? 0;
+
+  const am18Value = ph3Takeoffs[0]?.Takeoff1kw ?? 0;
 
   return (
     <>
@@ -252,6 +323,22 @@ export default function Home() {
               </CardHeader>
               <CardContent className="p-0">
                 <EnergyFlow />
+                <div className="px-2 pb-1 text-[10px] sm:text-xs text-gray-500">
+                  <div className="grid grid-cols-5 gap-x-1 text-center border-b pb-1 tracking-tight">
+                    <span>AM5</span>
+                    <span>AM8</span>
+                    <span>AM17 A</span>
+                    <span>AM17 B</span>
+                    <span>AM18</span>
+                  </div>
+                  <div className="grid grid-cols-5 gap-x-1 text-center pt-1 tracking-tight text-blue-500 font-semibold">
+                    <span>{am5Value.toFixed(0)} kW</span>
+                    <span>{am8Value.toFixed(0)} kW</span>
+                    <span>{am17AValue.toFixed(0)} kW</span>
+                    <span>{am17BValue.toFixed(0)} kW</span>
+                    <span>{am18Value.toFixed(0)} kW</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             <Card className="p-0 m-0">
@@ -518,7 +605,7 @@ export default function Home() {
                     {[
                       {
                         href: "/steamph1",
-                        label: "Steam Power House 1", 
+                        label: "Steam Power House 1",
                         color: "#384C6B",
                         value: data[0].steamph1,
                       },
