@@ -288,7 +288,7 @@ export default function Home() {
     (ph3Takeoffs[0]?.Takeoff3kw ?? 0) + (ph3Takeoffs[0]?.Takeoff4kw ?? 0);
 
   const am17BValue =
-    am17Takeoffs[0]?.AM17_B_kw ?? 0 + am17Takeoffs[0]?.AUXILIARY_kw ?? 0;
+    (am17Takeoffs[0]?.AM17_B_kw ?? 0) + (am17Takeoffs[0]?.AUXILIARY_kw ?? 0);
 
   const am8Value = ph2Takeoffs[0]?.Takeoff7kw ?? 0;
 
