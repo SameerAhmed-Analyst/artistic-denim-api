@@ -99,21 +99,21 @@ function calculateShedSummary(
 // Skeleton loader component for shed cards
 function ShedCardSkeleton() {
   return (
-    <div className="border rounded-lg overflow-hidden bg-white dark:bg-gray-950 shadow-sm animate-pulse">
+    <div className="border rounded-lg overflow-hidden bg-white shadow-sm animate-pulse">
       <div className="p-4 border-b">
         <div className="flex justify-between items-center">
-          <div className="h-7 w-24 bg-gray-200 dark:bg-gray-700 rounded"></div>
-          <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+          <div className="h-7 w-24 bg-gray-200 rounded"></div>
+          <div className="h-6 w-32 bg-gray-200 rounded-full"></div>
         </div>
       </div>
 
       <div className="p-4 grid grid-cols-2 gap-4">
         {[...Array(4)].map((_, index) => (
           <div key={index} className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+            <div className="w-8 h-8 rounded-full bg-gray-200"></div>
             <div>
-              <div className="h-3 w-16 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-              <div className="h-5 w-20 bg-gray-200 dark:bg-gray-700 rounded"></div>
+              <div className="h-3 w-16 bg-gray-200 rounded mb-2"></div>
+              <div className="h-5 w-20 bg-gray-200 rounded"></div>
             </div>
           </div>
         ))}
@@ -127,13 +127,13 @@ function ShedCard({ summary }: { summary: ShedSummary }) {
   return (
     <Link
       href={`/finishing/shed/${summary.id}`}
-      className="border rounded-lg overflow-hidden bg-white dark:bg-gray-950 shadow-sm hover:shadow-md transition-shadow cursor-pointer block"
+      className="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer block"
     >
       <div className="p-4 border-b">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-bold">Shed {summary.id}</h2>
           <div className="flex items-center gap-2">
-            <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+            <span className="text-sm bg-gray-100 px-3 py-1 rounded-full">
               {summary.runningCount}/{summary.machineCount} Running
             </span>
             <ArrowRight size={18} className="text-gray-400" />
@@ -143,11 +143,11 @@ function ShedCard({ summary }: { summary: ShedSummary }) {
 
       <div className="p-4 grid grid-cols-2 gap-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full flex items-center justify-center text-yellow-500 bg-yellow-100 dark:bg-yellow-900/30">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-yellow-500 bg-yellow-100">
             <Zap size={18} />
           </div>
           <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-gray-500">
               Electricity
             </p>
             <p className="font-medium">
@@ -157,39 +157,39 @@ function ShedCard({ summary }: { summary: ShedSummary }) {
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full flex items-center justify-center text-blue-500 bg-blue-100 dark:bg-blue-900/30">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-blue-500 bg-blue-100">
             <Wind size={18} />
           </div>
           <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Steam</p>
+            <p className="text-xs text-gray-500">Steam</p>
             <p className="font-medium">{summary.totalSteam.toFixed(1)} T/h</p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full flex items-center justify-center text-cyan-500 bg-cyan-100 dark:bg-cyan-900/30">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-cyan-500 bg-cyan-100">
             <Droplets size={18} />
           </div>
           <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Water</p>
+            <p className="text-xs text-gray-500">Water</p>
             <p className="font-medium">{summary.totalWater.toFixed(1)} L/m</p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-red-500 bg-red-100 dark:bg-red-900/30 ${
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-red-500 bg-red-100 ${
               !summary.hasGasData ? "opacity-60" : ""
             }`}
           >
             <Flame size={18} />
           </div>
           <div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Gas</p>
+            <p className="text-xs text-gray-500">Gas</p>
             {summary.hasGasData ? (
               <p className="font-medium">{summary.totalGas.toFixed(1)} m³/h</p>
             ) : (
-              <p className="font-medium text-gray-400 dark:text-gray-500">
+              <p className="font-medium text-gray-400">
                 Coming soon
               </p>
             )}
@@ -244,7 +244,7 @@ export default function FinishingDashboard() {
     <div className="container mx-auto px-4 py-6">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Finishing Department</h1>
-        <p className="text-gray-500 dark:text-gray-400">
+        <p className="text-gray-500">
           Select a shed to view detailed machine information
         </p>
       </div>

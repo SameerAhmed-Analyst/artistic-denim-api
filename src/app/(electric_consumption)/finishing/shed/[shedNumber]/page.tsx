@@ -208,19 +208,19 @@ function MachineCard({ machine }: { machine: Machine }) {
   > = {
     Electricity: {
       icon: <Zap size={14} />,
-      color: "text-yellow-500 bg-yellow-100 dark:bg-yellow-900/30",
+      color: "text-yellow-500 bg-yellow-100",
     },
     Steam: {
       icon: <Wind size={14} />,
-      color: "text-blue-500 bg-blue-100 dark:bg-blue-900/30",
+      color: "text-blue-500 bg-blue-100",
     },
     Water: {
       icon: <Droplets size={14} />,
-      color: "text-cyan-500 bg-cyan-100 dark:bg-cyan-900/30",
+      color: "text-cyan-500 bg-cyan-100",
     },
     Gas: {
       icon: <Flame size={14} />,
-      color: "text-red-500 bg-red-100 dark:bg-red-900/30",
+      color: "text-red-500 bg-red-100",
     },
   };
 
@@ -239,7 +239,7 @@ function MachineCard({ machine }: { machine: Machine }) {
   };
 
   return (
-    <div className="border rounded-lg overflow-hidden bg-white dark:bg-gray-950 shadow-sm">
+    <div className="border rounded-lg overflow-hidden bg-white shadow-sm">
       <div
         className="flex items-center justify-between p-3 cursor-pointer"
         onClick={() => setExpanded(!expanded)}
@@ -250,7 +250,7 @@ function MachineCard({ machine }: { machine: Machine }) {
               "w-2.5 h-2.5 rounded-full",
               machine.IsRunning
                 ? "bg-green-500"
-                : "bg-gray-300 dark:bg-gray-600"
+                : "bg-gray-300"
             )}
           />
           <h3 className="font-medium text-sm">{machine.Name}</h3>
@@ -279,13 +279,13 @@ function MachineCard({ machine }: { machine: Machine }) {
       {expanded && (
         <div className="px-3 pb-3 pt-0 text-sm border-t">
           <div className="flex items-center justify-between py-2">
-            <span className="text-gray-500 dark:text-gray-400">Status</span>
+            <span className="text-gray-500">Status</span>
             <span
               className={cn(
                 "flex items-center gap-1",
                 machine.IsRunning
-                  ? "text-green-600 dark:text-green-500"
-                  : "text-gray-500 dark:text-gray-400"
+                  ? "text-green-600"
+                  : "text-gray-500"
               )}
             >
               <Activity size={14} />
@@ -305,11 +305,11 @@ function MachineCard({ machine }: { machine: Machine }) {
                   >
                     {utilityIcons[utility].icon}
                   </div>
-                  <span className="text-gray-600 dark:text-gray-300">
+                  <span className="text-gray-600">
                     {utility}
                   </span>
                 </div>
-                <div className="text-gray-600 dark:text-gray-300">
+                <div className="text-gray-600">
                   {utilityValues[utility].value !== null
                     ? `${utilityValues[utility].value} ${utilityValues[utility].unit}`
                     : "N/A"}
@@ -376,7 +376,7 @@ export default function ShedPage({
     return (
       <div className="container mx-auto px-4 py-6">
         <div className="flex justify-center items-center h-40">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900 dark:border-gray-100"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900"></div>
         </div>
       </div>
     );
@@ -386,7 +386,7 @@ export default function ShedPage({
     <div className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Finishing Shed {shedId}</h1>
-        <div className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+        <div className="text-sm bg-gray-100 px-3 py-1 rounded-full">
           {machines.length} Machines
         </div>
       </div>
