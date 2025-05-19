@@ -283,19 +283,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Turbine</CardTitle>
-              {fuelSelectorTR.includes(0) && (
+              {fuelSelectorTR.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorTR.includes(1) && (
+              {fuelSelectorTR.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
                 </span>
               )}
-              {fuelSelectorTR.includes(2) && (
-                <span className="-ml-24 text-xs font-bold bg-red-500 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
-                  DIESEL
+              {fuelSelectorTR.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
@@ -374,14 +374,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 1</CardTitle>
-              {fuelSelectorE1.includes(0) && (
+              {fuelSelectorE1.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorE1.includes(1) && (
+              {fuelSelectorE1.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
+                </span>
+              )}
+              {fuelSelectorE1.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
@@ -461,14 +466,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 2</CardTitle>
-              {fuelSelectorE2.includes(0) && (
+              {fuelSelectorE2.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorE2.includes(1) && (
+              {fuelSelectorE2.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
+                </span>
+              )}
+              {fuelSelectorE2.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
@@ -548,14 +558,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 3</CardTitle>
-              {fuelSelectorE3.includes(0) && (
+              {fuelSelectorE3.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorE3.includes(1) && (
+              {fuelSelectorE3.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
+                </span>
+              )}
+              {fuelSelectorE3.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
@@ -635,14 +650,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 4</CardTitle>
-              {fuelSelectorE4.includes(0) && (
+              {fuelSelectorE4.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorE4.includes(1) && (
+              {fuelSelectorE4.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
+                </span>
+              )}
+              {fuelSelectorE4.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
@@ -722,14 +742,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 5</CardTitle>
-              {fuelSelectorE5.includes(0) && (
+              {fuelSelectorE5.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorE5.includes(1) && (
+              {fuelSelectorE5.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
+                </span>
+              )}
+              {fuelSelectorE5.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
@@ -809,14 +834,19 @@ const Page = () => {
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">Engine 6</CardTitle>
-              {fuelSelectorE6.includes(0) && (
+              {fuelSelectorE6.includes(1) && (
                 <span className="-ml-24 text-xs font-bold bg-green-300 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   N-GAS
                 </span>
               )}
-              {fuelSelectorE6.includes(1) && (
+              {fuelSelectorE6.includes(2) && (
                 <span className="-ml-24 text-xs font-bold bg-yellow-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
                   R-LNG
+                </span>
+              )}
+              {fuelSelectorE6.includes(3) && (
+                <span className="-ml-24 text-xs font-bold bg-orange-400 border-2 border-transparent rounded-md px-[0.5rem] py-[0.100rem] shadow-md">
+                  IND
                 </span>
               )}
               {data.map((item) => (
