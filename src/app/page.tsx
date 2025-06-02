@@ -643,7 +643,7 @@ export default function Home() {
                           {/* Conditionally render green/red dot for Steam Power House 2 */}
                           {item.label === "Steam Power House 2" && (
                             <div
-                              className="w-3 h-3 rounded-full ml-2"
+                              className="w-3 h-3 rounded-full ml-[2px]"
                               style={{
                                 backgroundColor:
                                   item.hrsg_gasflow && item.hrsg_gasflow > 20 ? "green" : "red",
