@@ -8,10 +8,9 @@ export const GET = async () => {
   try {
     const pool = await sql.connect(config);
 
-    const [result1, result2, result3, result4, result5, result6] =
+    const [result1, result3, result4, result5, result6] =
       await Promise.all([
         pool.request().query("SELECT * FROM dashboard"),
-        pool.request().query("SELECT hrsgsteampressure FROM Steam_PH2"),
         pool
           .request()
           .query("SELECT takeoff1kw, takeoff2kw, takeoff3kw FROM powerhouse1"),
@@ -35,7 +34,6 @@ export const GET = async () => {
     // Combine results
     const combinedResults = {
       dashboard: result1.recordset,
-      steam_p_hrsg: result2.recordset,
       ph1_takeoffs: result3.recordset,
       ph2_takeoffs: result4.recordset,
       ph3_takeoffs: result5.recordset,

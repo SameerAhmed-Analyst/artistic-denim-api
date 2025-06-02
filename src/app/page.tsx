@@ -29,11 +29,9 @@ interface PowerDataTypes {
   fgc_mbar: number;
   industrialgas_psi: number;
   industrialgas_mbar: number;
+  hrsg_gasflow: number;
+  steam_pressure_mainheader1: number;
   totalsolargen: number;
-}
-
-interface SteamPressureType {
-  hrsgsteampressure: number;
 }
 
 export interface Powerhouse1Takeoffs {
@@ -66,7 +64,6 @@ export interface AM17Takeoffs {
 
 export interface ApiResponse {
   dashboard: PowerDataTypes[];
-  steam_p_hrsg: SteamPressureType[];
   ph1_takeoffs: Powerhouse1Takeoffs[];
   ph2_takeoffs: Powerhouse2Takeoffs[];
   ph3_takeoffs: Powerhouse3Takeoffs[];
@@ -111,7 +108,7 @@ export default function Home() {
     const result = await getData();
     if (result) {
       setData(result.dashboard);
-      setSteamPressure(result.steam_p_hrsg[0]?.hrsgsteampressure ?? null);
+      setSteamPressure(result.dashboard[0]?.steam_pressure_mainheader1 ?? null);
       setPh1Takeoffs(result.ph1_takeoffs);
       setPh2Takeoffs(result.ph2_takeoffs);
       setPh3Takeoffs(result.ph3_takeoffs);
@@ -590,7 +587,7 @@ export default function Home() {
                   {/* Steam Pressure */}
                   <div className="absolute top-[53%] left-0 w-full text-center font-bold text-lg text-purple-700">
                     {steamPressure !== null
-                      ? `${steamPressure} PSI`
+                      ? `${steamPressure.toFixed(0)} PSI`
                       : "N/A PSI"}
                   </div>
 
@@ -614,6 +611,7 @@ export default function Home() {
                         label: "Steam Power House 2",
                         color: "#b495b7",
                         value: data[0].steamph2,
+                        hrsg_gasflow: data[0].hrsg_gasflow,
                       },
                       {
                         href: "/steamph3",
@@ -641,6 +639,18 @@ export default function Home() {
                             style={{ backgroundColor: item.color }}
                           ></div>
                           <p>{item.label}</p>
+
+                          {/* Conditionally render green/red dot for Steam Power House 2 */}
+                          {item.label === "Steam Power House 2" && (
+                            <div
+                              className="w-3 h-3 rounded-full ml-2"
+                              style={{
+                                backgroundColor:
+                                  item.hrsg_gasflow && item.hrsg_gasflow > 20 ? "green" : "red",
+                              }}
+                            ></div>
+                          )}
+
                           <p className="ml-auto mr-5">{item.value} T/H</p>
                         </div>
                       </a>
