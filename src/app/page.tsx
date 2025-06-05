@@ -663,21 +663,23 @@ export default function Home() {
                           )} */}
 
                           {item.label === "Steam Power House 2" && (
-  <span
-    className="-ml-[1px]"
-    style={{
-      position: "relative",
-      top: "-0.5rem",
-    }}
-  >
-    <Flame
-      size={20}
-      color={
-        item.hrsg_gasflow && item.hrsg_gasflow > 20 ? "#ff6600" : "gray"
-      }
-    />
-  </span>
-)}
+                            <span
+                              className="-ml-[1px]"
+                              style={{
+                                position: "relative",
+                                top: "-0.5rem",
+                              }}
+                            >
+                              <Flame
+                                size={20}
+                                color={
+                                  item.hrsg_gasflow && item.hrsg_gasflow > 20
+                                    ? "#ff6600"
+                                    : "gray"
+                                }
+                              />
+                            </span>
+                          )}
 
                           <p className="ml-auto mr-5">{item.value} T/H</p>
                         </div>
