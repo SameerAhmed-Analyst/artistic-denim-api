@@ -234,7 +234,7 @@ function MachineCard({ machine }: { machine: Machine }) {
   > = {
     Electricity: { value: machine.Electricity, unit: "kW" },
     Steam: { value: machine.Steam, unit: "T/h" },
-    Water: { value: machine.Water, unit: "L/m" },
+    Water: { value: machine.Water, unit: "m³/h" },
     Gas: { value: machine.Gas, unit: "m³/h" },
   };
 
