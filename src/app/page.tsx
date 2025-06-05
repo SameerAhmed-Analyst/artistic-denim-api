@@ -6,6 +6,7 @@ import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import EnergyFlow from "@/components/EnergyFlow";
 import SeparatedSourcesCard from "@/components/separated-sources-card";
+import { Flame } from "lucide-react";
 
 interface PowerDataTypes {
   id: number;
@@ -641,7 +642,7 @@ export default function Home() {
                           <p>{item.label}</p>
 
                           {/* Conditionally render green/red dot for Steam Power House 2 */}
-                          {item.label === "Steam Power House 2" && (
+                          {/* {item.label === "Steam Power House 2" && (
                             <span
                               className="-ml-[1px]"
                               style={{
@@ -659,7 +660,24 @@ export default function Home() {
                                 }}
                               ></div>
                             </span>
-                          )}
+                          )} */}
+
+                          {item.label === "Steam Power House 2" && (
+  <span
+    className="-ml-[1px]"
+    style={{
+      position: "relative",
+      top: "-0.5rem",
+    }}
+  >
+    <Flame
+      size={20}
+      color={
+        item.hrsg_gasflow && item.hrsg_gasflow > 20 ? "#ff6600" : "gray"
+      }
+    />
+  </span>
+)}
 
                           <p className="ml-auto mr-5">{item.value} T/H</p>
                         </div>
