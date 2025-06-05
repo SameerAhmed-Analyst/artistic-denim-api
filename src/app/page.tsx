@@ -611,7 +611,7 @@ export default function Home() {
                         href: "/steamph2",
                         label: "Steam Power House 2",
                         color: "#b495b7",
-                        value: data[0].steamph2,
+                        value: data[0].steamph2.toFixed(1),
                         hrsg_gasflow: data[0].hrsg_gasflow,
                       },
                       {
