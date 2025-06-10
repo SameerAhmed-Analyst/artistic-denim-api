@@ -6,7 +6,6 @@ import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import EnergyFlow from "@/components/EnergyFlow";
 import SeparatedSourcesCard from "@/components/separated-sources-card";
-import { Flame } from "lucide-react";
 
 interface PowerDataTypes {
   id: number;
@@ -670,14 +669,15 @@ export default function Home() {
                                 top: "-0.5rem",
                               }}
                             >
-                              <Flame
-                                size={20}
-                                color={
+                              <span
+                                className={`text-xs ${
                                   item.hrsg_gasflow && item.hrsg_gasflow > 20
-                                    ? "#ff6600"
-                                    : "gray"
-                                }
-                              />
+                                    ? "animate-pulse"
+                                    : "grayscale"
+                                }`}
+                              >
+                                🔥
+                              </span>
                             </span>
                           )}
 
