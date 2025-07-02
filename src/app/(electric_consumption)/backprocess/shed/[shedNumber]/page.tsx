@@ -25,6 +25,14 @@ interface Machine {
   Steam_Kitchen: number | null;
 }
 
+// Utility to field mapping
+const utilityFieldMap: Record<UtilityType, keyof Machine> = {
+  Electricity: "Electricity",
+  Steam: "Steam",
+  Water: "Water",
+  SteamKitchen: "Steam_Kitchen",
+};
+
 const utilityIcons: Record<
   UtilityType,
   { icon: React.ReactNode; color: string }
@@ -51,12 +59,11 @@ const utilityIcons: Record<
 function MachineCard({ machine }: { machine: Machine }) {
   const [expanded, setExpanded] = useState(false);
 
-  // Collect the utilities that have a non-null value
   const utilities: UtilityType[] = [];
   if (machine.Electricity !== null) utilities.push("Electricity");
   if (machine.Steam !== null) utilities.push("Steam");
   if (machine.Water !== null) utilities.push("Water");
-  if (machine.Steam_Kitchen !== null) utilities.push("SteamKitchen"); // Add only if value is not null
+  if (machine.Steam_Kitchen !== null) utilities.push("SteamKitchen");
 
   const cn = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
@@ -112,32 +119,36 @@ function MachineCard({ machine }: { machine: Machine }) {
           </div>
 
           <div className="space-y-1.5">
-            {utilities.map((utility) => (
-              <div key={utility} className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div
-                    className={cn(
-                      "w-4 h-4 rounded-full flex items-center justify-center",
-                      utilityIcons[utility].color
-                    )}
-                  >
-                    {utilityIcons[utility].icon}
+            {utilities.map((utility) => {
+              const fieldKey = utilityFieldMap[utility];
+              const value = machine[fieldKey];
+              return (
+                <div key={utility} className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div
+                      className={cn(
+                        "w-4 h-4 rounded-full flex items-center justify-center",
+                        utilityIcons[utility].color
+                      )}
+                    >
+                      {utilityIcons[utility].icon}
+                    </div>
+                    <span className="text-gray-600">{utility}</span>
                   </div>
-                  <span className="text-gray-600">{utility}</span>
+                  <div className="text-gray-600">
+                    {value !== null
+                      ? `${value} ${
+                          utility === "Electricity"
+                            ? "kW"
+                            : utility === "Water"
+                            ? "m³/h"
+                            : "TON/h"
+                        }`
+                      : "N/A"}
+                  </div>
                 </div>
-                <div className="text-gray-600">
-                  {machine[utility] !== null
-                    ? `${machine[utility]} ${
-                        utility === "Electricity"
-                          ? "kW" // Electricity -> kW
-                          : utility === "Water"
-                          ? "m³/h" // Water -> m³/h
-                          : "TON/h" // Steam and SteamKitchen -> TON/h
-                      }`
-                    : "N/A"}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
