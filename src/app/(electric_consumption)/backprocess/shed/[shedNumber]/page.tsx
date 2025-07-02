@@ -214,7 +214,7 @@ export default function ShedPage({
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold">Backprocess Shed {shedId}</h1>
+        <h1 className="text-xl font-bold">Back Process Shed {shedId}</h1>
         <div className="text-sm bg-gray-100 px-3 py-1 rounded-full">
           {machines.length} Machines
         </div>
