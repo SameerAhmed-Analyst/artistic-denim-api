@@ -3,9 +3,11 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Zap, Droplets, Flame, Wind, ArrowRight } from "lucide-react";
+import { Zap, Droplets, Wind, ArrowRight } from "lucide-react";
 
 // Types for API response
+type UtilityType = "Electricity" | "Steam" | "Water" | "SteamKitchen";
+
 interface Machine {
   Id: number;
   Name: string;
@@ -14,7 +16,7 @@ interface Machine {
   Electricity: number | null;
   Steam: number | null;
   Water: number | null;
-  Gas: number | null;
+  SteamKitchen: number | null;
 }
 
 // Simple shed summary interface for UI display
@@ -23,16 +25,16 @@ interface ShedSummary {
   totalElectricity: number;
   totalSteam: number;
   totalWater: number;
-  totalGas: number;
+  totalSteamKitchen: number;
   machineCount: number;
   runningCount: number;
-  hasGasData: boolean;
+  hasSteamKitchenData: boolean;
 }
 
 // Function to fetch machines for a specific shed
 async function fetchMachines(shedId: number): Promise<Machine[]> {
   try {
-    const response = await fetch(`/api/v1/finishing?shedId=${shedId}`, {
+    const response = await fetch(`/api/v1/backprocess?shedId=${shedId}`, {
       method: "GET",
       cache: "no-store",
     });
@@ -57,9 +59,9 @@ function calculateShedSummary(
   let totalElectricity = 0;
   let totalSteam = 0;
   let totalWater = 0;
-  let totalGas = 0;
+  let totalSteamKitchen = 0;
   let runningCount = 0;
-  let hasGasData = false;
+  let hasSteamKitchenData = false;
 
   machines.forEach((machine) => {
     if (machine.IsRunning) {
@@ -78,9 +80,9 @@ function calculateShedSummary(
         totalWater += machine.Water;
       }
 
-      if (machine.Gas !== null) {
-        totalGas += machine.Gas;
-        hasGasData = false;
+      if (machine.SteamKitchen !== null) {
+        totalSteamKitchen += machine.SteamKitchen;
+        hasSteamKitchenData = false;
       }
     }
   });
@@ -90,10 +92,10 @@ function calculateShedSummary(
     totalElectricity,
     totalSteam,
     totalWater,
-    totalGas,
+    totalSteamKitchen,
     machineCount: machines.length,
     runningCount,
-    hasGasData,
+    hasSteamKitchenData,
   };
 }
 
@@ -127,7 +129,7 @@ function ShedCardSkeleton() {
 function ShedCard({ summary }: { summary: ShedSummary }) {
   return (
     <Link
-      href={`/finishing/shed/${summary.id}`}
+      href={`/backprocess/shed/${summary.id}`}
       className="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer block"
     >
       <div className="p-4 border-b">
@@ -174,26 +176,6 @@ function ShedCard({ summary }: { summary: ShedSummary }) {
           <div>
             <p className="text-xs text-gray-500">Water</p>
             <p className="font-medium">{summary.totalWater.toFixed(1)} L/m</p>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-red-500 bg-red-100 ${
-              !summary.hasGasData ? "opacity-60" : ""
-            }`}
-          >
-            <Flame size={18} />
-          </div>
-          <div>
-            <p className="text-xs text-gray-500">Gas</p>
-            {summary.hasGasData ? (
-              <p className="font-medium">{summary.totalGas.toFixed(1)} m³/h</p>
-            ) : (
-              <p className="font-medium text-gray-400">
-                Not Available
-              </p>
-            )}
           </div>
         </div>
       </div>
@@ -244,7 +226,7 @@ export default function FinishingDashboard() {
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold">Finishing Department</h1>
+        <h1 className="text-2xl font-bold">Back Process Department</h1>
         <p className="text-gray-500">
           Select a shed to view detailed machine information
         </p>
