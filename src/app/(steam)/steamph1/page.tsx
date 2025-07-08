@@ -1,11 +1,9 @@
-// pages/index.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { Card } from "@tremor/react";
 import { Chart } from "chart.js/auto";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-// import Hrsg from "@/components/Hrsg";
 
 export interface SteamData {
   id: number;
@@ -16,6 +14,10 @@ export interface SteamData {
   whrb2steam: number;
   whrb2pressure: number;
   whrb2water: number;
+  whrb3steam: number;
+  whrb3pressure: number;
+  whrb4steam: number;
+  whrb4pressure: number;
   gasfiredsteamflow: number;
   gasfiredgasflow: number;
   gasfiredwaterflow: number;
@@ -46,7 +48,8 @@ const Page = () => {
   const [percentageUsedData, setPercentageUsedData] = useState("");
   const [percentageUsedDataW1, setPercentageUsedDataW1] = useState("");
   const [percentageUsedDataW2, setPercentageUsedDataW2] = useState("");
-  const [percentageUsedDataW3_4, setPercentageUsedDataW3_4] = useState("");
+  const [percentageUsedDataW3, setPercentageUsedDataW3] = useState("");
+  const [percentageUsedDataW4, setPercentageUsedDataW4] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -128,16 +131,24 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.whrb2steam);
-      const percentageUsed = initializeChart("whrb2", values, 1.5);
+      const percentageUsed = initializeChart("whrb2", values, 0.75);
       setPercentageUsedDataW2(percentageUsed);
     }
   }, [data]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const values = data.map((item) => item.whrbsteam);
-      const percentageUsed = initializeChart("whrb3&4", values, 3.0);
-      setPercentageUsedDataW3_4(percentageUsed);
+      const values = data.map((item) => item.whrb3steam);
+      const percentageUsed = initializeChart("whrb3", values, 0.88);
+      setPercentageUsedDataW3(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.whrb4steam);
+      const percentageUsed = initializeChart("whrb4", values, 0.88);
+      setPercentageUsedDataW4(percentageUsed);
     }
   }, [data]);
 
@@ -319,7 +330,7 @@ const Page = () => {
         </Card>
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">WHRB 3 & 4</CardTitle>
+            <CardTitle className="text-xl font-bold">WHRB 3</CardTitle>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -354,15 +365,74 @@ const Page = () => {
                   textAlign: "center",
                 }}
               >
-                {percentageUsedDataW3_4}%
+                {percentageUsedDataW3}%
               </div>
-              <canvas id="whrb3&4" width="100" height="100" />
+              <canvas id="whrb3" width="100" height="100" />
             </div>
             <div className="">
               {data.map((item) => {
                 return (
                   <div key={item.id} className="text-sm">
-                    <p>Steam Flow {(item.whrbsteam-item.whrb1steam-item.whrb2steam).toFixed(2)} T/H</p>
+                    <p>Steam Flow {item.whrb3steam} T/H</p>
+                    <p>Steam Pressure {item.whrb3pressure} PSI</p>                    
+                    {/* <p>Water Flow {item.whrb2water} M3/H</p>  */}
+                  </div>
+                );
+              })}
+              {/* <p className="text-xs text-muted-foreground">
+                1500 total capacity in KW
+              </p> */}
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="p-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+            <CardTitle className="text-xl font-bold">WHRB 4</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent className="flex justify-evenly">
+            <div
+              style={{
+                width: "100px",
+                height: "100px",
+                float: "left",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "40px",
+                  position: "absolute",
+                  top: "55%",
+                  left: "0",
+                  marginTop: "-20px",
+                  lineHeight: "19px",
+                  textAlign: "center",
+                }}
+              >
+                {percentageUsedDataW4}%
+              </div>
+              <canvas id="whrb4" width="100" height="100" />
+            </div>
+            <div className="">
+              {data.map((item) => {
+                return (
+                  <div key={item.id} className="text-sm">
+                    <p>Steam Flow {item.whrb4steam} T/H</p>
+                    <p>Steam Pressure {item.whrb4pressure} PSI</p>                    
+                    {/* <p>Water Flow {item.whrb4water} M3/H</p>  */}
                   </div>
                 );
               })}
