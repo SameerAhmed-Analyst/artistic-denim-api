@@ -142,7 +142,7 @@ function MachineCard({ machine }: { machine: Machine }) {
                             ? "kW"
                             : utility === "Water"
                             ? "m³/h"
-                            : "TON/h"
+                            : "T/h"
                         }`
                       : "N/A"}
                   </div>

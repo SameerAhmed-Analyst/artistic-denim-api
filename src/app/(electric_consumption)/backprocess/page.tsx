@@ -175,7 +175,7 @@ function ShedCard({ summary }: { summary: ShedSummary }) {
           </div>
           <div>
             <p className="text-xs text-gray-500">Water</p>
-            <p className="font-medium">{summary.totalWater.toFixed(1)} L/m</p>
+            <p className="font-medium">{summary.totalWater.toFixed(1)} m³/h</p>
           </div>
         </div>
       </div>
