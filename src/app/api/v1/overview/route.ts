@@ -13,7 +13,7 @@ export const GET = async () => {
         // Run all queries in parallel using Promise.all
         const [result1, result2, result3, result4, result5] = await Promise.all([
             pool.request().query('SELECT * FROM OVERVIEW'),
-            pool.request().query('SELECT powerhouse1gen, powerhouse2gen, powerhouse3gen, AM17_PH2, totalpowergen FROM dashboard'),
+            pool.request().query('SELECT powerhouse1gen, powerhouse2gen, powerhouse3gen, AM17_PH2, totalpowergen, steamph1, steamph2, steamph3, steamph4, cb, steamgen FROM dashboard'),
             pool.request().query('SELECT MAN_KW, MAK1_KW, MAK2_KW FROM powerhouse3'),
             pool.request().query('SELECT turbinekw FROM powerhouse2'),
             pool.request().query('SELECT engine6kw, engine7kw FROM powerhouse1')
