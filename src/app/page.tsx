@@ -30,7 +30,9 @@ interface PowerDataTypes {
   industrialgas_psi: number;
   industrialgas_mbar: number;
   hrsg_gasflow: number;
-  steam_pressure_mainheader1: number;
+  steam_pressure_mainheader_1: number;
+  steam_pressure_mainheader_2_and_3: number;
+  steam_pressure_mainheader_4: number;
   totalsolargen: number;
 }
 
@@ -94,7 +96,6 @@ async function getData(): Promise<ApiResponse | null> {
 
 export default function Home() {
   const [data, setData] = useState<PowerDataTypes[]>([]);
-  const [steamPressure, setSteamPressure] = useState<number | null>(null);
   const [ph1Takeoffs, setPh1Takeoffs] = useState<Powerhouse1Takeoffs[]>([]);
   const [ph2Takeoffs, setPh2Takeoffs] = useState<Powerhouse2Takeoffs[]>([]);
   const [ph3Takeoffs, setPh3Takeoffs] = useState<Powerhouse3Takeoffs[]>([]);
@@ -108,7 +109,6 @@ export default function Home() {
     const result = await getData();
     if (result) {
       setData(result.dashboard);
-      setSteamPressure(result.dashboard[0]?.steam_pressure_mainheader1 ?? null);
       setPh1Takeoffs(result.ph1_takeoffs);
       setPh2Takeoffs(result.ph2_takeoffs);
       setPh3Takeoffs(result.ph3_takeoffs);
@@ -291,6 +291,9 @@ export default function Home() {
 
   const am18Value = ph3Takeoffs[0]?.Takeoff1kw ?? 0;
 
+  const steamHeader_1 = data[0]?.steam_pressure_mainheader_1 ?? 0;
+  const steamHeader_2_and_3 = data[0]?.steam_pressure_mainheader_2_and_3 ?? 0;
+
   return (
     <>
       <div className="">
@@ -363,6 +366,22 @@ export default function Home() {
               </CardHeader>
               <CardContent className="p-0">
                 <SeparatedSourcesCard />
+                <div className="px-2 pb-1 text-[10px] sm:text-xs text-gray-500">
+                  <div className="grid grid-cols-5 gap-x-1 text-center border-b pb-1 tracking-tight">
+                    <span>H1</span>
+                    <span>H2&3</span>
+                    <span>H4</span>
+                    <span>AM17 H1</span>
+                    <span>AM17 H2</span>
+                  </div>
+                  <div className="grid grid-cols-5 gap-x-1 text-center pt-1 tracking-tight text-blue-500 font-semibold">
+                    <span>{steamHeader_1.toFixed(0)} PSI</span>
+                    <span>{steamHeader_2_and_3.toFixed(0)} PSI</span>
+                    <span>0 PSI</span>
+                    <span>0 PSI</span>
+                    <span>0 PSI</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             <Card className="p-0">
@@ -585,10 +604,13 @@ export default function Home() {
                   </div>
 
                   {/* Steam Pressure */}
-                  <div className="absolute top-[53%] left-0 w-full text-center font-bold text-lg text-purple-700">
+                  {/* <div className="absolute top-[53%] left-0 w-full text-center font-bold text-lg text-purple-700">
                     {steamPressure !== null
                       ? `${steamPressure.toFixed(0)} PSI`
                       : "N/A PSI"}
+                  </div> */}
+                  <div className="absolute top-[53%] left-0 w-full text-center font-bold text-lg text-purple-700">
+                    {`${steamHeader_2_and_3.toFixed(0)} PSI`}
                   </div>
 
                   <canvas id="powerhouse2gen" width="200" height="200" />
