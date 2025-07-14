@@ -25,6 +25,13 @@ interface Machine {
   Steam_Kitchen: number | null;
 }
 
+const utilityDisplayNameMap: Record<UtilityType, string> = {
+  Electricity: "Electricity",
+  Steam: "Steam",
+  Water: "Water",
+  SteamKitchen: "Steam Kitchen", 
+};
+
 // Utility to field mapping
 const utilityFieldMap: Record<UtilityType, keyof Machine> = {
   Electricity: "Electricity",
@@ -133,7 +140,7 @@ function MachineCard({ machine }: { machine: Machine }) {
                     >
                       {utilityIcons[utility].icon}
                     </div>
-                    <span className="text-gray-600">{utility}</span>
+                    <span className="text-gray-600">{utilityDisplayNameMap[utility]}</span>
                   </div>
                   <div className="text-gray-600">
                     {value !== null
