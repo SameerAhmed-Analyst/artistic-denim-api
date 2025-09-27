@@ -94,7 +94,7 @@ const steams = [
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Coal Boiler",
+    name: "OS Boiler",
     description: "",
     href: "/coalboiler",
     icon: CursorArrowRaysIcon,
