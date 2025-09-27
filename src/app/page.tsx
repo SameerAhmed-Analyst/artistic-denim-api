@@ -649,7 +649,7 @@ export default function Home() {
                       },
                       {
                         href: "/coalboiler",
-                        label: "Coal Boiler",
+                        label: "OS Boiler",
                         color: "#9595B7",
                         value: data[0].cb,
                       },
