@@ -126,7 +126,7 @@ export default function EnergyFlow() {
         x={200}
         y={290}
         color="#3b82f6"
-        title="CB"
+        title="OS"
         value={`${(flowData?.cb ?? 0).toFixed(2)} T/H`}
       />
     </svg>
