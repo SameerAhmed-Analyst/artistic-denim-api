@@ -375,7 +375,7 @@ export default function Navbar() {
           </a> */}
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {isLoggedIn ? (
+          {/* {isLoggedIn ? (
             <a href="/login" className="text-sm font-semibold leading-6 text-white">
               Logout <span aria-hidden="true">&rarr;</span>
             </a>
@@ -386,7 +386,7 @@ export default function Navbar() {
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
-          )}
+          )} */}
         </div>
       </nav>
       <Dialog
@@ -511,7 +511,7 @@ export default function Navbar() {
                 </a>
               </div>
               <div className="py-6">
-                {isLoggedIn ? (
+                {/* {isLoggedIn ? (
                   <a
                     href="/login"
                     className="text-sm font-semibold leading-6 text-white"
@@ -525,7 +525,7 @@ export default function Navbar() {
                   >
                     Log in <span aria-hidden="true">&rarr;</span>
                   </a>
-                )}
+                )} */}
               </div>
               <div className="absolute bottom-0 py-6">
                 <p className="text-sm font-semibold leading-6 text-white">Designed by <span aria-hidden="true">&rarr;</span></p>
