@@ -293,6 +293,7 @@ export default function Home() {
 
   const steamHeader_1 = data[0]?.steam_pressure_mainheader_1 ?? 0;
   const steamHeader_2_and_3 = data[0]?.steam_pressure_mainheader_2_and_3 ?? 0;
+  const steamHeader_4 = data[0]?.steam_pressure_mainheader_4 ?? 0;
 
   return (
     <>
@@ -369,19 +370,19 @@ export default function Home() {
               <CardContent className="p-0">
                 {/* <SeparatedSourcesCard /> */}
                 <div className="px-2 pb-1 text-[10px] mt-[1.75rem] sm:text-xs text-gray-500">
-                  <div className="grid grid-cols-5 gap-x-1 text-center border-b pb-1 tracking-tight">
+                  <div className="grid grid-cols-3 gap-x-1 text-center border-b pb-1 tracking-tight">
                     <span>H1</span>
                     <span>H2&3</span>
                     <span>H4</span>
-                    <span>AM17 H1</span>
-                    <span>AM17 H2</span>
+                    {/* <span>AM17 H1</span>
+                    <span>AM17 H2</span> */}
                   </div>
-                  <div className="grid grid-cols-5 gap-x-1 text-center pt-1 tracking-tight text-blue-500 font-semibold">
+                  <div className="grid grid-cols-3 gap-x-1 text-center pt-1 tracking-tight text-blue-500 font-semibold">
                     <span>{steamHeader_1.toFixed(0)} PSI</span>
                     <span>{steamHeader_2_and_3.toFixed(0)} PSI</span>
-                    <span>0 PSI</span>
-                    <span>0 PSI</span>
-                    <span>0 PSI</span>
+                    <span>{steamHeader_4.toFixed(0)} PSI</span>
+                    {/* <span>0 PSI</span>
+                    <span>0 PSI</span> */}
                   </div>
                 </div>
               </CardContent>
