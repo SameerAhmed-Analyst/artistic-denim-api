@@ -344,10 +344,10 @@ export default function Home() {
             <Card className="p-0 m-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-0">
                 <CardTitle className="text-xl font-bold">
-                  Steam
-                  <sup className="text-red-600 text-xs">
+                  Steam Pressures
+                  {/* <sup className="text-red-600 text-xs">
                     * Under Development
-                  </sup>
+                  </sup> */}
                 </CardTitle>
                 <a href="/">
                   <svg
@@ -365,8 +365,8 @@ export default function Home() {
                 </a>
               </CardHeader>
               <CardContent className="p-0">
-                <SeparatedSourcesCard />
-                <div className="px-2 pb-1 text-[10px] sm:text-xs text-gray-500">
+                {/* <SeparatedSourcesCard /> */}
+                <div className="px-2 pb-1 text-[10px] mt-[1.75rem] sm:text-xs text-gray-500">
                   <div className="grid grid-cols-5 gap-x-1 text-center border-b pb-1 tracking-tight">
                     <span>H1</span>
                     <span>H2&3</span>
@@ -594,10 +594,10 @@ export default function Home() {
                     {data?.[0]
                       ? (
                           data[0].steamph1 +
-                          data[0].steamph2 +
-                          data[0].steamph3 +
-                          data[0].steamph4 +
-                          data[0].cb
+                          data[0].steamph2 
+                          // data[0].steamph3 +
+                          // data[0].steamph4 +
+                          // data[0].cb
                         ).toFixed(1)
                       : "N/A"}{" "}
                     T/H
@@ -635,24 +635,24 @@ export default function Home() {
                         value: data[0].steamph2.toFixed(1),
                         hrsg_gasflow: data[0].hrsg_gasflow,
                       },
-                      {
-                        href: "/steamph3",
-                        label: "Steam Power House 3",
-                        color: "#E28A2B",
-                        value: data[0].steamph3,
-                      },
-                      {
-                        href: "/steamph4",
-                        label: "Steam Power House 4",
-                        color: "#95b798",
-                        value: data[0].steamph4,
-                      },
-                      {
-                        href: "/coalboiler",
-                        label: "Out Source Boiler",
-                        color: "#9595B7",
-                        value: data[0].cb,
-                      },
+                      // {
+                      //   href: "/steamph3",
+                      //   label: "Steam Power House 3",
+                      //   color: "#E28A2B",
+                      //   value: data[0].steamph3,
+                      // },
+                      // {
+                      //   href: "/steamph4",
+                      //   label: "Steam Power House 4",
+                      //   color: "#95b798",
+                      //   value: data[0].steamph4,
+                      // },
+                      // {
+                      //   href: "/coalboiler",
+                      //   label: "Out Source Boiler",
+                      //   color: "#9595B7",
+                      //   value: data[0].cb,
+                      // },
                     ].map((item, index) => (
                       <a href={item.href} key={index}>
                         <div className="flex items-center">
@@ -714,10 +714,10 @@ export default function Home() {
                       <p className="ml-auto mr-5">
                         {(
                           data[0].steamph1 +
-                          data[0].steamph2 +
-                          data[0].steamph3 +
-                          data[0].steamph4 +
-                          data[0].cb
+                          data[0].steamph2 
+                          // data[0].steamph3 +
+                          // data[0].steamph4 +
+                          // data[0].cb
                         ).toFixed(1)}{" "}
                         T/H
                       </p>
