@@ -306,7 +306,9 @@ export default function Home() {
                   Overview
                   {/* <sup className="text-red-600 text-xs">* Testing</sup> */}
                 </CardTitle>
-                <a href="/custom_report">
+                <a 
+                // href="/custom_report"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

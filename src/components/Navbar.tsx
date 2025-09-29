@@ -370,9 +370,9 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-          <a href="/custom_report" className="text-sm font-semibold leading-6 text-white">
+          {/* <a href="/custom_report" className="text-sm font-semibold leading-6 text-white">
             Custom Report
-          </a>
+          </a> */}
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {isLoggedIn ? (
