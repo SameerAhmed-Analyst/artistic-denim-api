@@ -219,7 +219,7 @@ export default function SolarPage({ id }: { id: string }) {
         setLoading(true);
         setError(null);
 
-        const res = await fetch('/query', {
+        const res = await fetch('http://ems.am5pearl.com:5000/query', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           signal: abort.signal,
