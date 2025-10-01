@@ -19,6 +19,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.18",
     "framer-motion": "^10.18.0",
     "lucide-react": "^0.477.0",
     "mssql": "^10.0.1",
