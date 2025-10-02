@@ -16,10 +16,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        // source: "/api/proxy/:path*",
-        // destination: "http://ems.am5pearl.com:8000/:path*",
-        source: '/query', // The endpoint in your frontend you want to rewrite
-        destination: 'http://ems.am5pearl.com:5000/query', // The target API URL
+        source: "/api/proxy/:path*",
+        destination: "http://ems.am5pearl.com:8000/:path*",
       },
     ];
   },

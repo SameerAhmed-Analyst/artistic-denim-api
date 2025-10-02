@@ -219,7 +219,7 @@ export default function SolarPage({ id }: { id: string }) {
         setLoading(true);
         setError(null);
 
-        const res = await fetch('http://ems.am5pearl.com:5000/query', {
+        const res = await fetch('/api/v1/proxy-query', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           signal: abort.signal,
@@ -296,7 +296,7 @@ export default function SolarPage({ id }: { id: string }) {
           <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Solar Data</h1>
           <p className="text-xs sm:text-sm text-gray-500">
             {/* {timeStepMode === 'auto' ? `Auto resolution → ${chosenTimeStep}` : `Resolution → ${timeStepMode}`} */}
-            {' • '}
+            {/* {' • '} */}
             {/* {loading ? 'Loading…' : error ? `Error: ${error}` : `Points: ${data.length}`} */}
           </p>
         </header>
@@ -333,7 +333,7 @@ export default function SolarPage({ id }: { id: string }) {
               <label className="inline-flex items-center gap-2 text-sm text-gray-700">
                 <span>Resolution</span>
                 <select
-                  className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
+                  className="border border-gray-300 bg-white rounded-lg px-3 py-2 text-sm"
                   value={timeStepMode}
                   onChange={(e) => setTimeStepMode(e.target.value as StepOpt)}
                   title="Aggregation interval"
@@ -359,7 +359,7 @@ export default function SolarPage({ id }: { id: string }) {
                   id="startTime"
                   value={startLocal}
                   onChange={(e) => setStartLocal(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
               </label>
               <label htmlFor="endTime" className="text-sm text-gray-700">
@@ -370,7 +370,7 @@ export default function SolarPage({ id }: { id: string }) {
                   id="endTime"
                   value={endLocal}
                   onChange={(e) => setEndLocal(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full border bg-white border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
               </label>
             </div>
@@ -394,7 +394,7 @@ export default function SolarPage({ id }: { id: string }) {
               <strong>Last Value:</strong> {fmtNice(data[data.length - 1].value, 3)}
             </p>
             <p className="text-blue-700 text-base sm:text-lg font-semibold">
-              Total Used (last − first): {fmtNice(totalUsedSimple, 3)}
+              {/* Total Used (last − first):  */}{fmtNice(totalUsedSimple, 2)} kWh
             </p>
           </div>
         ) : (
