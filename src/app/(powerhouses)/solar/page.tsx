@@ -25,6 +25,7 @@ interface SolarData {
   AM8_solar_kW: number;
   AM8_solar_kWh: number;
   AM18_solar_kW: number;
+  AM19_solar_kW: number;
 }
 
 interface EnergyData {
@@ -80,6 +81,7 @@ const Page = () => {
   const [percentageUsedDataS2AM17, setPercentageUsedDataS2AM17] = useState("");
   const [percentageUsedDataSAM8, setPercentageUsedDataSAM8] = useState("");
   const [percentageUsedDataSAM18, setPercentageUsedDataSAM18] = useState("");
+  const [percentageUsedDataSAM19, setPercentageUsedDataSAM19] = useState("");
 
   const refreshList = async () => {
     const result = await getData();
@@ -197,6 +199,14 @@ const Page = () => {
       const values = data.map((item) => item.AM18_solar_kW);
       const percentageUsed = initializeChart("am18-solar", values, 675.0);
       setPercentageUsedDataSAM18(percentageUsed);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const values = data.map((item) => item.AM19_solar_kW);
+      const percentageUsed = initializeChart("am19-solar", values, 6000.0);
+      setPercentageUsedDataSAM19(percentageUsed);
     }
   }, [data]);
 
@@ -642,6 +652,72 @@ const Page = () => {
                 })}
                 <p className="text-xs text-muted-foreground">
                   675 total capacity in KW
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+      <p className="text-center pt-2">
+        <span className="bg-blue-100 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+          AM19 SOLAR
+        </span>
+      </p>
+      <div className="p-5">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="p-0">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
+              <CardTitle className="text-xl font-bold">AM-19 Solar</CardTitle>
+              <a href="/solar/192">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </a>
+            </CardHeader>
+            <CardContent className="flex justify-evenly">
+              <div
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  float: "left",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    position: "absolute",
+                    top: "55%",
+                    left: "0",
+                    marginTop: "-20px",
+                    lineHeight: "19px",
+                    textAlign: "center",
+                  }}
+                >
+                  {percentageUsedDataSAM19}%
+                </div>
+                <canvas id="am19-solar" width="100" height="100" />
+              </div>
+              <div className="">
+                {data.map((item) => {
+                  return (
+                    <div key={item.id} className="pt-3 text-base font-bold">
+                      <p>Load {item.AM19_solar_kW} kW</p>
+                    </div>
+                  );
+                })}
+                <p className="text-xs text-muted-foreground">
+                  6000 total capacity in KW
                 </p>
               </div>
             </CardContent>
