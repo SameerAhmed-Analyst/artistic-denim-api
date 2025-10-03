@@ -214,7 +214,7 @@ const Page = () => {
     <div className="">
       <h1 className="pt-5 text-center text-xl font-bold">SOLAR Generation</h1>
       <p className="text-center pt-2">
-        <span className="bg-blue-700 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+        <span className="bg-blue-800 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
           AM5 SOLAR
         </span>
       </p>
@@ -404,7 +404,7 @@ const Page = () => {
         </div>
       </div>
       <p className="text-center pt-2">
-        <span className="bg-blue-500 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+        <span className="bg-blue-600 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
           AM17 SOLAR
         </span>
       </p>
@@ -527,7 +527,7 @@ const Page = () => {
         </div>
       </div>
       <p className="text-center pt-2">
-        <span className="bg-blue-300 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+        <span className="bg-blue-500 text-white px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
           AM8 SOLAR
         </span>
       </p>
@@ -593,7 +593,7 @@ const Page = () => {
         </div>
       </div>
       <p className="text-center pt-2">
-        <span className="bg-blue-100 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
+        <span className="bg-blue-300 px-5 py-[6px] rounded-full rounded-tr-none rounded-bl-none font-semibold">
           AM18 SOLAR
         </span>
       </p>
