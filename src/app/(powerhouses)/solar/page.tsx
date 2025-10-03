@@ -728,6 +728,7 @@ const Page = () => {
                 })}
                 <p className="text-xs text-muted-foreground">
                   6000 total capacity in KW
+                  AM5
                 </p>
               </div>
             </CardContent>
@@ -785,6 +786,7 @@ const Page = () => {
                 })}
                 <p className="text-xs text-muted-foreground">
                   6000 total capacity in KW
+                  AM17
                 </p>
               </div>
             </CardContent>
