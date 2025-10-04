@@ -81,24 +81,24 @@ const steams = [
     href: "/steamph2",
     icon: CursorArrowRaysIcon,
   },
-  // {
-  //   name: "Steam 3",
-  //   description: "",
-  //   href: "/steamph3",
-  //   icon: CursorArrowRaysIcon,
-  // },
-  // {
-  //   name: "Steam 4",
-  //   description: "",
-  //   href: "/steamph4",
-  //   icon: CursorArrowRaysIcon,
-  // },
-  // {
-  //   name: "OS Boiler",
-  //   description: "",
-  //   href: "/coalboiler",
-  //   icon: CursorArrowRaysIcon,
-  // },
+  {
+    name: "Steam 3",
+    description: "",
+    href: "/steamph3",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Steam 4",
+    description: "",
+    href: "/steamph4",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "OS Boiler",
+    description: "",
+    href: "/coalboiler",
+    icon: CursorArrowRaysIcon,
+  },
   {
     name: "Steam Distribution",
     description: "",
