@@ -61,9 +61,7 @@ function Row({
         {label}
       </span>
       <span
-        className={`font-mono tabular-nums ${
-          emphasize ? "font-semibold" : ""
-        }`}
+        className={`font-mono tabular-nums ${emphasize ? "font-semibold" : ""}`}
       >
         {fmt(value)}
       </span>
@@ -102,7 +100,9 @@ export default function SteamGenerationReport() {
 
   /** ---------- Power House 1 totals ---------- */
   const whrbDiffs1 = FREE_STEAM_1.map((id) => diffFor(id));
-  const freeSteamTotal1 = whrbDiffs1.reduce((sum, v) => sum + (v ?? 0), 0);
+  const freeSteamTotal1 = whrbDiffs1
+    .filter((v): v is number => v != null)
+    .reduce((a, b) => a + b, 0);
   const gasDiff1 = diffFor(GAS_ID_1);
   const grandTotal1 = freeSteamTotal1 + (gasDiff1 ?? 0);
 
