@@ -155,22 +155,28 @@ const Page = () => {
   return (
     <div className="p-5">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <h1 className="text-center text-xl font-bold">Power House 1 Generation</h1>
+        <h1 className="text-center text-xl font-bold">
+          Power House 1 Generation
+        </h1>
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-            <CardTitle className="text-xl font-bold">Gas Fired Boiler</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
+            <CardTitle className="text-xl font-bold">
+              Gas Fired Boiler
+            </CardTitle>
+            <a href="/steamph1/171">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </a>
           </CardHeader>
           <CardContent className="flex justify-evenly">
             <div
@@ -217,18 +223,20 @@ const Page = () => {
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
             <CardTitle className="text-xl font-bold">WHRB 1</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
+            <a href="/steamph1/133">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </a>
           </CardHeader>
           <CardContent className="flex justify-evenly">
             <div
@@ -260,7 +268,7 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb1steam} T/H</p>
-                    <p>Steam Pressure {item.whrb1pressure} PSI</p>                    
+                    <p>Steam Pressure {item.whrb1pressure} PSI</p>
                     <p>Water Flow {item.whrb1water} M3/H</p>
                   </div>
                 );
@@ -274,18 +282,20 @@ const Page = () => {
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
             <CardTitle className="text-xl font-bold">WHRB 2</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
+            <a href="/steamph1/138">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </a>
           </CardHeader>
           <CardContent className="flex justify-evenly">
             <div
@@ -317,8 +327,8 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb2steam} T/H</p>
-                    <p>Steam Pressure {item.whrb2pressure} PSI</p>                    
-                    <p>Water Flow {item.whrb2water} M3/H</p> 
+                    <p>Steam Pressure {item.whrb2pressure} PSI</p>
+                    <p>Water Flow {item.whrb2water} M3/H</p>
                   </div>
                 );
               })}
@@ -331,18 +341,20 @@ const Page = () => {
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
             <CardTitle className="text-xl font-bold">WHRB 3</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
+            <a href="/steamph1/141">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </a>
           </CardHeader>
           <CardContent className="flex justify-evenly">
             <div
@@ -374,7 +386,7 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb3steam} T/H</p>
-                    <p>Steam Pressure {item.whrb3pressure} PSI</p>                    
+                    <p>Steam Pressure {item.whrb3pressure} PSI</p>
                     {/* <p>Water Flow {item.whrb2water} M3/H</p>  */}
                   </div>
                 );
@@ -388,18 +400,20 @@ const Page = () => {
         <Card className="p-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
             <CardTitle className="text-xl font-bold">WHRB 4</CardTitle>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-4 w-4 text-muted-foreground"
-            >
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
+            <a href="/steamph1/147">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </a>
           </CardHeader>
           <CardContent className="flex justify-evenly">
             <div
@@ -431,7 +445,7 @@ const Page = () => {
                 return (
                   <div key={item.id} className="text-sm">
                     <p>Steam Flow {item.whrb4steam} T/H</p>
-                    <p>Steam Pressure {item.whrb4pressure} PSI</p>                    
+                    <p>Steam Pressure {item.whrb4pressure} PSI</p>
                     {/* <p>Water Flow {item.whrb4water} M3/H</p>  */}
                   </div>
                 );
