@@ -100,15 +100,19 @@ export default function SteamGenerationReport() {
 
   /** ---------- Power House 1 totals ---------- */
   const whrbDiffs1 = FREE_STEAM_1.map((id) => diffFor(id));
-  const freeSteamTotal1 = whrbDiffs1
-    .filter((v): v is number => v != null)
-    .reduce((a, b) => a + b, 0);
+  const freeSteamTotal1 = whrbDiffs1.reduce<number>(
+    (sum, v) => sum + (v ?? 0),
+    0
+  );
   const gasDiff1 = diffFor(GAS_ID_1);
   const grandTotal1 = freeSteamTotal1 + (gasDiff1 ?? 0);
 
   /** ---------- Power House 2 totals ---------- */
   const whrbDiffs2 = FREE_STEAM_2_ORDERED.map((id) => diffFor(id));
-  const freeSteamTotal2 = whrbDiffs2.reduce((sum, v) => sum + (v ?? 0), 0);
+  const freeSteamTotal2 = whrbDiffs2.reduce<number>(
+    (sum, v) => sum + (v ?? 0),
+    0
+  );
   const hrsgDiff2 = diffFor(HRSG_ID_2);
   const grandTotal2 = freeSteamTotal2 + (hrsgDiff2 ?? 0);
 
