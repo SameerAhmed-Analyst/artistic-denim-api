@@ -1014,8 +1014,8 @@ const Page = () => {
       setPercentageUsedDataS2AM17(initializeChart("am17-solar2", data.map(i => i.AM17_solar2_kW), 750));
       setPercentageUsedDataSAM8(initializeChart("am8-solar", data.map(i => i.AM8_solar_kW), 925));
       setPercentageUsedDataSAM18(initializeChart("am18-solar", data.map(i => i.AM18_solar_kW), 675));
-      setPercentageUsedDataSAM19(initializeChart("am19-solar", data.map(i => i.AM19_solar_kW), 6000));
-      setPercentageUsedDataSAM19_2(initializeChart("am19-2-solar", data.map(i => i.AM19_2_solar_kW), 6000));
+      setPercentageUsedDataSAM19(initializeChart("am19-solar", data.map(i => i.AM19_solar_kW), 4000));
+      setPercentageUsedDataSAM19_2(initializeChart("am19-2-solar", data.map(i => i.AM19_2_solar_kW), 4000));
     }
   }, [data]);
 
