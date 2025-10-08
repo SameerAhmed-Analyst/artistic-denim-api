@@ -1378,7 +1378,7 @@ const Page = () => {
                     <p>Load {item.AM19_2_solar_kW} kW</p>
                   </div>
                 ))}
-                <p className="text-xs text-muted-foreground">4000 total capacity in KW AM17</p>
+                <p className="text-xs text-muted-foreground">5000 total capacity in KW AM17</p>
               </div>
             </CardContent>
             <div className="border-t px-4 py-3 flex flex-wrap items-center justify-between text-sm sm:flex-nowrap gap-1">
