@@ -204,7 +204,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.takeoff2kw);
-      const percentageUsed = initializeChart("takeoff2", values, 1200);
+      const percentageUsed = initializeChart("takeoff2", values, 1500);
       setPercentageUsedDataT2(percentageUsed);
     }
   }, [data]);
@@ -752,7 +752,7 @@ const Page = () => {
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  1200 total capacity in KW
+                  1500 total capacity in KW
                 </p>
               </div>
             </CardContent>
