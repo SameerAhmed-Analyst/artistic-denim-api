@@ -34,6 +34,7 @@ interface PowerDataTypes {
   steam_pressure_mainheader_2_and_3: number;
   steam_pressure_mainheader_4: number;
   totalsolargen: number;
+  ke_kw: number;
 }
 
 export interface Powerhouse1Takeoffs {
@@ -140,12 +141,14 @@ export default function Home() {
       const valuesph3 = data.map((item) => item.powerhouse3gen);
       const valuesph4 = data.map((item) => item.AM17_PH2);
       const valuesSolar = data.map((item) => item.totalsolargen);
+      const valuesKe = data.map((item) => item.ke_kw);
 
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
       const totalValueph3 = valuesph3.reduce((acc, curr) => acc + curr, 0);
       const totalValueph4 = valuesph4.reduce((acc, curr) => acc + curr, 0);
       const totalValueSolar = valuesSolar.reduce((acc, curr) => acc + curr, 0);
+      const totalValueKe = valuesKe.reduce((acc, curr) => acc + curr, 0);
 
       const remainingCapacity = 9650 + 14400 - 25675;
 
@@ -154,6 +157,7 @@ export default function Home() {
       const percentageUsedph3 = ((totalValueph3 / 14400) * 100).toFixed(1);
       const percentageUsedph4 = ((totalValueph4 / 4500) * 100).toFixed(1);
       const percentageUsedSolar = ((totalValueSolar / 1625) * 100).toFixed(1);
+      const percentageUsedKe = ((totalValueKe / 5000) * 100).toFixed(1);
 
       setPercentageUsedDataEPH1(percentageUsedph1);
       setPercentageUsedDataEPH2(percentageUsedph2);
@@ -172,6 +176,7 @@ export default function Home() {
                 totalValueph3,
                 totalValueph4,
                 totalValueSolar,
+                totalValueKe,
               ],
               backgroundColor: [
                 "#384C6B",
@@ -179,6 +184,7 @@ export default function Home() {
                 "#C09741",
                 "#4F9D9A",
                 "#9595B7",
+                "#E28A2B",
               ],
             },
           ],
@@ -462,7 +468,8 @@ export default function Home() {
                           item.powerhouse2gen +
                           item.powerhouse3gen +
                           item.AM17_PH2 +
-                          item.totalsolargen) /
+                          item.totalsolargen +
+                          item.ke_kw) /
                         1000
                       ).toFixed(1)
                     )}{" "}
@@ -551,6 +558,19 @@ export default function Home() {
                     })}
                   </div>
                 </a>
+                <a href="/powerhouse3">
+                  <div className="flex">
+                    <div className="bg-[#E28A2B] w-10 h-5 m-1"></div>
+                    <p>KE</p>
+                    {data.map((item) => {
+                      return (
+                        <p className="ml-auto mr-5" key={5}>
+                          {(item.ke_kw / 1000).toFixed(2)} MW
+                        </p>
+                      );
+                    })}
+                  </div>
+                </a>
                 <div className="flex bg-[#1b2d92] m-[2px] p-1 text-white font-semibold rounded">
                   <p className="ml-1">Total Power Generation</p>
                   {data.map((item) => {
@@ -561,7 +581,8 @@ export default function Home() {
                             item.powerhouse2gen +
                             item.powerhouse3gen +
                             item.AM17_PH2 +
-                            item.totalsolargen) /
+                            item.totalsolargen +
+                            item.ke_kw) /
                           1000
                         ).toFixed(1)}{" "}
                         MW
