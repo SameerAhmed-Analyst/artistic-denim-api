@@ -264,7 +264,7 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.KE_KW} kW</p>
-                      <p>Voltage {item.KE_VOLT} kW</p>
+                      <p>Voltage {item.KE_VOLT} V</p>
                     </div>
                   );
                 })}
