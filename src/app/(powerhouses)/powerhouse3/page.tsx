@@ -128,7 +128,7 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.KE_KW);
-      const percentageUsed = initializeChart("ke", values, 5000);
+      const percentageUsed = initializeChart("ke", values, 3700);
       setPercentageUsedDataKE(percentageUsed);
     }
   }, [data]);
@@ -264,12 +264,12 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.KE_KW} kW</p>
-                      <p>Voltage {item.KE_VOLT} V</p>
+                      <p>Voltage {(item.KE_VOLT).toFixed(0)} V</p>
                     </div>
                   );
                 })}
                 <p className="text-xs text-muted-foreground">
-                  5000 total capacity in KW
+                  3700 total capacity in KW
                 </p>
               </div>
             </CardContent>
