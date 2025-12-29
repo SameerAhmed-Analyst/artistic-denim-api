@@ -10,6 +10,7 @@ interface DataItem {
   id: number;
   KE_KW: number;
   KE_KWH: number;
+  KE_VOLT: number;
   AM5_KW: number;
   AM5_KWH: number;
   CAT_KW: number;
@@ -263,6 +264,7 @@ const Page = () => {
                   return (
                     <div key={item.id} className="pt-3 text-base font-bold">
                       <p>Load {item.KE_KW} kW</p>
+                      <p>Voltage {item.KE_VOLT} kW</p>
                     </div>
                   );
                 })}
