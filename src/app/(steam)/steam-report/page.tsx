@@ -1880,7 +1880,7 @@ export default function SteamGenerationReport() {
       valueIds,
       timeBegin: toApiTime(start),
       timeEnd: toApiTime(end),
-      timeStep: "86400,1",
+      timeStep: "3600,1",
     };
 
     try {
