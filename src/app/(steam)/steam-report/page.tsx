@@ -1741,29 +1741,62 @@ export default function SteamGenerationReport() {
   }, [data]);
 
   // Instead of last - first, we add all positive increases and ignore drops (resets).
+  // function diffFor(tagId: number) {
+  //   const rows = data.filter((r) => r.tagId === tagId);
+
+  //   if (!rows || rows.length < 2) return 0;
+
+  //   let total = 0;
+  //   let prev = rows[0].value ?? 0;
+
+  //   for (let i = 1; i < rows.length; i++) {
+  //     const curr = rows[i].value ?? 0;
+
+  //     if (curr >= prev) {
+  //       total += curr - prev;
+  //     } else {
+  //       // counter reset
+  //       total += curr;
+  //     }
+
+  //     prev = curr;
+  //   }
+
+  //   return total;
+  // }
+
   function diffFor(tagId: number) {
-    const rows = data.filter((r) => r.tagId === tagId);
+  const rows = data
+    .filter((r) => r.tagId === tagId)
+    .sort((a, b) => a.timestamp.localeCompare(b.timestamp));
 
-    if (!rows || rows.length < 2) return 0;
+  if (rows.length < 2) return 0;
 
-    let total = 0;
-    let prev = rows[0].value ?? 0;
+  let total = 0;
+  let prev = Number(rows[0].value) || 0;
 
-    for (let i = 1; i < rows.length; i++) {
-      const curr = rows[i].value ?? 0;
+  for (let i = 1; i < rows.length; i++) {
+    const curr = Number(rows[i].value) || 0;
 
-      if (curr >= prev) {
-        total += curr - prev;
-      } else {
-        // counter reset
-        total += curr;
-      }
-
-      prev = curr;
+    // Communication loss → ignore
+    if (curr <= 0) {
+      continue;
     }
 
-    return total;
+    // Normal increase
+    if (curr >= prev) {
+      total += curr - prev;
+    }
+    // Meter reset inside hour
+    else if (curr < prev) {
+      total += curr;
+    }
+
+    prev = curr;
   }
+
+  return total;
+}
 
   /** ---------- Power House 1 totals ---------- */
   const whrbDiffs1 = FREE_STEAM_1.map((id) => diffFor(id));
