@@ -19,6 +19,7 @@ interface PowerDataTypes {
   steamph3: number;
   steamph4: number;
   cb: number;
+  new_cb: number;
   steamgen: number;
   ps: null;
   ngas_psi: number;
@@ -71,6 +72,28 @@ export interface ApiResponse {
   ph2_takeoffs: Powerhouse2Takeoffs[];
   ph3_takeoffs: Powerhouse3Takeoffs[];
   am17_takeoffs: AM17Takeoffs[];
+}
+
+async function getSolarData(): Promise<ApiResponse | null> {
+  try {
+    const res = await fetch("/api/v1/solar", {
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const result = await res.json();
+    return result.data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 }
 
 async function getData(): Promise<ApiResponse | null> {
@@ -227,11 +250,13 @@ export default function Home() {
       const valuesph3 = data.map((item) => item.steamph3);
       const valuesph4 = data.map((item) => item.steamph4);
       const valuesCoal = data.map((item) => item.cb);
+      const valuesNewCoal = data.map((item) => item.new_cb);
       const totalValueph1 = valuesph1.reduce((acc, curr) => acc + curr, 0);
       const totalValueph2 = valuesph2.reduce((acc, curr) => acc + curr, 0);
       const totalValueph3 = valuesph3.reduce((acc, curr) => acc + curr, 0);
       const totalValueph4 = valuesph4.reduce((acc, curr) => acc + curr, 0);
       const totalValueCoal = valuesCoal.reduce((acc, curr) => acc + curr, 0);
+      const totalValueNewCoal = valuesNewCoal.reduce((acc, curr) => acc + curr, 0);
 
       const chart = new Chart(ctx, {
         type: "doughnut",
@@ -245,6 +270,7 @@ export default function Home() {
                 totalValueph3,
                 totalValueph4,
                 totalValueCoal,
+                totalValueNewCoal,
               ],
               backgroundColor: [
                 "#384C6B",
@@ -252,6 +278,7 @@ export default function Home() {
                 "#E28A2B",
                 "#95b798",
                 "#9595B7",
+                "#D96C6C",
               ],
             },
           ],
@@ -623,7 +650,8 @@ export default function Home() {
                           data[0].steamph2 +
                           data[0].steamph3 +
                           data[0].steamph4 +
-                          data[0].cb
+                          data[0].cb +
+                          data[0].new_cb
                         ).toFixed(1)
                       : "N/A"}{" "}
                     T/H
@@ -678,6 +706,12 @@ export default function Home() {
                         label: "Out Source Boiler",
                         color: "#9595B7",
                         value: data[0].cb,
+                      },
+                      {
+                        href: "/new_coalboiler",
+                        label: "New OS Boiler",
+                        color: "#D96C6C",
+                        value: data[0].new_cb,
                       },
                     ].map((item, index) => (
                       <a href={item.href} key={index}>
@@ -743,7 +777,8 @@ export default function Home() {
                           data[0].steamph2 +
                           data[0].steamph3 +
                           data[0].steamph4 +
-                          data[0].cb
+                          data[0].cb +
+                          data[0].new_cb
                         ).toFixed(1)}{" "}
                         T/H
                       </p>
