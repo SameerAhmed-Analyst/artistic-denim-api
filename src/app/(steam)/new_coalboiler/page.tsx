@@ -107,13 +107,13 @@ const Page = () => {
 
   return (
     <div>
-      <h1 className="pt-5 text-center text-xl font-bold">OS Boiler</h1>
+      <h1 className="pt-5 text-center text-xl font-bold">New OS Boiler</h1>
       <div className="p-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                OS Boiler
+                New OS Boiler
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
