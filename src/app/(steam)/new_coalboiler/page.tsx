@@ -100,20 +100,20 @@ const Page = () => {
   useEffect(() => {
     if (data.length > 0) {
       const values = data.map((item) => item.new_cb_steamflow);
-      const percentageUsed = initializeChart("coal", values, 20.0);
+      const percentageUsed = initializeChart("coal_2", values, 20.0);
       setPercentageUsedData(percentageUsed);
     }
   }, [data]);
 
   return (
     <div>
-      <h1 className="pt-5 text-center text-xl font-bold">New OS Boiler</h1>
+      <h1 className="pt-5 text-center text-xl font-bold">OS Boiler 2</h1>
       <div className="p-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="p-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
               <CardTitle className="text-xl font-bold">
-                New OS Boiler
+                OS Boiler 2
               </CardTitle>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@ const Page = () => {
                 >
                   {percentageUsedData}%
                 </div>
-                <canvas id="coal" width="100" height="100" />
+                <canvas id="coal_2" width="100" height="100" />
               </div>
               <div className="flex flex-col justify-center h-[86px]">
                 {data.map((item) => {

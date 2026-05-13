@@ -703,13 +703,13 @@ export default function Home() {
                       },
                       {
                         href: "/coalboiler",
-                        label: "Out Source Boiler",
+                        label: "Out Source Boiler 1",
                         color: "#9595B7",
                         value: data[0].cb,
                       },
                       {
                         href: "/new_coalboiler",
-                        label: "New OS Boiler",
+                        label: "Out Source Boiler 2",
                         color: "#D96C6C",
                         value: data[0].new_cb,
                       },
