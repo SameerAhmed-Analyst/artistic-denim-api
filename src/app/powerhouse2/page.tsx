@@ -319,18 +319,20 @@ const Page = () => {
                   </style>
                 </span>
               ))}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="h-4 w-4 text-muted-foreground"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
+              <a href="/powerhouse2/1627">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg> 
+              </a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
@@ -411,6 +413,7 @@ const Page = () => {
                   </style>
                 </span>
               ))}
+              <a href="/powerhouse2/286">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -422,7 +425,7 @@ const Page = () => {
                 className="h-4 w-4 text-muted-foreground"
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
+              </svg></a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
@@ -503,6 +506,7 @@ const Page = () => {
                   </style>
                 </span>
               ))}
+              <a href="/powerhouse2/287">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -515,6 +519,7 @@ const Page = () => {
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
               </svg>
+              </a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
@@ -595,6 +600,7 @@ const Page = () => {
                   </style>
                 </span>
               ))}
+              <a href="/powerhouse2/288">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -607,6 +613,7 @@ const Page = () => {
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
               </svg>
+              </a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
@@ -687,6 +694,7 @@ const Page = () => {
                   </style>
                 </span>
               ))}
+              <a href="/powerhouse2/289">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -698,7 +706,7 @@ const Page = () => {
                 className="h-4 w-4 text-muted-foreground"
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
+              </svg></a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
@@ -779,6 +787,7 @@ const Page = () => {
                   </style>
                 </span>
               ))}
+              <a href="/powerhouse2/290">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -790,7 +799,7 @@ const Page = () => {
                 className="h-4 w-4 text-muted-foreground"
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
+              </svg></a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
@@ -870,6 +879,7 @@ const Page = () => {
                   </style>
                 </span>
               ))}
+              <a href="/powerhouse2/291">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -881,7 +891,7 @@ const Page = () => {
                 className="h-4 w-4 text-muted-foreground"
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
+              </svg></a>
             </CardHeader>
             <CardContent className="flex justify-evenly">
               <div
